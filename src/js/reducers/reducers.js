@@ -1,11 +1,5 @@
 const initialState = {
-    workers: [
-        {
-        id: 1,
-        fullname: 'mike',
-        position: 'cat'
-    }
-    ],
+    workers: [],
     pages: [
         {
             title: 'Table',
@@ -29,7 +23,7 @@ const initialState = {
 let reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'EMPLOY_WORKER':
-            console.log(action.worker);
+            console.log(action.worker, state.workers);
             return {
                 ...state,
                 workers: [

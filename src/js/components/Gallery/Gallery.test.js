@@ -1,5 +1,5 @@
 import React from 'react';
-import Gallery  from './Gallery';
+import {Gallery}  from './Gallery';
 import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
 import renderer from 'react-test-renderer';
@@ -20,5 +20,8 @@ it('renders correctly gallery component with mock store', () => {
 
 it('renders correctly gallery component with default parameters', () => {
     const GalleryComponent = mount(<Provider store={emptyStore}><Gallery/></Provider>);
-    expect(Array.isArray([(GalleryComponent).prop('workers')])).toBe(true);
+    console.log(GalleryComponent.props().children.props.workers);
+    expect(Array.isArray(GalleryComponent.props().children.props.workers)).toBe(true);
 });
+
+

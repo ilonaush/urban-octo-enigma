@@ -4,6 +4,8 @@ import actions from "../../reducers/actions";
 import {connect} from "react-redux";
 import LazyLoadImage from "../../tools/LazyLoad"
 import "./Gallery.styl"
+import PropTypes from 'prop-types';
+
 
 export class Gallery extends Component {
     render() {
@@ -25,7 +27,7 @@ export class Gallery extends Component {
 }
 
 Gallery.propTypes = {
-        workers: []
+        workers: PropTypes.array
 };
 
 Gallery.defaultProps = {

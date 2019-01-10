@@ -3,6 +3,7 @@ import "./DashboardContent.styl";
 import List from "../List/List";
 import {Route} from "react-router-dom";
 import Loader from "../Loader/Loader";
+import AddWorkerWrapper from "../AddWorkerWrapper/AddWorkerWrapper";
 
 
 const AddWorkerForm = React.lazy(() => import(/* webpackChunkName: "addForm" */"components/AddWorkerForm/AddWorkerForm"));
@@ -18,7 +19,7 @@ export class DashboardContent extends Component {
             <div className='d-content'>
                 <Route exact path='/' component={List}/>
                 <Route  exact path='/add-worker' render={(routeProps) =>  <Suspense fallback={<Loader/>}>
-                    <AddWorkerForm handleLoading = {this.props.handleLoading} {...routeProps}/></Suspense>}/>
+                    <AddWorkerWrapper handleLoading = {this.props.handleLoading} {...routeProps}/></Suspense>}/>
                 <Route  exact path='/fire-worker' render={(routeProps) => <Suspense fallback={<Loader/>}>
                     <FireWorkerForm handleLoading = {this.props.handleLoading} {...routeProps}/></Suspense>}/>
                 <Route  exact path='/gallery' render={(routeProps) => <Suspense fallback={<Loader/>}>

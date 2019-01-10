@@ -1,15 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly gallery component 1`] = `
+exports[`renders correctly gallery component with mock store 1`] = `
 <div
   className="workers-gallery"
->
-  <div
-    className="worker-photo"
-  >
-    <div>
-      mike
-    </div>
-  </div>
-</div>
+/>
 `;

@@ -69,6 +69,12 @@ class ListItem extends Component {
     }
 }
 
-ListItem.propTypes = {};
+ListItem.propTypes = {
+    worker: PropTypes.object
+};
+
+ListItem.defaultProps = {
+    worker: {}
+};
 
 export default ListItem;

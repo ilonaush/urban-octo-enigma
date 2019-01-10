@@ -51,6 +51,7 @@
     "postcss-loader": "3.0.0",
     "postcss-preset-env": "6.3.1",
     "postcss-safe-parser": "4.0.1",
+    "prop-types": "latest",
     "react": "^16.7.0",
     "react-app-polyfill": "^0.2.0",
     "react-dev-utils": "^7.0.1",
@@ -59,6 +60,7 @@
     "react-redux": "^5.1.1",
     "react-router": "latest",
     "react-router-dom": "^4.3.1",
+    "react-test-renderer": "latest",
     "react-testing-library": "^5.3.2",
     "react-text-mask": "^5.4.3",
     "redux": "^4.0.1",
@@ -66,6 +68,7 @@
     "resolve": "1.8.1",
     "resolve-url-loader": "^3.0.0",
     "sass-loader": "7.1.0",
+    "sinon": "^7.2.2",
     "style-loader": "0.23.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
@@ -79,7 +82,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
+    "test": "jest",
     "server": "node server/server.js"
   },
   "eslintConfig": {
@@ -113,7 +116,9 @@
       "json",
       "web.jsx",
       "jsx",
-      "node"
+      "node",
+      "png",
+      "jpg"
     ],
     "modulePaths": [
       "images"
@@ -137,7 +142,7 @@
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
-      "images(.*)$": "<rootDir>/src/images$1"
+      "^images(.*)$": "<rootDir>/src/images$1"
     },
     "modulePathIgnorePatterns": [
       "<rootDir>/node_modules/"
