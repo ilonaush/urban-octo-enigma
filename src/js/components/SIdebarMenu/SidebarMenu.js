@@ -23,8 +23,7 @@ class SidebarMenu extends PureComponent {
                     {MENU_ITEMS.map((link) => {
                         return (
                             <li key={link.name}>
-                                <NavLink to={link.to}><span className='icon' style={{backgroundImage: `url(${icons[link.icon] })`}} alt="ssss"/>{link.name}</NavLink>
-
+                                <NavLink to={link.to}><span className='icon' style={{backgroundImage: `url(${icons[link.icon] })`}} alt=""/>{link.name}</NavLink>
                             </li>
                         )
                         }

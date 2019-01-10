@@ -23,7 +23,7 @@ const initialState = {
 let reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'EMPLOY_WORKER':
-            console.log(action.worker, state.workers);
+            debugger;
             return {
                 ...state,
                 workers: [

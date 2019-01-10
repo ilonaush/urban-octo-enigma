@@ -18,6 +18,7 @@ export const loadStore = () => {
  * @param state {object}
  */
 export const saveStore = (state) => {
+    debugger;
     const serializedState = JSON.stringify(state);
     localStorage.setItem('state', serializedState);
 };

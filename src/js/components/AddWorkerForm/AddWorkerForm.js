@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import "./AddWorkerForm.styl";
+import Input from "../Input/Input";
 
-export class AddWorkerForm extends Component {
+export default class AddWorkerForm extends Component {
 
     constructor(props) {
         super(props);
@@ -27,23 +28,24 @@ export class AddWorkerForm extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <div>
-                <form className='addWorkerForm'>
-                    <input name='name'
+                <form className='addWorkerForm' onSubmit={(e) => this.props.onSubmit(e, this.state.worker)}>
+                    <Input id='name-input'
+                           name='name'
                            placeholder='Name'
                            onChange={(event) => this.handleChange(event.target.value, event.target.name)}
-                           value={this.state.name}/>
-                    <input name='surname'
+                           value={this.state.name}
+                            />
+                    <Input name='surname'
                            placeholder='Surname'
                            onChange={(event) => this.handleChange(event.target.value, event.target.name)}
                            value={this.state.surname} />
-                    <input name='position'
+                    <Input name='position'
                            placeholder='Position'
                            onChange={(event) => this.handleChange(event.target.value, event.target.name)}
                            value={this.state.position}/>
-                    <button id='submit-btn' type='submit' onClick={(e) => this.props.onSubmit(e, this.state.worker)}>Employ a worker</button>
+                    <button id='submit-btn' type='submit'>Employ a worker</button>
                 </form>
             </div>
         );

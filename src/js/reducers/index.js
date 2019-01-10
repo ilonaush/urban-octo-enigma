@@ -3,7 +3,7 @@ import { createStore } from 'redux';
 import reducer   from './reducers';
 import  { saveStore, loadStore } from '../services/LocalStorageService';
 
-const predefinedStore = loadStore() || {};
+const predefinedStore = loadStore();
 
 const store = createStore(
     reducer,
@@ -12,7 +12,7 @@ const store = createStore(
 );
 
 store.subscribe(() => {
-    saveStore(store)
+    saveStore(store.getState())
 });
 
 export {

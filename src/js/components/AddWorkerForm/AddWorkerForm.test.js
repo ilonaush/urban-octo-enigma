@@ -3,30 +3,41 @@ import React from 'react';
 import AddWorkerForm  from './AddWorkerForm';
 
 import ReactDOM from 'react-dom';
-import {MemoryRouter} from "react-router";
 import {Provider} from "react-redux";
 import {store} from "../../reducers/index";
-import {mount} from "enzyme/build";
-import {Gallery} from "../Gallery/Gallery";
-import sinon from 'sinon';
+import {mount, shallow} from "enzyme/build";
+import renderer from "react-test-renderer";
+import Input from "../Input/Input";
+
 
 
 describe('AddWorkerForm', () => {
-    it('renders', () => {
-
-        const div = document.createElement('div');
-        ReactDOM.render(<Provider store={store}><AddWorkerForm/></Provider>, div)
+    it('renders correctly', () => {
+        const AddWorkerFormComponent = renderer.create(<AddWorkerForm/>);
+        expect((AddWorkerFormComponent).toJSON()).toMatchSnapshot();
     })
 });
 
 it('calls submit function  when  the form is submitted', () => {
-        const AddWorkerForm = mount(<Provider store={store}><AddWorkerForm/></Provider>);
-        const onSubmit = sinon.spy();
-        const wrapper = mount(
-            <form onSubmit={onSubmit} />
-        );
-        const button = AddWorkerForm.find('#submit-btn');
-        button.simulate('submit');
+    const onSubmit = jest.fn(),
+          AddWorkerFormComponent = mount(<Provider store={store}><AddWorkerForm onSubmit={onSubmit}/></Provider>);
+    const button = AddWorkerFormComponent.find('#submit-btn');
+    button.simulate('submit');
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+    expect(onSubmit).toHaveBeenCalled();
 });
+
+it('change worker state when  the form is submitted', () => {
+    const onChange = jest.fn(),
+          AddWorkerFormComponent = mount(shallow(<Provider store={store}><AddWorkerForm/></Provider>).get(0));
+    const firstInput = AddWorkerFormComponent.find(Input).at(0);
+    console.log(AddWorkerFormComponent.state(), firstInput);
+    expect(AddWorkerFormComponent.state().worker.name).toEqual('');
+    firstInput.simulate('change', {target: { value: 'mike', name: 'name'}});
+    expect(AddWorkerFormComponent.state().worker.name).toEqual('mike');
+
+});
+
+
 
 

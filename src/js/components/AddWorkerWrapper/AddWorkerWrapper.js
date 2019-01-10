@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from "redux";
 import actions from "../../reducers/actions";
-import connect from "react-redux/es/connect/connect";
-import {AddWorkerForm} from "../AddWorkerForm/AddWorkerForm";
+import {connect} from "react-redux";
+import AddWorkerForm from "../AddWorkerForm/AddWorkerForm";
 import {Query} from "../../services/RequestService";
 
-class AddWorkerWrapper extends Component {
+export class AddWorkerWrapper extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,8 +20,6 @@ class AddWorkerWrapper extends Component {
             id: Date.now(),
             position: worker.position
         };
-        console.log(worker);
-
 
         this.props.actions.employWorker(worker);
         const response = this.handleLoad();
@@ -29,10 +27,16 @@ class AddWorkerWrapper extends Component {
 
     async handleLoad() {
         this.props.handleLoading(true);
-        const response = await Query();
-        if (response) {
-            this.props.handleLoading(false);
-            this.props.history.push('/');
+        try {
+            const response = await Query();
+            if (response) {
+                console.log(response);
+                this.props.handleLoading(false);
+                this.props.history.push('/');
+            }
+        }
+        catch (e) {
+            console.log(e, 'error');
         }
     }
 

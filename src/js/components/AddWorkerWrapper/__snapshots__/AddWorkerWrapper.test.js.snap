@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddWorkerWrapper renders correctly 1`] = `
+<div>
+  <div>
+    <form
+      className="addWorkerForm"
+      onSubmit={[Function]}
+    >
+      <input
+        id="name-input"
+        name="name"
+        onChange={[Function]}
+        placeholder="Name"
+        value=""
+      />
+      <input
+        name="surname"
+        onChange={[Function]}
+        placeholder="Surname"
+        value=""
+      />
+      <input
+        name="position"
+        onChange={[Function]}
+        placeholder="Position"
+        value=""
+      />
+      <button
+        id="submit-btn"
+        type="submit"
+      >
+        Employ a worker
+      </button>
+    </form>
+  </div>
+</div>
+`;
