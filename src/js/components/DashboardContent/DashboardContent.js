@@ -4,6 +4,7 @@ import List from "../List/List";
 import {Route} from "react-router-dom";
 import Loader from "../Loader/Loader";
 import AddWorkerWrapper from "../AddWorkerWrapper/AddWorkerWrapper";
+import {withRouter} from "react-router";
 
 
 const AddWorkerForm = React.lazy(() => import(/* webpackChunkName: "addForm" */"components/AddWorkerForm/AddWorkerForm"));
@@ -15,6 +16,7 @@ export class DashboardContent extends Component {
 
 
     render() {
+        console.log(this.props);
         return (
             <div className='d-content'>
                 <Route exact path='/' component={List}/>

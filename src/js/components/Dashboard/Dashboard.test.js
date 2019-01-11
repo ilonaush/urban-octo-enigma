@@ -1,18 +1,28 @@
 import React from 'react';
-
 import Dashboard  from './Dashboard';
-
-import ReactDOM from 'react-dom';
 import {MemoryRouter} from "react-router";
 import {Provider} from "react-redux";
 import {store} from "../../reducers/index";
+import renderer from "react-test-renderer";
+import Intro from "../Intro/Intro";
+import { shallow, mount, render } from 'enzyme';
+
 
 
 describe('Dashboard', () => {
-    it('renders', () => {
-
-        const div = document.createElement('div');
+    it('renders correctly', () => {
         const location = { pathname: '/' };
-        ReactDOM.render(<MemoryRouter><Provider store={store}><Dashboard location={location}/></Provider></MemoryRouter>, div)
+        const DashboardComponent = renderer.create(<MemoryRouter><Provider store={store}><Dashboard location={location}/></Provider></MemoryRouter>);
+        expect((DashboardComponent).toJSON()).toMatchSnapshot();
     })
-})
+
+    it('renders correctly page info', () => {
+        const props = {
+            location : { pathname: '/add-worker' }
+        };
+        const DashboardComponent = mount(<MemoryRouter><Provider store={store}><Dashboard location={props.location}/></Provider></MemoryRouter>);
+        const pageTitle = DashboardComponent.find(Intro).at(0);
+        expect(pageTitle.text()).toEqual('Add worker');
+    })
+});
+

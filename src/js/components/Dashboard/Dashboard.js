@@ -3,7 +3,6 @@ import './Dashboard.styl';
 import Intro from "../Intro/Intro";
 import DashboardContent from "../DashboardContent/DashboardContent";
 import {connect} from "react-redux";
-import { withRouter } from "react-router";
 import {bindActionCreators, compose} from "redux";
 import Loader from "../Loader/Loader";
 import actions from "../../reducers/actions";
@@ -13,7 +12,8 @@ class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: false
+            loading: false,
+            page: ''
         };
         this.handleLoading = this.handleLoading.bind(this);
         this.getPage = this.getPage.bind(this);
@@ -32,20 +32,26 @@ class Dashboard extends Component {
         })
     }
 
+    componentDidMount() {
+        this.setState({
+            page: this.getPage(this.props.location.pathname, this.props.pages)
+        })
+    }
+
 
     render() {
-        const PAGE = this.getPage(this.props.location.pathname, this.props.pages);
+        const {page} = this.state;
         return (
             <div className='dashboard'>
                 {this.state.loading ?
                     <React.Fragment>
                         <Loader/>
-                        <Intro>{PAGE.title}</Intro>
+                        <Intro>{page.title}</Intro>
                         <DashboardContent handleLoading={this.handleLoading}/>
 
                     </React.Fragment> :
                     <div>
-                        <Intro>{PAGE.title}</Intro>
+                        <Intro>{page.title}</Intro>
                         <DashboardContent handleLoading={this.handleLoading}/>
                     </div>
                 }
