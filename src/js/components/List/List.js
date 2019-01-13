@@ -31,11 +31,11 @@ class List extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                {this.props.workers.map ((worker) =>
+                {this.props.workers.length && this.props.workers.map ((worker) =>
                     <ListItem key={worker.id} worker={worker} editWorkerTime={this.props.actions.editWorkTime}/>
                  )}
                 </tbody>
-            </table> : <Link to='/add-worker'>Add worker</Link>
+            </table> : <button className='home-add-btn'><Link to='/add-worker'>Add worker</Link></button>
         );
     }
 }

@@ -1,15 +1,27 @@
 import React from 'react';
-
 import SidebarMenu  from './SidebarMenu';
-
-import ReactDOM from 'react-dom';
 import {MemoryRouter} from "react-router";
+import {mount} from "enzyme/build";
+import Sidebar from "../Sidebar/Sidebar";
+import {NavLink} from "react-router-dom";
+import renderer from "react-test-renderer";
 
 describe('SidebarMenu', () => {
-    it('renders', () => {
+    it('render correctly sidebar component', () => {
+        const SidebarMenuComponent = renderer.create(<MemoryRouter><SidebarMenu /></MemoryRouter>).toJSON();
+        expect(SidebarMenuComponent).toMatchSnapshot();
+    });
 
-        const div = document.createElement('div');
-        ReactDOM.render(<MemoryRouter><SidebarMenu/></MemoryRouter>, div)
-    })
-})
+    it('has correct links in navbar', () => {
+        const SidebarComponent = mount(<MemoryRouter><Sidebar/></MemoryRouter>);
+        expect(SidebarComponent.find(NavLink).at(1).prop('to')).toEqual('/add-worker');
+        expect(SidebarComponent.find(NavLink).at(2).prop('to')).toEqual('/fire-worker');
+        expect(SidebarComponent.find(NavLink).at(3).prop('to')).toEqual('/gallery');
+    });
+
+
+});
+
+
+
 

@@ -1,9 +1,10 @@
 import React, {Suspense} from "react";
-import Loader from "./components/Loader/Loader";
 
-function dynamicImport (path, ...props) {
-
-
+async function dynamicImport (path, ...props) {
+    const module = await import(`components/${path}/${path}`);
+    console.log(module.default)
+    let component = module.default;
+    return component;
 }
 
 export {dynamicImport};

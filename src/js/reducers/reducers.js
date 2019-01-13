@@ -1,5 +1,4 @@
 const initialState = {
-    workers: [],
     pages: [
         {
             title: 'Table',
@@ -22,15 +21,22 @@ const initialState = {
 
 let reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'EMPLOY_WORKER':
-            debugger;
+        case 'GET_WORKERS':
+            console.log(action.workers);
             return {
                 ...state,
                 workers: [
-                    ...state.workers,
-                    action.worker
+                    ...action.workers
                 ],
             };
+        case 'EMPLOY_WORKER':
+        return {
+            ...state,
+            workers: [
+                ...state.workers,
+                action.worker
+            ],
+        };
         case 'EDIT_WORK_TIME':
             const workers = [...state.workers].map((worker) => {
                 if (worker.id === action.worker.id) {

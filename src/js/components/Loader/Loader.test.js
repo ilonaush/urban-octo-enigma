@@ -1,8 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Loader from './Loader';
+import renderer from "react-test-renderer";
 
-it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Loader />, div);
-});
+
+describe('Loader', () => {
+    it('render correctly loader component', () => {
+        const LoaderComponent = renderer.create(<Loader/>).toJSON();
+        expect(LoaderComponent).toMatchSnapshot();
+    });
+})

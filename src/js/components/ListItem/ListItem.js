@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import "./ListItem.styl";
 import MaskedInput from 'react-text-mask'
+import RequestService from "../../services/RequestService";
 
 class ListItem extends Component {
      constructor(props) {
@@ -20,7 +21,7 @@ class ListItem extends Component {
         })
     }
 
-    saveTime({target}) {
+    async saveTime({target}) {
         this.setState({
             editing: ''
         });
@@ -29,6 +30,7 @@ class ListItem extends Component {
             [target.name]: target.value
         };
         this.props.editWorkerTime(worker);
+        const response = await RequestService.patch('/edit-time', worker);
     }
 
     render() {
@@ -48,19 +50,17 @@ class ListItem extends Component {
                         className='time-input'
                         name='arrival'
                         guide={true}
-                        // onChange={this.handleChange}
-                        placeholder='––:––'
+                        placeholder='–-–:–-–'
                     />
                     : arrival ? arrival : 'Click to select'}
                 </td>
                 <td id='leaving' onClick={this.editTime} onBlur={this.saveTime} className='worker-time'>
                     {editing === 'leaving' ? <MaskedInput
-                        mask={[' ', /\d/,  /\d/, ':',  /\d/,  /\d/]}
+                        mask={[/\d/,  /\d/, ':',  /\d/,  /\d/]}
                         className='time-input'
                         name='leaving'
                         guide={true}
-                        // onChange={this.handleChange}
-                        placeholder='––:––'
+                        placeholder='–-–:–-–'
                     />
                     : leaving ? leaving : 'Click to select'}
                 </td>

@@ -1,4 +1,10 @@
 export default {
+    getWorkers: function(workers) {
+        return {
+            type: 'GET_WORKERS',
+            workers: workers
+        }
+    },
     employWorker: function (worker) {
         return {
             type: 'EMPLOY_WORKER',
