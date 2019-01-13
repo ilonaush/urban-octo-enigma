@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {NavLink} from "react-router-dom";
-import './Error.styl'
+import './Page500.styl'
 
 class Page500 extends Component {
     render() {

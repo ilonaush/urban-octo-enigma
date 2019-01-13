@@ -18,10 +18,9 @@ class DynamicComponent extends  Component{
             })
         }
         catch(err) {
-            console.error(err, 'err')
+            console.log(err);
+            this.props.history.push('/500');
         };
-
-
     }
 
     render() {
