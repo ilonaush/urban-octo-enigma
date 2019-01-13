@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List renders 1`] = `
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Position
+      </th>
+      <th
+        className="time"
+      >
+        Arrival
+      </th>
+      <th
+        className="time"
+      >
+        Leaving
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        mike
+      </td>
+      <td>
+        cat
+      </td>
+      <td
+        className="worker-time"
+        id="arrival"
+        onBlur={[Function]}
+        onClick={[Function]}
+      >
+        Click to select
+      </td>
+      <td
+        className="worker-time"
+        id="leaving"
+        onBlur={[Function]}
+        onClick={[Function]}
+      >
+        Click to select
+      </td>
+    </tr>
+    <tr>
+      <td>
+        mike
+      </td>
+      <td>
+        cat
+      </td>
+      <td
+        className="worker-time"
+        id="arrival"
+        onBlur={[Function]}
+        onClick={[Function]}
+      >
+        Click to select
+      </td>
+      <td
+        className="worker-time"
+        id="leaving"
+        onBlur={[Function]}
+        onClick={[Function]}
+      >
+        Click to select
+      </td>
+    </tr>
+    <tr>
+      <td>
+        mike
+      </td>
+      <td>
+        cat
+      </td>
+      <td
+        className="worker-time"
+        id="arrival"
+        onBlur={[Function]}
+        onClick={[Function]}
+      >
+        Click to select
+      </td>
+      <td
+        className="worker-time"
+        id="leaving"
+        onBlur={[Function]}
+        onClick={[Function]}
+      >
+        Click to select
+      </td>
+    </tr>
+    <tr>
+      <td>
+        mike
+      </td>
+      <td>
+        cat
+      </td>
+      <td
+        className="worker-time"
+        id="arrival"
+        onBlur={[Function]}
+        onClick={[Function]}
+      >
+        Click to select
+      </td>
+      <td
+        className="worker-time"
+        id="leaving"
+        onBlur={[Function]}
+        onClick={[Function]}
+      >
+        Click to select
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

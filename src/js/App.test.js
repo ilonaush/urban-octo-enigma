@@ -1,17 +1,16 @@
 import React from 'react';
-
 import App  from './App';
-
-import ReactDOM from 'react-dom';
 import {MemoryRouter} from "react-router";
 import {Provider} from "react-redux";
 import {store} from "./reducers/index";
+import renderer from "react-test-renderer";
 
 
 describe('App', () => {
-    it('renders', () => {
 
-        const div = document.createElement('div');
-        ReactDOM.render(<MemoryRouter><Provider store={store}><App/></Provider></MemoryRouter>, div)
+    it('renders correctly', () => {
+        const AppComponent = renderer.create(<MemoryRouter><Provider store={store}><App/></Provider></MemoryRouter>);
+        expect((AppComponent).toJSON()).toMatchSnapshot();
     })
-})
+
+});

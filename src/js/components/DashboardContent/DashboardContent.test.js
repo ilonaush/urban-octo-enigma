@@ -14,4 +14,4 @@ describe('DashboardContent', () => {
         const div = document.createElement('div');
         ReactDOM.render(<MemoryRouter><Provider store={store}><DashboardContent/></Provider></MemoryRouter>, div)
     })
-})
+});

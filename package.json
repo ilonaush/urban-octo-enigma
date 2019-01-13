@@ -123,11 +123,13 @@
       "jpg"
     ],
     "modulePaths": [
-      "images"
+      "images",
+      "components"
     ],
     "moduleDirectories": [
       "node_modules",
-      "images"
+      "images",
+      "components"
     ],
     "setupFiles": [
       "react-app-polyfill/jsdom"
@@ -144,7 +146,8 @@
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
-      "^images(.*)$": "<rootDir>/src/images$1"
+      "^images(.*)$": "<rootDir>/src/images$1",
+      "^components(.*)$": "<rootDir>/src/js/components/$1"
     },
     "modulePathIgnorePatterns": [
       "<rootDir>/node_modules/"
