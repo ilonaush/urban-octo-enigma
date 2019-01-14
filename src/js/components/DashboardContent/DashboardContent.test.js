@@ -29,3 +29,5 @@ describe('DashboardContent', () => {
         expect((DashboardContentComponent.containsMatchingElement(AddWorkerWrapper))).toEqual(true);
     })
 });
+
+});

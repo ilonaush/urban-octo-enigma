@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renders correctly 1`] = `
+<div
+  className="layout"
+>
+  <div
+    className="sidebar"
+  >
+    <a
+      className="heading"
+      href="/"
+      onClick={[Function]}
+    >
+      Dashboard
+    </a>
+    <hr />
+    <div>
+      <ul>
+        <li>
+          <a
+            aria-current="page"
+            className="active"
+            href="/"
+            onClick={[Function]}
+            style={Object {}}
+          >
+            <span
+              alt=""
+              className="icon"
+              style={
+                Object {
+                  "backgroundImage": "url('images/list.svg",
+                }
+              }
+            />
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={null}
+            href="/add-worker"
+            onClick={[Function]}
+          >
+            <span
+              alt=""
+              className="icon"
+              style={
+                Object {
+                  "backgroundImage": "url('images/add.svg",
+                }
+              }
+            />
+            Add a worker
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={null}
+            href="/fire-worker"
+            onClick={[Function]}
+          >
+            <span
+              alt=""
+              className="icon"
+              style={
+                Object {
+                  "backgroundImage": "url('images/fire.svg",
+                }
+              }
+            />
+            Fire worker
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={null}
+            href="/gallery"
+            onClick={[Function]}
+          >
+            <span
+              alt=""
+              className="icon"
+              style={
+                Object {
+                  "backgroundImage": "url('images/gallery.svg",
+                }
+              }
+            />
+            Gallery
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="dashboard"
+  >
+    <div
+      className="intro"
+    >
+      Table
+    </div>
+    <div
+      className="d-content"
+    />
+  </div>
+</div>
+`;

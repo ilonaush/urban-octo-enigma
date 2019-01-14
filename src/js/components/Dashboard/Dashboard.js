@@ -15,7 +15,6 @@ class Dashboard extends Component {
             loading: false,
             page: ''
         };
-        this.handleLoading = this.handleLoading.bind(this);
         this.getPage = this.getPage.bind(this);
     }
 
@@ -26,11 +25,7 @@ class Dashboard extends Component {
 
     }
 
-    handleLoading(value) {
-        this.setState({
-            loading: value
-        })
-    }
+
 
     componentDidMount() {
         this.setState({
@@ -43,6 +38,8 @@ class Dashboard extends Component {
         const {page} = this.state;
         return (
             <div className='dashboard'>
+                <Intro>{PAGE.title}</Intro>
+                <DashboardContent handleLoading={this.handleLoading}/>
                 {this.state.loading ?
                     <React.Fragment>
                         <Loader/>

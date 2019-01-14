@@ -1,15 +1,7 @@
 import React, {Component, Suspense} from 'react';
 import "./DashboardContent.styl";
-import List from "../List/List";
 import {Route} from "react-router-dom";
-import Loader from "../Loader/Loader";
-import AddWorkerWrapper from "../AddWorkerWrapper/AddWorkerWrapper";
-import {withRouter} from "react-router";
-
-
-const AddWorkerForm = React.lazy(() => import(/* webpackChunkName: "addForm" */"components/AddWorkerForm/AddWorkerForm"));
-const FireWorkerForm = React.lazy(() => import(/* webpackChunkName: "fireForm" */"components/FireWorkerForm/FireWorkerForm"));
-const Gallery = React.lazy(() => import(/* webpackChunkName: "gallery" */"components/Gallery/Gallery.js"));
+import DynamicComponent from "../../tools/DynamicImport";
 
 
 export class DashboardContent extends Component {
@@ -19,13 +11,21 @@ export class DashboardContent extends Component {
         console.log(this.props);
         return (
             <div className='d-content'>
-                <Route exact path='/' component={List}/>
-                <Route  exact path='/add-worker' render={(routeProps) =>  <Suspense fallback={<Loader/>}>
-                    <AddWorkerWrapper handleLoading = {this.props.handleLoading} {...routeProps}/></Suspense>}/>
-                <Route  exact path='/fire-worker' render={(routeProps) => <Suspense fallback={<Loader/>}>
-                    <FireWorkerForm handleLoading = {this.props.handleLoading} {...routeProps}/></Suspense>}/>
-                <Route  exact path='/gallery' render={(routeProps) => <Suspense fallback={<Loader/>}>
-                    <Gallery handleLoading = {this.props.handleLoading} {...routeProps}/></Suspense>}/>
+                <Route  exact path='/'
+                        render={(routeProps) => <DynamicComponent component='List'  {...routeProps}/>}
+                />
+                <Route  exact path='/add-worker'
+                        render={(routeProps) => <DynamicComponent component='AddWorkerWrapper'  {...routeProps}/>}
+                />
+                <Route  exact path='/fire-worker'
+                        render={(routeProps) => <DynamicComponent component='FireWorkerForm'  {...routeProps}/>}
+                />
+                <Route  exact path='/gallery'
+                        render={(routeProps) => <DynamicComponent component='Gallery'  {...routeProps}/>}
+                />
+                <Route  exact path='/500'
+                        render={(routeProps) => <DynamicComponent component='Page500'  {...routeProps}/>}
+                />
             </div>
         );
     }

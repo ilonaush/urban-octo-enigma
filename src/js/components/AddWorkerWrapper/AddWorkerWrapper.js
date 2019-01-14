@@ -5,12 +5,18 @@ import actions from "../../reducers/actions";
 import {connect} from "react-redux";
 import AddWorkerForm from "../AddWorkerForm/AddWorkerForm";
 import {Query} from "../../services/RequestService";
+import RequestService from "../../services/RequestService";
+import Loader from "../Loader/Loader";
 
 export class AddWorkerWrapper extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            loading: false
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleLoad = this.handleLoad.bind(this);
+        this.handleLoading = this.handleLoading.bind(this);
     }
     handleSubmit(e, worker) {
         e.preventDefault();
@@ -22,27 +28,37 @@ export class AddWorkerWrapper extends Component {
         };
 
         this.props.actions.employWorker(worker);
-        const response = this.handleLoad();
+        const response = this.handleLoad('/add-worker', worker);
     }
 
-    async handleLoad() {
-        this.props.handleLoading(true);
+    handleLoading(value) {
+        debugger;
+        this.setState({
+            loading: value
+        })
+    }
+
+    async handleLoad(path, payload) {
+        this.handleLoading(true);
+        let response;
         try {
-            const response = await Query();
+            response = await RequestService.post(path, payload);
             if (response) {
-                console.log(response);
-                this.props.handleLoading(false);
+                this.handleLoading(false);
                 this.props.history.push('/');
             }
         }
         catch (e) {
             console.log(e, 'error');
         }
+
+
     }
 
     render() {
         return (
             <div>
+                {this.state.loading ? <Loader/> : null}
                 <AddWorkerForm onSubmit={this.handleSubmit}/>
             </div>
         );

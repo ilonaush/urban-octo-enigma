@@ -22,6 +22,6 @@ const MENU_ITEMS = [
     }
 ];
 
-const TIME_PLACEHOLDER = "––:––";
 
-export {MENU_ITEMS, TIME_PLACEHOLDER};
+
+export {MENU_ITEMS};

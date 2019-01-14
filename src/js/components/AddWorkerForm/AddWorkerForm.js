@@ -35,16 +35,16 @@ export default class AddWorkerForm extends Component {
                            name='name'
                            placeholder='Name'
                            onChange={(event) => this.handleChange(event.target.value, event.target.name)}
-                           value={this.state.name}
+                           value={this.state.worker.name}
                             />
                     <Input name='surname'
                            placeholder='Surname'
                            onChange={(event) => this.handleChange(event.target.value, event.target.name)}
-                           value={this.state.surname} />
+                           value={this.state.worker.surname} />
                     <Input name='position'
                            placeholder='Position'
                            onChange={(event) => this.handleChange(event.target.value, event.target.name)}
-                           value={this.state.position}/>
+                           value={this.state.worker.position}/>
                     <button id='submit-btn' type='submit'>Employ a worker</button>
                 </form>
             </div>

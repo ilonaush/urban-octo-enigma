@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import ListItem from './ListItem';
 import renderer from 'react-test-renderer';
 import { shallow, mount, render } from 'enzyme';
-import Gallery from "../Gallery/Gallery";
 
 
 

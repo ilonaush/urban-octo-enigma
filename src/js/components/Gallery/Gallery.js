@@ -12,15 +12,17 @@ export class Gallery extends Component {
         console.log(this.props);
         return (
             <div className='workers-gallery'>
-                {this.props.workers.map((item) => {
-                    return (
-                    <div className='worker-photo' key={item.id}>
-                        <LazyLoadImage  src='cat.jpg'/>
-                        <div>{item.fullname}</div>
-                    </div>
-                    )
-                })
-                }
+                {this.props.workers && this.props.workers.length ?
+                    this.props.workers.map((item, index) => {
+                        return (
+                        <div className='worker-photo' key={item.id}>
+                            <LazyLoadImage  src={`cat-${index}.jpg`}/>
+                            <div className='worker-name'>{item.fullname}</div>
+                            <div className='worker-position'>{item.position}</div>
+                        </div>
+                        )
+                    })
+                    : <div>Немає співробітників</div>}
             </div>
         );
     }
