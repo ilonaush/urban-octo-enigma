@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard renders correctly 1`] = `
+<div
+  className="dashboard"
+>
+  <div>
+    <div
+      className="intro"
+    >
+      Table
+    </div>
+    <div
+      className="d-content"
+    >
+      <a
+        href="/add-worker"
+        onClick={[Function]}
+      >
+        Add worker
+      </a>
+    </div>
+  </div>
+</div>
+`;
