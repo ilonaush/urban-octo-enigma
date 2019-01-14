@@ -62,7 +62,6 @@ export class FireWorkerForm extends Component {
         return (
             <div>
                 {this.state.loading ? <Loader/> : null}
-                <form className='addWorkerForm'>
                 <form className='addWorkerForm' onSubmit={(e) => this.onSubmit(e, this.state.worker)}>
                     <select onChange={this.handleSelect}>
                         <option value=" ">Оберіть</option>

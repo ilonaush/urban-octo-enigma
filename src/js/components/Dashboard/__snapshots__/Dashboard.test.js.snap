@@ -4,6 +4,14 @@ exports[`Dashboard renders correctly 1`] = `
 <div
   className="dashboard"
 >
+  <div
+    className="intro"
+  >
+    Table
+  </div>
+  <div
+    className="d-content"
+  />
   <div>
     <div
       className="intro"
@@ -12,14 +20,7 @@ exports[`Dashboard renders correctly 1`] = `
     </div>
     <div
       className="d-content"
-    >
-      <a
-        href="/add-worker"
-        onClick={[Function]}
-      >
-        Add worker
-      </a>
-    </div>
+    />
   </div>
 </div>
 `;

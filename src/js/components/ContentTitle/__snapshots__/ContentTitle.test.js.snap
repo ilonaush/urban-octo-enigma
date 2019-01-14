@@ -1,11 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ContentTitle renders correctly 1`] = `
-<h3
-  className="content-title"
-/>
-`;
-
 exports[`ContentTitle renders correctly without children 1`] = `
 <h3
   className="content-title"

@@ -105,6 +105,16 @@ exports[`Layout renders correctly 1`] = `
     <div
       className="d-content"
     />
+    <div>
+      <div
+        className="intro"
+      >
+        Table
+      </div>
+      <div
+        className="d-content"
+      />
+    </div>
   </div>
 </div>
 `;

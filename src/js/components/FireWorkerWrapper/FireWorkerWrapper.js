@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import AddWorkerForm from "../AddWorkerForm/AddWorkerForm";
 import {Query} from "../../services/RequestService";
 import {FireWorkerForm} from "../FireWorkerForm/FireWorkerForm";
+import RequestService from "../../services/RequestService";
 
 export class FireWorkerWrapper extends Component {
     constructor(props) {
@@ -27,13 +28,13 @@ export class FireWorkerWrapper extends Component {
         const response = this.handleLoad();
     }
 
-    async handleLoad() {
-        this.props.handleLoading(true);
+    async handleLoad(path, payload) {
+        this.handleLoading(true);
+        let response;
         try {
-            const response = await Query();
+            response = await RequestService.post(path, payload);
             if (response) {
-                console.log(response);
-                this.props.handleLoading(false);
+                this.handleLoading(false);
                 this.props.history.push('/');
             }
         }

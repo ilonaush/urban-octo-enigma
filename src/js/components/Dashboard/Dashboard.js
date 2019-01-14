@@ -38,7 +38,7 @@ class Dashboard extends Component {
         const {page} = this.state;
         return (
             <div className='dashboard'>
-                <Intro>{PAGE.title}</Intro>
+                <Intro>{page.title}</Intro>
                 <DashboardContent handleLoading={this.handleLoading}/>
                 {this.state.loading ?
                     <React.Fragment>

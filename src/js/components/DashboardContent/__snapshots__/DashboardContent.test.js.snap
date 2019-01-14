@@ -3,12 +3,5 @@
 exports[`DashboardContent renders correctly 1`] = `
 <div
   className="d-content"
->
-  <a
-    href="/add-worker"
-    onClick={[Function]}
-  >
-    Add worker
-  </a>
-</div>
+/>
 `;
