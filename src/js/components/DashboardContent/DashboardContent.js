@@ -8,7 +8,6 @@ export class DashboardContent extends Component {
 
 
     render() {
-        console.log(this.props);
         return (
             <div className='d-content'>
                 <Route  exact path='/'

@@ -25,8 +25,6 @@ class Dashboard extends Component {
 
     }
 
-
-
     componentDidMount() {
         this.setState({
             page: this.getPage(this.props.location.pathname, this.props.pages)
@@ -38,19 +36,16 @@ class Dashboard extends Component {
         const {page} = this.state;
         return (
             <div className='dashboard'>
-                <Intro>{page.title}</Intro>
-                <DashboardContent handleLoading={this.handleLoading}/>
                 {this.state.loading ?
                     <React.Fragment>
                         <Loader/>
                         <Intro>{page.title}</Intro>
                         <DashboardContent handleLoading={this.handleLoading}/>
-
                     </React.Fragment> :
-                    <div>
+                    <React.Fragment>
                         <Intro>{page.title}</Intro>
                         <DashboardContent handleLoading={this.handleLoading}/>
-                    </div>
+                    </React.Fragment>
                 }
             </div>
         );
