@@ -108,7 +108,7 @@ server.patch('/edit-time', async function (req, res) {
 });
 
 server.listen(5000, function () {
-    console.log('listening on port 7000!');
+    console.log('listening on port 5000!');
 });
 
 function saveWorkerToJson(workers) {

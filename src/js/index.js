@@ -11,3 +11,7 @@ ReactDOM.render(<BrowserRouter><Route {...PATHS.root}/></BrowserRouter>, documen
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+if (module.hot) {
+    module.hot.accept();
+}

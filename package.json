@@ -83,8 +83,8 @@
     "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "start": "webpack-dev-server --open  --config config/webpack.config.js",
+    "build": "webpack --config config/webpack.prod.config.js",
     "test": "jest",
     "server": "node server/server.js"
   },
@@ -161,6 +161,7 @@
     ]
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^1.0.1",
     "enzyme": "^3.8.0",
     "html-webpack-template": "^6.2.0",
     "webpack-cli": "^3.2.1"

@@ -1,18 +1,14 @@
 'use strict';
+process.env.BABEL_ENV = 'development';
+process.env.NODE_ENV = 'development';
 
 const path = require('path');
 const webpack = require('webpack');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const safePostCssParser = require('postcss-safe-parser');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
@@ -21,41 +17,18 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const meowChunkCompositionPlugin = require('meow-chunk-composition');
 
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
-
-const shouldInlineRuntimeChunk = process.env.INLINE_RUNTIME_CHUNK !== 'false';
-
 const cssRegex = /\.css$/;
 const stylusRegex = /\.styl$/;
 
+module.exports = function() {
 
-module.exports = function(webpackEnv) {
-  const isEnvDevelopment = webpackEnv === 'development';
-  const isEnvProduction = webpackEnv === 'production';
-
-  const publicPath = isEnvProduction
-    ? paths.servedPath
-    : isEnvDevelopment && '/';
-
-  const shouldUseRelativeAssetPaths = publicPath === './';
-
-  const publicUrl = isEnvProduction
-    ? publicPath.slice(0, -1)
-    : isEnvDevelopment && '';
-
+  const publicPath = '/';
+  const publicUrl = '';
   const env = getClientEnvironment(publicUrl);
-
 
   const getStyleLoaders = (cssOptions, preProcessor) => {
     const loaders = [
-      isEnvDevelopment && require.resolve('style-loader'),
-      isEnvProduction && {
-        loader: MiniCssExtractPlugin.loader,
-        options: Object.assign(
-          {},
-          shouldUseRelativeAssetPaths ? { publicPath: '../../' } : undefined
-        ),
-      },
+      require.resolve('style-loader'),
       {
         loader: require.resolve('css-loader'),
         options: cssOptions,
@@ -66,7 +39,7 @@ module.exports = function(webpackEnv) {
       loaders.push({
         loader: require.resolve(preProcessor),
         options: {
-          sourceMap: isEnvProduction && shouldUseSourceMap,
+          sourceMap: false,
         },
       });
     }
@@ -75,93 +48,82 @@ module.exports = function(webpackEnv) {
 
   const routeEntries = {
     root: path.resolve(__dirname, '../src/js/index.js'),
-    table: path.resolve(__dirname, '../src/js/components/List/List.js'),
   };
 
-
   return {
-    mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
-
-    bail: isEnvProduction,
-    devtool: isEnvProduction
-      ? shouldUseSourceMap
-        ? 'source-map'
-        : false
-      : isEnvDevelopment && 'cheap-module-source-map',
-
+    mode: 'development',
+    bail: false,
+    devtool: 'cheap-module-source-map',
     entry: {
-      main: [isEnvDevelopment && require.resolve('react-dev-utils/webpackHotDevClient'), routeEntries.root],
+      main: paths.appIndexJs,
     },
+    watch: true,
     output: {
-      path: isEnvProduction ? paths.appBuild : undefined,
-      pathinfo: isEnvDevelopment,
-      filename: isEnvProduction
-        ? 'static/js/[name].[chunkhash:8].js'
-        : isEnvDevelopment && 'static/js/[name].js',
-      chunkFilename: isEnvProduction
-        ? 'static/js/[name].[chunkhash:8].chunk.js'
-        : isEnvDevelopment && 'static/js/[name].chunk.js',
+      path:  undefined,
+      pathinfo: true,
+      filename: 'static/js/[name].js',
+      chunkFilename: 'static/js/[name].chunk.js',
       publicPath: publicPath,
-      // Point sourcemap entries to original disk location (format as URL on Windows)
-      devtoolModuleFilenameTemplate: isEnvProduction
-        ? info =>
-            path
-              .relative(paths.appSrc, info.absoluteResourcePath)
-              .replace(/\\/g, '/')
-        : isEnvDevelopment &&
+      devtoolModuleFilenameTemplate:
           (info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')),
     },
     optimization: {
-      minimize: isEnvProduction,
-      minimizer: [
-        new TerserPlugin({
-          terserOptions: {
-            parse: {
-              ecma: 8,
-            },
-            compress: {
-              ecma: 5,
-              warnings: false,
-
-              comparisons: false,
-
-              inline: 2,
-            },
-            mangle: {
-              safari10: true,
-            },
-            output: {
-              ecma: 5,
-              comments: false,
-
-              ascii_only: true,
-            },
-          },
-
-          parallel: true,
-          cache: true,
-          sourceMap: shouldUseSourceMap,
-        }),
-        new OptimizeCSSAssetsPlugin({
-          cssProcessorOptions: {
-            parser: safePostCssParser,
-            map: shouldUseSourceMap
-              ? {
-                  inline: false,
-                  annotation: true,
-                }
-              : false,
-          },
-        }),
-      ],
-
+      minimize: false,
       splitChunks: {
-        chunks: 'all',
-        name: true,
-        minChunks: 2
-      },
-      runtimeChunk: false,
+      chunks: 'all',
+      name: true,
+      minChunks: 1,
+      automaticNameDelimiter: '-',
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+          reuseExistingChunk: true
+        },
+        test: {
+          test: /\.test\./,
+          name: 'unit-testing',
+          chunks: 'all',
+          priority: 2,
+          enforce: true
+        },
+        addWorkerForm: {
+          test: /AddWorker/,
+          name: 'add-worker',
+          chunks: 'async',
+          priority: 2,
+          enforce: true
+        },
+        fireWorkerForm: {
+          test: /FireWorker/,
+          name: 'fire-worker',
+          chunks: 'async',
+          priority: 2,
+          enforce: true
+        },
+        gallery: {
+          test: /Gallery/,
+          name: 'gallery',
+          chunks: 'async',
+          priority: 1,
+          enforce: true
+        },
+        List: {
+          test: /List/,
+          name: 'list',
+          chunks: 'async',
+          priority: 1,
+          enforce: true
+        },
+        default: {
+          name: 'shared',
+          minChunks: 2,
+        }
+      }
     },
+    runtimeChunk: false,
+  },
     resolve: {
       modules: [
         paths.appJs,
@@ -189,11 +151,30 @@ module.exports = function(webpackEnv) {
         PnpWebpackPlugin.moduleLoader(module),
       ],
     },
+    devServer: {
+      compress: true,
+      inline: true,
+      contentBase: [paths.appPublic, paths.appSrc],
+      watchContentBase: true,
+      hot: true,
+      publicPath: '/',
+      https: false,
+      host: 'localhost',
+      port: 3000,
+      overlay: true,
+      disableHostCheck: true,
+      historyApiFallback: {
+        disableDotRule: true,
+      },
+    },
     module: {
       strictExportPresence: true,
       rules: [
-        { parser: { requireEnsure: false } },
-
+        { parser:
+            {
+              requireEnsure: false
+            }
+          },
         {
           test: /\.(js|mjs|jsx)$/,
           enforce: 'pre',
@@ -243,8 +224,8 @@ module.exports = function(webpackEnv) {
                   ],
                 ],
                 cacheDirectory: true,
-                cacheCompression: isEnvProduction,
-                compact: isEnvProduction,
+                cacheCompression: false,
+                compact: false,
               },
             },
             {
@@ -262,7 +243,7 @@ module.exports = function(webpackEnv) {
                   ],
                 ],
                 cacheDirectory: true,
-                cacheCompression: isEnvProduction,
+                cacheCompression: false,
 
                 sourceMaps: false,
               },
@@ -272,7 +253,7 @@ module.exports = function(webpackEnv) {
               test: cssRegex,
               use: getStyleLoaders({
                 importLoaders: 1,
-                sourceMap: isEnvProduction && shouldUseSourceMap,
+                sourceMap: false,
               }),
               sideEffects: true,
             },
@@ -299,56 +280,20 @@ module.exports = function(webpackEnv) {
             inject: true,
             template: paths.appHtml,
           },
-          isEnvProduction
-            && {
-                minify: {
-                  removeComments: true,
-                  collapseWhitespace: true,
-                  removeRedundantAttributes: true,
-                  useShortDoctype: true,
-                  removeEmptyAttributes: true,
-                  removeStyleLinkTypeAttributes: true,
-                  keepClosingSlash: true,
-                  minifyJS: true,
-                  minifyCSS: true,
-                  minifyURLs: true,
-                },
-              }
-
         )
       ),
-      isEnvProduction &&
-        shouldInlineRuntimeChunk &&
-        new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
       new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),
       new ModuleNotFoundPlugin(paths.appPath),
       new meowChunkCompositionPlugin(),
       new webpack.DefinePlugin(env.stringified),
-      isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
-      isEnvDevelopment && new CaseSensitivePathsPlugin(),
-      isEnvDevelopment &&
-        new WatchMissingNodeModulesPlugin(paths.appNodeModules),
-      isEnvProduction &&
-        new MiniCssExtractPlugin({
-          filename: 'static/css/[name].[contenthash:8].css',
-          chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
-        }),
+      new webpack.HotModuleReplacementPlugin(),
+      new CaseSensitivePathsPlugin(),
+      new WatchMissingNodeModulesPlugin(paths.appNodeModules),
       new ManifestPlugin({
         fileName: 'asset-manifest.json',
         publicPath: publicPath,
       }),
-      isEnvProduction &&
-        new WorkboxWebpackPlugin.GenerateSW({
-          clientsClaim: true,
-          exclude: [/\.map$/, /asset-manifest\.json$/],
-          importWorkboxFrom: 'cdn',
-          navigateFallback: publicUrl + '/index.html',
-          navigateFallbackBlacklist: [
-            new RegExp('^/_'),
-            new RegExp('/[^/]+\\.[^/]+$'),
-          ],
-        }),
-        isEnvDevelopment && new CopyWebpackPlugin([{from: paths.appImages, to: paths.appStatic}])
+      new CopyWebpackPlugin([{from: paths.appImages, to: paths.appStatic}])
     ].filter(Boolean),
 
     node: {

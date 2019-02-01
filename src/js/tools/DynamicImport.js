@@ -12,7 +12,7 @@ class DynamicComponent extends  Component{
         const name = this.props.component;
         let component;
         try {
-            component = await import(/* webpackChunkName: "component-[index]" */`components/${name}/${name}`);
+            component = await import( `components/${name}/${name}`);
             this.setState({
                 Component: component.default
             })

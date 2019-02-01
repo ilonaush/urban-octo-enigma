@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import "../AddWorkerForm/AddWorkerForm.styl";
+import "./FireWorkerForm.styl";
 import {withRouter} from "react-router-dom";
 import RequestService from "../../services/RequestService";
 import Loader from "../Loader/Loader";
@@ -62,12 +62,13 @@ export class FireWorkerForm extends Component {
         return (
             <div>
                 {this.state.loading ? <Loader/> : null}
-                <form className='addWorkerForm' onSubmit={(e) => this.onSubmit(e, this.state.worker)}>
+                <form className='fireWorkerForm' onSubmit={(e) => this.onSubmit(e, this.state.worker)}>
                     <select onChange={this.handleSelect}>
                         <option value=" ">Оберіть</option>
                         {this.props.workers.map((worker) =>
                             <option key={worker.id} value={worker.id} >{worker.fullname}</option>
                         )}
+
                     </select>
                     <textarea placeholder='Describe reason please'/>
                     <button type='submit' onClick={this.onSubmit}>Fire a worker</button>

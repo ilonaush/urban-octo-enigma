@@ -2,6 +2,7 @@ import React, {Component, Suspense} from 'react';
 import "./DashboardContent.styl";
 import {Route} from "react-router-dom";
 import DynamicComponent from "../../tools/DynamicImport";
+import Page500 from "../Page500/Page500";
 
 
 export class DashboardContent extends Component {
@@ -23,7 +24,7 @@ export class DashboardContent extends Component {
                         render={(routeProps) => <DynamicComponent component='Gallery'  {...routeProps}/>}
                 />
                 <Route  exact path='/500'
-                        render={(routeProps) => <DynamicComponent component='Page500'  {...routeProps}/>}
+                        render={(routeProps) => <Page500 {...routeProps}/>}
                 />
             </div>
         );

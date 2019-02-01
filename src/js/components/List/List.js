@@ -17,7 +17,7 @@ class List extends Component {
                 <thead>
                     <tr>
                         <th>
-                            Name
+                            Naffffffg
                         </th>
                         <th>
                             Position
