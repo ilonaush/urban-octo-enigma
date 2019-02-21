@@ -23,5 +23,19 @@ const MENU_ITEMS = [
 ];
 
 
+const REQUEST_PATHS = {
+    GET_WORKERS: '/',
+    EMPLOY_WORKER: '/add-worker',
+    FIRE_WORKER: '/fire-worker',
+    EDIT_WORKTIME: '/edit-time'
+};
 
-export {MENU_ITEMS};
+const ACTIONS_TYPES = {
+    GET_WORKERS: 'GET_WORKERS',
+    EMPLOY_WORKER: 'EMPLOY_WORKER',
+    FIRE_WORKER: 'FIRE_WORKER',
+    EDIT_WORKTIME: 'EDIT_WORK_TIME',
+    SET_LOADING: 'SET_LOADING'
+};
+
+export {MENU_ITEMS, REQUEST_PATHS, ACTIONS_TYPES};

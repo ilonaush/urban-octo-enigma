@@ -11,7 +11,6 @@ class ListItem extends Component {
              editing: ''
          };
          this.editTime = this.editTime.bind(this);
-         // this.handleChange = this.handleChange.bind(this);
          this.saveTime = this.saveTime.bind(this);
      }
 
@@ -21,7 +20,7 @@ class ListItem extends Component {
         })
     }
 
-    async saveTime({target}) {
+    saveTime({target}) {
         this.setState({
             editing: ''
         });
@@ -30,7 +29,6 @@ class ListItem extends Component {
             [target.name]: target.value
         };
         this.props.editWorkerTime(worker);
-        const response = await RequestService.patch('/edit-time', worker);
     }
 
     render() {

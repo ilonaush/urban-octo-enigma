@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from "redux";
 import actions from "../../reducers/actions";
@@ -15,52 +15,24 @@ export class AddWorkerWrapper extends Component {
             loading: false
         };
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleLoad = this.handleLoad.bind(this);
-        this.handleLoading = this.handleLoading.bind(this);
     }
+
+
     handleSubmit(e, worker) {
         e.preventDefault();
-        console.log(worker);
         worker = {
             fullname: `${worker.name} ${worker.surname}`,
             id: Date.now(),
             position: worker.position
         };
-
-        this.props.actions.employWorker(worker);
-        const response = this.handleLoad('/add-worker', worker);
-    }
-
-    handleLoading(value) {
-        debugger;
-        this.setState({
-            loading: value
-        })
-    }
-
-    async handleLoad(path, payload) {
-        this.handleLoading(true);
-        let response;
-        try {
-            response = await RequestService.post(path, payload);
-            if (response) {
-                this.handleLoading(false);
-                this.props.history.push('/');
-            }
-        }
-        catch (e) {
-            console.log(e, 'error');
-        }
-
-
+        this.props.actions.employWorker(worker)
     }
 
     render() {
         return (
-            <div>
-                {this.state.loading ? <Loader/> : null}
+            <Fragment>
                 <AddWorkerForm onSubmit={this.handleSubmit}/>
-            </div>
+            </Fragment>
         );
     }
 }

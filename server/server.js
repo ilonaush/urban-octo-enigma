@@ -6,6 +6,13 @@ const server = express();
 
 server.use(bodyParser.json());
 
+
+/**
+ * handler for cross origin requesting
+ * @param req request
+ * @param res response
+ * @param next next request
+ */
 const crossOrigin = function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:3000");
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -18,99 +25,94 @@ const crossOrigin = function(req, res, next) {
     }
 };
 
+const port = 5000;
+
 server.use(crossOrigin);
 
+
+/**
+ * handler for get request; gives all workers
+ */
 server.get('/', async function (req, res) {
-    let workers;
     try {
-        workers = await readWorkersFromJson();
+        const workers = await readWorkersFromJson();
+        res.send(workers);
     } catch(e) {
         res.status(500).send({status: false});
     }
-    res.send({workers: workers});
 });
 
+/**
+ * handler for post request for adding new worker
+ */
 server.post('/add-worker', async function (req, res) {
-    let worker = req.body;
-    let workers;
+    const worker = req.body;
     try {
-        workers = await readWorkersFromJson();
-    } catch(e) {
-        res.status(500).send({status: false});
-    }
-    workers.push(worker);
-
-    try {
-        let response = await saveWorkerToJson(workers);
+        const workers = await readWorkersFromJson();
+        workers.push(worker);
+        const response = await saveWorkerToJson(workers);
         if (response) {
-            res.send({status: true});
-
+            res.send({status: true, workers: workers});
         }
-
-    } catch (e) {
+    } catch(e) {
         res.status(500).send({status: false});
     }
 });
 
+/**
+ * handler for patch request for firing a worker
+ */
 server.patch('/fire-worker', async function (req, res) {
     const {ID} = req.body;
-    let workers;
     try {
-        workers  = await readWorkersFromJson();
-    } catch(e) {
-        res.status(500).send({status: false});
-    }
+        let workers  = await readWorkersFromJson();
+        workers = workers.filter((worker) => {
+            return worker.id !== parseInt(ID);
+        });
 
-    workers = workers.filter((worker) => {
-        return worker.id !== parseInt(ID);
-    });
-
-
-    try {
         await saveWorkerToJson(workers);
-        res.send({status: true});
+        res.send({status: true, workers});
 
-    } catch (e) {
-        console.log(e);
+    } catch(e) {
         res.status(500).send({status: false});
     }
 });
 
+
+/**
+ * handler for patch request for changing time of either arriving or leaving of a worker
+ */
 server.patch('/edit-time', async function (req, res) {
     const worker = req.body;
-    let workers;
     try {
-        workers = await readWorkersFromJson();
+        let workers = await readWorkersFromJson();
+        workers = workers.map((item) => {
+            if (item.id === worker.id) {
+                return {
+                    ...worker
+                }
+            }
+            else {
+                return item;
+            }
+        });
+        await saveWorkerToJson(workers);
+        res.send({status: true, workers});
     }
     catch (e) {
         res.status(500).send({status: false});
     }
-
-    workers = workers.map((item) => {
-        if (item.id === worker.id) {
-            return {
-                ...worker
-            }
-        }
-        else {
-            return item;
-        }
-    });
-
-
-    try {
-        await saveWorkerToJson(workers);
-        res.send({status: true});
-
-    } catch (e) {
-        res.status(500).send({status: false});
-    }
 });
 
-server.listen(5000, function () {
-    console.log('listening on port 5000!');
+server.listen(port, function () {
+    console.log(`listening on port ${port}!`);
 });
 
+/**
+ * saves modified json file with workers
+ * @param workers
+ * @returns {Promise<any>}
+ */
 function saveWorkerToJson(workers) {
     return new Promise ((resolve) => setTimeout(() => {
         fs.writeFile(path.resolve(__dirname, 'data/workers.json'), JSON.stringify(workers, null, 4), (err) => {
@@ -121,6 +123,10 @@ function saveWorkerToJson(workers) {
     }, 1000));
 }
 
+/**
+ * gets workers data from json
+ * @returns {Promise<any>}
+ */
 function readWorkersFromJson() {
     return new Promise((resolve) => {
         setTimeout(() => {

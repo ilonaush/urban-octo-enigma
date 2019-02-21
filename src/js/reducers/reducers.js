@@ -1,3 +1,5 @@
+import {ACTIONS_TYPES} from "../constants";
+
 const initialState = {
     pages: [
         {
@@ -15,56 +17,42 @@ const initialState = {
             title: 'Gallery',
             path: '/gallery'
         }
-    ]
+    ],
+    loading: false
 };
 
 
 let reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'GET_WORKERS':
-            console.log(action.workers);
+        case ACTIONS_TYPES.GET_WORKERS:
             return {
                 ...state,
-                workers: [
-                    ...action.workers
-                ],
+                workers: action.payload,
             };
-        case 'EMPLOY_WORKER':
-        return {
-            ...state,
-            workers: [
-                ...state.workers,
-                action.worker
-            ],
-        };
-        case 'EDIT_WORK_TIME':
-            const workers = [...state.workers].map((worker) => {
-                if (worker.id === action.worker.id) {
-                        return {
-                            ...action.worker
-                        }
-                    }
-                else {
-                    return worker;
-                }
-            });
+        case ACTIONS_TYPES.EMPLOY_WORKER:
             return {
                 ...state,
-                workers: [
-                    ...workers,
-                ],
+                workers: action.payload.workers,
+                loading: action.payload.loading
             };
-        case 'FIRE_WORKER':
-            console.log(state.workers.filter((worker) => {
-                console.log(worker.id, parseInt(action.id));
-                return worker.id !== parseInt(action.id)
-            }))
+        case ACTIONS_TYPES.EDIT_WORKTIME:
             return {
                 ...state,
-                workers: [...state.workers.filter((worker) => {
-                    return worker.id !== parseInt(action.id)
-            })]
+                workers: action.payload.workers,
+                loading: action.payload.loading
             };
+        case ACTIONS_TYPES.FIRE_WORKER:
+            return {
+                ...state,
+                workers: action.payload.workers,
+                loading: action.payload.loading
+            };
+        case ACTIONS_TYPES.SET_LOADING: {
+            return {
+                ...state,
+                loading: action.payload
+            }
+        }
         default:
             return state;
     }

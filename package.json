@@ -67,7 +67,9 @@
     "react-testing-library": "^5.3.2",
     "react-text-mask": "^5.4.3",
     "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.3",
+    "redux-thunk": "^2.3.0",
     "resolve": "1.8.1",
     "resolve-url-loader": "^3.0.0",
     "sass-loader": "7.1.0",
@@ -83,8 +85,8 @@
     "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
-    "start": "webpack-dev-server --open  --config config/webpack.config.js",
-    "build": "webpack --config config/webpack.prod.config.js",
+    "start": "SET \"NODE_ENV=development\" && webpack-dev-server --open  --config config/webpack.config.js",
+    "build": "SET \"NODE_ENV=production\" && webpack --config config/webpack.prod.config.js",
     "test": "jest",
     "server": "node server/server.js"
   },

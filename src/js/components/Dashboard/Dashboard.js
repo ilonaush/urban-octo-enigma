@@ -31,6 +31,14 @@ class Dashboard extends Component {
         })
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.loading !== this.props.loading) {
+            this.setState({
+                loading: nextProps.loading
+            })
+        }
+    }
+
 
     render() {
         const {page} = this.state;

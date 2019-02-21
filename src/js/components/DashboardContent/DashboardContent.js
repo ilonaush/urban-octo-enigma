@@ -18,7 +18,7 @@ export class DashboardContent extends Component {
                         render={(routeProps) => <DynamicComponent component='AddWorkerWrapper'  {...routeProps}/>}
                 />
                 <Route  exact path='/fire-worker'
-                        render={(routeProps) => <DynamicComponent component='FireWorkerForm'  {...routeProps}/>}
+                        render={(routeProps) => <DynamicComponent component='FireWorkerWrapper'  {...routeProps}/>}
                 />
                 <Route  exact path='/gallery'
                         render={(routeProps) => <DynamicComponent component='Gallery'  {...routeProps}/>}
