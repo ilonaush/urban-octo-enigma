@@ -12,7 +12,6 @@ const store = createStore(
     reducer,
     predefinedStore,
     applyMiddleware(thunk, loggerMiddleware)
-
 );
 
 store.subscribe(() => {

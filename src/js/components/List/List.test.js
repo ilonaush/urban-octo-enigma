@@ -29,9 +29,13 @@ describe('List', () => {
         const ListComponent = mount(<MemoryRouter><Provider store={store}><List/></Provider></MemoryRouter>);
         expect(ListComponent.find(ListItem).length).toEqual(4);
     });
-    it('renders no rown when store is emprty', () => {
+    it('renders no row when store is empty', () => {
 
         const ListComponent = mount(<MemoryRouter><Provider store={emptyStore}><List/></Provider></MemoryRouter>);
         expect(ListComponent.find(ListItem).length).toEqual(0);
+    })
+    it('renders button when store is empty', () => {
+        const ListComponent = mount(<MemoryRouter><Provider store={emptyStore}><List/></Provider></MemoryRouter>);
+        expect(ListComponent.find('.home-add-btn').exists()).toEqual(true);
     })
 });

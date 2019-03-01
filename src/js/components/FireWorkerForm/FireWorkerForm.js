@@ -10,34 +10,31 @@ export class FireWorkerForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            worker: '',
-            loading: false
+            workerID: '',
         };
-        this.handleSelect = this.handleSelect.bind(this);
     }
 
 
-    handleSelect({target = null}) {
+    handleSelect = ({target = null}) => {
         this.setState({
-            worker: target.value
+            workerID: target.value
         })
-    }
-
+    };
 
     render() {
+        const {onSubmit, workers} = this.props;
+        const {workerID} = this.state;
         return (
-            <div>
-                <form className='fireWorkerForm' onSubmit={(e) => this.props.onSubmit(e, this.state.worker)}>
-                    <select onChange={this.handleSelect}>
-                        <option value=" ">Оберіть</option>
-                        {this.props.workers.map((worker) =>
-                            <option key={worker.id} value={worker.id} >{worker.fullname}</option>
-                        )}
-                    </select>
-                    <textarea placeholder='Describe reason please'/>
-                    <button id='submit-btn' type='submit'>Fire a worker</button>
-                </form>
-            </div>
+            <form className='fireWorkerForm' onSubmit={(e) => onSubmit(e, workerID)}>
+                <select onChange={this.handleSelect}>
+                    <option value=" ">Оберіть</option>
+                    {workers.map((worker) =>
+                        <option key={worker.id} value={worker.id} >{worker.fullname}</option>
+                    )}
+                </select>
+                <textarea placeholder='Describe reason please'/>
+                <button id='submit-btn' type='submit'>Fire a worker</button>
+            </form>
         );
     }
 }

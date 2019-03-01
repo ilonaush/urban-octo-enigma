@@ -8,7 +8,9 @@ class Page500 extends Component {
         return (
             <div className='error'>
                 Виникла помилка. Спробуйте пізніше
-                <div><NavLink to='/'>На головну</NavLink></div>
+                <div>
+                    <NavLink to='/'>На головну</NavLink>
+                </div>
             </div>
         );
     }

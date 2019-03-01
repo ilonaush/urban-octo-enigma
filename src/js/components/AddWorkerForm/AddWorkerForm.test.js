@@ -31,7 +31,6 @@ it('change worker state when  the form is submitted', () => {
     const onChange = jest.fn(),
           AddWorkerFormComponent = mount(shallow(<Provider store={store}><AddWorkerForm/></Provider>).get(0));
     const firstInput = AddWorkerFormComponent.find(Input).at(0);
-    console.log(AddWorkerFormComponent.state(), firstInput);
     expect(AddWorkerFormComponent.state().worker.name).toEqual('');
     firstInput.simulate('change', {target: { value: 'mike', name: 'name'}});
     expect(AddWorkerFormComponent.state().worker.name).toEqual('mike');

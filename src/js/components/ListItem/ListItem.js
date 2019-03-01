@@ -10,17 +10,15 @@ class ListItem extends Component {
          this.state = {
              editing: ''
          };
-         this.editTime = this.editTime.bind(this);
-         this.saveTime = this.saveTime.bind(this);
      }
 
-    editTime(e) {
+    editTime = (e)  =>{
         this.setState({
             editing: e.currentTarget.id
         })
-    }
+    };
 
-    saveTime({target}) {
+    saveTime = ({target}) => {
         this.setState({
             editing: ''
         });
@@ -29,19 +27,15 @@ class ListItem extends Component {
             [target.name]: target.value
         };
         this.props.editWorkerTime(worker);
-    }
+    };
 
     render() {
      const {editing} = this.state;
      const {worker: {fullname, position, arrival = '', leaving = ''} = {}} = this.props;
         return (
             <tr>
-                <td>
-                    {fullname}
-                </td>
-                <td>
-                    {position}
-                </td>
+                <td>{fullname}</td>
+                <td>{position}</td>
                 <td id='arrival' onClick={this.editTime} onBlur={this.saveTime} className='worker-time'>
                     {editing === 'arrival' ? <MaskedInput
                         mask={[' ', /\d/,  /\d/, ':',  /\d/,  /\d/]}

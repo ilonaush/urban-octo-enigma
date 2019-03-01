@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import {bindActionCreators} from "redux";
-import actions from "../../reducers/actions";
 import {connect} from "react-redux";
 import LazyLoadImage from "../../tools/LazyLoad"
 import "./Gallery.styl"
@@ -9,11 +7,11 @@ import PropTypes from 'prop-types';
 
 export class Gallery extends Component {
     render() {
-        console.log(this.props);
+        const {workers} = this.props;
         return (
             <div className='workers-gallery'>
-                {this.props.workers && this.props.workers.length ?
-                    this.props.workers.map((item, index) => {
+                {workers && workers.length ?
+                    workers.map((item, index) => {
                         return (
                         <div className='worker-photo' key={item.id}>
                             <LazyLoadImage  src={`cat-${index}.jpg`}/>
@@ -36,17 +34,6 @@ Gallery.defaultProps = {
         workers: []
 };
 
-
-
-function mapStateToProps(state) {
-    return { workers: state.workers  }
-}
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(actions, dispatch)
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Gallery);
+export default connect((state) => ({workers: state.workers}))(Gallery);
 
 

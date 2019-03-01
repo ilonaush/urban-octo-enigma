@@ -14,7 +14,7 @@ export default {
             catch (e) {
                 dispatch({
                     type: ACTIONS_TYPES.GET_WORKERS,
-                    payload: []
+                    payload: [],
                 })
             }
         };
@@ -38,6 +38,7 @@ export default {
                         payload: {workers: [], loading: false}
                     })
                 }
+                console.log(workers);
                 dispatch({
                     type: ACTIONS_TYPES.EMPLOY_WORKER,
                     payload: {workers, loading: false}
@@ -61,7 +62,6 @@ export default {
             }
 
             setLoading();
-            console.log(worker);
             try {
                 const {data: {workers, status}} = await RequestService.patch(REQUEST_PATHS.EDIT_WORKTIME, worker);
                 if (!status) {

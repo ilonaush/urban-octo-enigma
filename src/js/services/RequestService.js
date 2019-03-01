@@ -1,12 +1,11 @@
 import axios from 'axios';
 
-class RequestService {
-
+export class RequestService {
     constructor() {
         let service = axios.create({
             baseURL: 'http://localhost:5000',
         });
-        service.interceptors.response.use(this.handleSuccess, this.handleError);
+        // service.interceptors.response.use(this.handleSuccess, this.handleError);
         this.service = service;
     }
 

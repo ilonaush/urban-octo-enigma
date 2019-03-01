@@ -13,7 +13,6 @@ it('renders without crashing', () => {
 
 it('renders correctly with links', () => {
     const SidebarComponent = mount(<MemoryRouter><Sidebar/></MemoryRouter>);
-    console.log(SidebarComponent.find(NavLink).length);
     expect(SidebarComponent.find(NavLink).length).toEqual(4);
 });
 

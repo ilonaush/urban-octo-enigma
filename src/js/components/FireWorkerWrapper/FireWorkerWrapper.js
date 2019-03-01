@@ -15,7 +15,7 @@ export class FireWorkerWrapper extends Component {
 
     handleSubmit = (e, worker) => {
         e.preventDefault();
-        this.props.actions.fireWorker(worker);
+        this.props.fireWorker(worker);
     };
 
     render() {
@@ -30,13 +30,4 @@ export class FireWorkerWrapper extends Component {
 FireWorkerWrapper.propTypes = {};
 
 
-function mapStateToProps(state) {
-    return { workers: state.workers  }
-}
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(actions, dispatch)
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(FireWorkerWrapper);
+export default connect((state) => ({workers: state.workers}), (dispatch) => ({fireWorker: (workerID) => dispatch(actions.fireWorker(workerID))}) )(FireWorkerWrapper);

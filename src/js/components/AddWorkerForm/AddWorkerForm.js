@@ -13,41 +13,38 @@ export default class AddWorkerForm extends Component {
                 position: '',
             }
         };
-        this.handleChange = this.handleChange.bind(this);
     }
 
-
-
-    handleChange(value, name) {
+    handleChange = (value, name) => {
         this.setState((state) => ({
             worker: {
                 ...state.worker,
                 [name]: value
             }
         }))
-    }
+    };
 
     render() {
+        const {worker} = this.state;
+        const {onSubmit} = this.props;
         return (
-            <div>
-                <form className='addWorkerForm' onSubmit={(e) => this.props.onSubmit(e, this.state.worker)}>
-                    <Input id='name-input'
-                           name='name'
-                           placeholder='Name'
-                           onChange={(event) => this.handleChange(event.target.value, event.target.name)}
-                           value={this.state.worker.name}
-                            />
-                    <Input name='surname'
-                           placeholder='Surname'
-                           onChange={(event) => this.handleChange(event.target.value, event.target.name)}
-                           value={this.state.worker.surname} />
-                    <Input name='position'
-                           placeholder='Position'
-                           onChange={(event) => this.handleChange(event.target.value, event.target.name)}
-                           value={this.state.worker.position}/>
-                    <button id='submit-btn' type='submit'>Employ a worker</button>
-                </form>
-            </div>
+            <form className='addWorkerForm' onSubmit={(e) => onSubmit(e, worker)}>
+                <Input id='name-input'
+                       name='name'
+                       placeholder='Name'
+                       onChange={(event) => this.handleChange(event.target.value, event.target.name)}
+                       value={worker.name}
+                        />
+                <Input name='surname'
+                       placeholder='Surname'
+                       onChange={(event) => this.handleChange(event.target.value, event.target.name)}
+                       value={worker.surname} />
+                <Input name='position'
+                       placeholder='Position'
+                       onChange={(event) => this.handleChange(event.target.value, event.target.name)}
+                       value={worker.position}/>
+                <button id='submit-btn' type='submit'>Employ a worker</button>
+            </form>
         );
     }
 }
