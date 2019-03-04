@@ -6,7 +6,6 @@ const server = express();
 
 server.use(bodyParser.json());
 
-
 /**
  * handler for cross origin requesting
  * @param req request

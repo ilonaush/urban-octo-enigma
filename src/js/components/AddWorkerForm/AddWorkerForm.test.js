@@ -9,8 +9,6 @@ import {mount, shallow} from "enzyme/build";
 import renderer from "react-test-renderer";
 import Input from "../Input/Input";
 
-
-
 describe('AddWorkerForm', () => {
     it('renders correctly', () => {
         const AddWorkerFormComponent = renderer.create(<AddWorkerForm/>);
@@ -20,7 +18,11 @@ describe('AddWorkerForm', () => {
 
 it('calls submit function  when  the form is submitted', () => {
     const onSubmit = jest.fn(),
-          AddWorkerFormComponent = mount(<Provider store={store}><AddWorkerForm onSubmit={onSubmit}/></Provider>);
+          AddWorkerFormComponent = mount(
+              <Provider store={store}>
+                  <AddWorkerForm onSubmit={onSubmit}/>
+              </Provider>);
+
     const button = AddWorkerFormComponent.find('#submit-btn');
     button.simulate('submit');
     expect(onSubmit).toHaveBeenCalledTimes(1);
@@ -28,8 +30,10 @@ it('calls submit function  when  the form is submitted', () => {
 });
 
 it('change worker state when  the form is submitted', () => {
-    const onChange = jest.fn(),
-          AddWorkerFormComponent = mount(shallow(<Provider store={store}><AddWorkerForm/></Provider>).get(0));
+    const AddWorkerFormComponent = mount(shallow(
+              <Provider store={store}>
+                  <AddWorkerForm/>
+              </Provider>).get(0));
     const firstInput = AddWorkerFormComponent.find(Input).at(0);
     expect(AddWorkerFormComponent.state().worker.name).toEqual('');
     firstInput.simulate('change', {target: { value: 'mike', name: 'name'}});

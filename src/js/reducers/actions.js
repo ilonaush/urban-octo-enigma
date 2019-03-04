@@ -38,7 +38,6 @@ export default {
                         payload: {workers: [], loading: false}
                     })
                 }
-                console.log(workers);
                 dispatch({
                     type: ACTIONS_TYPES.EMPLOY_WORKER,
                     payload: {workers, loading: false}

@@ -19,7 +19,11 @@ describe('AddWorkerWrapper', () => {
         const props = {
             employWorker: mockEmployWorkerAction
         };
-        const AddWorkerWrapperComponent = mount(<Provider store={store}><AddWorkerWrapper {...props}/></Provider>);
+        const AddWorkerWrapperComponent = mount(
+            <Provider store={store}>
+                <AddWorkerWrapper {...props}/>
+            </Provider>
+        );
 
         const AddWorkerFormComponent = AddWorkerWrapperComponent.find(AddWorkerForm);
         expect(mockEmployWorkerAction.mock.calls.length).toBe(0);

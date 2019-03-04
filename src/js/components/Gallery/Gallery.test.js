@@ -11,18 +11,28 @@ const emptyStore = mockStore({});
 
 describe('Gallery', () => {
     it('renders correctly gallery component with mock store', () => {
-        const GalleryComponent = renderer.create(<Provider store={store}><Gallery/></Provider>).toJSON();
+        const GalleryComponent = renderer.create(<Provider store={store}>
+            <Gallery/>
+        </Provider>
+        ).toJSON();
         expect(GalleryComponent).toMatchSnapshot();
     });
 
 
     it('renders correctly gallery component with default parameters', () => {
-        const GalleryComponent = mount(<Provider store={emptyStore}><Gallery/></Provider>);
+        const GalleryComponent = mount(
+            <Provider store={emptyStore}>
+                <Gallery/>
+            </Provider>);
         expect(Array.isArray(GalleryComponent.props().children.props.workers)).toBe(true);
     });
 
     it('renders correctly gallery component with default parameters', () => {
-        const GalleryComponent = mount(<Provider store={emptyStore}><Gallery/></Provider>);
+        const GalleryComponent = mount(
+            <Provider store={emptyStore}>
+                <Gallery/>
+            </Provider>
+        );
         expect(GalleryComponent.childAt(0).text()).toBe('Немає співробітників');
     });
 });

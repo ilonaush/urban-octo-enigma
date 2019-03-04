@@ -15,13 +15,6 @@ export class Dashboard extends Component {
         };
     }
 
-    getPage = (path, pages = []) => {
-        return {
-            ...pages.find((page) => page.path === path)
-        };
-
-    };
-
     componentWillReceiveProps(nextProps) {
         if (nextProps.loading !== this.props.loading) {
             this.setState({
@@ -35,6 +28,12 @@ export class Dashboard extends Component {
             page: this.getPage(this.props.location.pathname, this.props.pages)
         })
     }
+
+    getPage = (path, pages = []) => {
+        return {
+            ...pages.find((page) => page.path === path)
+        };
+    };
 
     render() {
         const {page, loading} = this.state;

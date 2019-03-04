@@ -15,6 +15,11 @@ export default class AddWorkerForm extends Component {
         };
     }
 
+    /**
+     * handles input change
+     * @param value
+     * @param name
+     */
     handleChange = (value, name) => {
         this.setState((state) => ({
             worker: {
@@ -38,11 +43,13 @@ export default class AddWorkerForm extends Component {
                 <Input name='surname'
                        placeholder='Surname'
                        onChange={(event) => this.handleChange(event.target.value, event.target.name)}
-                       value={worker.surname} />
+                       value={worker.surname}
+                />
                 <Input name='position'
                        placeholder='Position'
                        onChange={(event) => this.handleChange(event.target.value, event.target.name)}
-                       value={worker.position}/>
+                       value={worker.position}
+                />
                 <button id='submit-btn' type='submit'>Employ a worker</button>
             </form>
         );

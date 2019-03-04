@@ -5,7 +5,7 @@ export class RequestService {
         let service = axios.create({
             baseURL: 'http://localhost:5000',
         });
-        // service.interceptors.response.use(this.handleSuccess, this.handleError);
+        service.interceptors.response.use(this.handleSuccess, this.handleError);
         this.service = service;
     }
 
@@ -26,7 +26,7 @@ export class RequestService {
                 break;
         }
         return Promise.reject(error)
-    }
+    };
 
     redirectTo = (document, path) => {
         document.location = path;

@@ -8,11 +8,18 @@ import {mount} from "enzyme";
 
 it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<MemoryRouter><Sidebar /></MemoryRouter>, div);
+    ReactDOM.render(
+        <MemoryRouter>
+        <Sidebar/>
+    </MemoryRouter>, div);
 });
 
 it('renders correctly with links', () => {
-    const SidebarComponent = mount(<MemoryRouter><Sidebar/></MemoryRouter>);
+    const SidebarComponent = mount(
+        <MemoryRouter>
+            <Sidebar/>
+        </MemoryRouter>
+    );
     expect(SidebarComponent.find(NavLink).length).toEqual(4);
 });
 

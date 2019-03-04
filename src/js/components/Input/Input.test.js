@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
-import AddWorkerForm from '../AddWorkerForm/AddWorkerForm'
 import Input from "./Input";
 import { shallow, mount, render } from 'enzyme';
 

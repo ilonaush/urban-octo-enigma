@@ -13,7 +13,13 @@ import Loader from "../Loader/Loader";
 describe('Dashboard', () => {
     it('renders correctly', () => {
         const location = { pathname: '/' };
-        const DashboardComponent = renderer.create(<MemoryRouter><Provider store={store}><Dashboard location={location}/></Provider></MemoryRouter>);
+        const DashboardComponent = renderer.create(
+            <MemoryRouter>
+                <Provider store={store}>
+                    <Dashboard location={location}/>
+                </Provider>
+            </MemoryRouter>
+        );
         expect((DashboardComponent).toJSON()).toMatchSnapshot();
     });
 
@@ -21,7 +27,13 @@ describe('Dashboard', () => {
         const props = {
             location : { pathname: '/add-worker' }
         };
-        const DashboardComponent = mount(<MemoryRouter><Provider store={store}><Dashboard location={props.location}/></Provider></MemoryRouter>);
+        const DashboardComponent = mount(
+            <MemoryRouter>
+                <Provider store={store}>
+                    <Dashboard location={props.location}/>
+                </Provider>
+            </MemoryRouter>
+        );
         const pageTitle = DashboardComponent.find(Intro).at(0);
         expect(pageTitle.text()).toEqual('Add worker');
     });
@@ -31,7 +43,13 @@ describe('Dashboard', () => {
             loading : true,
             location : { pathname: '/add-worker' }
         };
-        const DashboardComponent = mount(<MemoryRouter><Provider store={store}><Dashboard {...props}/></Provider></MemoryRouter>);
+        const DashboardComponent = mount(
+            <MemoryRouter>
+                <Provider store={store}>
+                    <Dashboard {...props}/>
+                </Provider>
+            </MemoryRouter>
+        );
         expect(DashboardComponent.containsMatchingElement(Loader)).toBeTruthy();
     })
 });

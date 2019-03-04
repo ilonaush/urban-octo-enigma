@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const PnpWebpackPlugin = require('pnp-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
@@ -127,62 +126,63 @@ module.exports = function () {
                         }),
                     ]
                 },
-                {splitChunks: {
-                    chunks: 'all',
-                    name: true,
-                    minChunks: 1,
-                    automaticNameDelimiter: '-',
-                    cacheGroups: {
-                        vendors: {
-                            test: /[\\/]node_modules[\\/]/,
-                            name: 'vendors',
-                            chunks: 'all',
-                            reuseExistingChunk: true
-                        },
-                        test: {
-                            test: /\.test\./,
-                            name: 'unit-testing',
-                            chunks: 'all',
-                            priority: 2,
-                            enforce: true
-                        },
-                        addWorkerForm: {
-                            test: /AddWorker/,
-                            name: 'add-worker',
-                            chunks: 'async',
-                            priority: 2,
-                            enforce: true
-                        },
-                        fireWorkerForm: {
-                            test: /FireWorker/,
-                            name: 'fire-worker',
-                            chunks: 'async',
-                            priority: 2,
-                            enforce: true
-                        },
-                        gallery: {
-                            test: /Gallery/,
-                            name: 'gallery',
-                            chunks: 'async',
-                            priority: 1,
-                            enforce: true
-                        },
-                        List: {
-                            test: /List/,
-                            name: 'list',
-                            chunks: 'async',
-                            priority: 1,
-                            enforce: true
-                        },
-                        default: {
-                            name: 'shared',
-                            minChunks: 2,
+                {
+                    splitChunks: {
+                        chunks: 'all',
+                        name: true,
+                        minChunks: 1,
+                        automaticNameDelimiter: '-',
+                        cacheGroups: {
+                            vendors: {
+                                test: /[\\/]node_modules[\\/]/,
+                                name: 'vendors',
+                                chunks: 'all',
+                                reuseExistingChunk: true
+                            },
+                            test: {
+                                test: /\.test\./,
+                                name: 'unit-testing',
+                                chunks: 'all',
+                                priority: 2,
+                                enforce: true
+                            },
+                            addWorkerForm: {
+                                test: /AddWorker/,
+                                name: 'add-worker',
+                                chunks: 'async',
+                                priority: 2,
+                                enforce: true
+                            },
+                            fireWorkerForm: {
+                                test: /FireWorker/,
+                                name: 'fire-worker',
+                                chunks: 'async',
+                                priority: 2,
+                                enforce: true
+                            },
+                            gallery: {
+                                test: /Gallery/,
+                                name: 'gallery',
+                                chunks: 'async',
+                                priority: 1,
+                                enforce: true
+                            },
+                            List: {
+                                test: /List/,
+                                name: 'list',
+                                chunks: 'async',
+                                priority: 1,
+                                enforce: true
+                            },
+                            default: {
+                                name: 'shared',
+                                minChunks: 2,
+                            }
                         }
-                    }
-                },
-                runtimeChunk: false,
-            }
-        ),
+                    },
+                    runtimeChunk: false,
+                }
+            ),
         resolve: {
             modules: [
                 paths.appJs,
@@ -203,11 +203,6 @@ module.exports = function () {
             },
             plugins: [
                 new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
-            ],
-        },
-        resolveLoader: {
-            plugins: [
-                PnpWebpackPlugin.moduleLoader(module),
             ],
         },
         devServer: {

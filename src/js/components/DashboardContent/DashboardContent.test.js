@@ -9,7 +9,13 @@ import Page500 from "../Page500/Page500";
 
 describe('DashboardContent', () => {
     it('renders correctly', () => {
-        const DashboardContentComponent = renderer.create(<MemoryRouter><Provider store={store}><DashboardContent/></Provider></MemoryRouter>);
+        const DashboardContentComponent = renderer.create(
+            <MemoryRouter>
+                <Provider store={store}>
+                    <DashboardContent/>
+                </Provider>
+            </MemoryRouter>
+        );
         expect((DashboardContentComponent).toJSON()).toMatchSnapshot();
     });
 });

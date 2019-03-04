@@ -20,22 +20,46 @@ const emptyStore = mockStore({});
 
 describe('List', () => {
     it('renders', () => {
-        const ListComponent = renderer.create(<MemoryRouter><Provider store={store}><List/></Provider></MemoryRouter>).toJSON();
+        const ListComponent = renderer.create(
+            <MemoryRouter>
+                <Provider store={store}>
+                    <List/>
+                </Provider>
+            </MemoryRouter>
+        ).toJSON();
         expect(ListComponent).toMatchSnapshot();
     });
 
     it('renders as many rows as expected', () => {
 
-        const ListComponent = mount(<MemoryRouter><Provider store={store}><List/></Provider></MemoryRouter>);
+        const ListComponent = mount(
+            <MemoryRouter>
+                <Provider store={store}>
+                    <List/>
+                </Provider>
+            </MemoryRouter>
+        );
         expect(ListComponent.find(ListItem).length).toEqual(4);
     });
     it('renders no row when store is empty', () => {
 
-        const ListComponent = mount(<MemoryRouter><Provider store={emptyStore}><List/></Provider></MemoryRouter>);
+        const ListComponent = mount(
+            <MemoryRouter>
+                <Provider store={emptyStore}>
+                    <List/>
+                </Provider>
+            </MemoryRouter>
+        );
         expect(ListComponent.find(ListItem).length).toEqual(0);
     })
     it('renders button when store is empty', () => {
-        const ListComponent = mount(<MemoryRouter><Provider store={emptyStore}><List/></Provider></MemoryRouter>);
+        const ListComponent = mount(
+            <MemoryRouter>
+                <Provider store={emptyStore}>
+                    <List/>
+                </Provider>
+            </MemoryRouter>
+        );
         expect(ListComponent.find('.home-add-btn').exists()).toEqual(true);
     })
 });

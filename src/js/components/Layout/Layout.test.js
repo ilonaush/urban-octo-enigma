@@ -14,7 +14,13 @@ import Dashboard from "../Dashboard/Dashboard";
 
 describe('Layout', () => {
     it('renders correctly', () => {
-        const LayoutComponent = renderer.create(<MemoryRouter><Provider store={store}><Layout/></Provider></MemoryRouter>).toJSON();
+        const LayoutComponent = renderer.create(
+            <MemoryRouter>
+                <Provider store={store}>
+                    <Layout/>
+                </Provider>
+            </MemoryRouter>
+        ).toJSON();
         expect(LayoutComponent).toMatchSnapshot();
     });
 
@@ -24,12 +30,24 @@ describe('Layout', () => {
                 pathname: '/'
             }
         };
-        let LayoutComponent = mount(<MemoryRouter><Provider store={store}><Layout {...props}/></Provider></MemoryRouter>);
+        let LayoutComponent = mount(
+            <MemoryRouter>
+                <Provider store={store}>
+                    <Layout {...props}/>
+                </Provider>
+            </MemoryRouter>
+        );
         expect(LayoutComponent.contains(Sidebar)).toEqual(true);
         expect(LayoutComponent.contains(Dashboard)).toEqual(true);
 
         props.location.pathname = '/fire-worker';
-        LayoutComponent = mount(<MemoryRouter><Provider store={store}><Layout {...props}/></Provider></MemoryRouter>);
+        LayoutComponent = mount(
+            <MemoryRouter>
+                <Provider store={store}>
+                    <Layout {...props}/>
+                </Provider>
+            </MemoryRouter>
+        );
         expect(LayoutComponent.contains(Sidebar)).toEqual(true);
         expect(LayoutComponent.contains(Dashboard)).toEqual(true);
     })

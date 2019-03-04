@@ -6,6 +6,11 @@ import AddWorkerForm from "../AddWorkerForm/AddWorkerForm";
 
 export class AddWorkerWrapper extends Component {
 
+    /**
+     * handles submit on add WorkerForm, dispatches an action
+     * @param e
+     * @param worker
+     */
     handleSubmit = (e, worker) => {
         e.preventDefault();
         worker = {
@@ -13,7 +18,7 @@ export class AddWorkerWrapper extends Component {
             id: Date.now(),
             position: worker.position
         };
-        this.props.employWorker(worker)
+        this.props.employWorker(worker).then(() => this.props.history.push('/'))
     };
 
     render() {

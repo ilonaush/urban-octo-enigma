@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import "./DashboardContent.styl";
 import {Route} from "react-router-dom";
 import DynamicComponent from "../../tools/DynamicImport";
-import Page500 from "../Page500/Page500";
 
 export class DashboardContent extends Component {
 

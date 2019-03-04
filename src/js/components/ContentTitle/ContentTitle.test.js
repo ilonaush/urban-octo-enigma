@@ -11,7 +11,11 @@ describe('ContentTitle', () => {
     });
 
     it('renders correctly with children', () => {
-        const ContentTitleComponent = mount(<ContentTitle>Hello!</ContentTitle>);
+        const ContentTitleComponent = mount(
+            <ContentTitle>
+                Hello!
+            </ContentTitle>
+        );
         expect(ContentTitleComponent.text()).toEqual('Hello!');
     });
 });
