@@ -7,33 +7,33 @@ import PropTypes from 'prop-types';
 
 export class Gallery extends Component {
     render() {
-        const {workers} = this.props;
+        const {cats} = this.props;
         return (
             <div className='workers-gallery'>
-                {workers && workers.length ?
-                    workers.map((item, index) => {
+                {cats && cats.length ?
+                    cats.map((cat, index) => {
                         return (
-                        <div className='worker-photo' key={item.id}>
+                        <div className='worker-photo' key={cat.id}>
                             <LazyLoadImage  src={`cat-${index}.jpg`}/>
-                            <div className='worker-name'>{item.fullname}</div>
-                            <div className='worker-position'>{item.position}</div>
+                            <div className='worker-name'>{cat.name}</div>
+                            <div className='worker-position'>{cat.age}</div>
                         </div>
                         )
                     })
-                    : <div>Немає співробітників</div>}
+                    : <div>Немає котиків</div>}
             </div>
         );
     }
 }
 
 Gallery.propTypes = {
-        workers: PropTypes.array
+        cats: PropTypes.array
 };
 
 Gallery.defaultProps = {
-        workers: []
+    cats: []
 };
 
-export default connect((state) => ({workers: state.workers}))(Gallery);
+export default connect((state) => ({cats: state.cats}))(Gallery);
 
 

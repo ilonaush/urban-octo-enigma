@@ -10,9 +10,9 @@ export class DashboardContent extends Component {
             <div className='d-content'>
                 <Route  exact path='/'
                         render={(routeProps) => <DynamicComponent component='List'  {...routeProps}/>}/>
-                <Route  exact path='/add-worker'
+                <Route  exact path='/add-cat'
                         render={(routeProps) => <DynamicComponent component='AddWorkerWrapper'  {...routeProps}/>}/>
-                <Route  exact path='/fire-worker'
+                <Route  exact path='/find-home'
                         render={(routeProps) => <DynamicComponent component='FireWorkerWrapper'  {...routeProps}/>}/>
                 <Route  exact path='/gallery'
                         render={(routeProps) => <DynamicComponent component='Gallery'  {...routeProps}/>}/>

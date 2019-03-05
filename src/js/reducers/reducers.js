@@ -3,18 +3,18 @@ import {ACTIONS_TYPES} from "../constants";
 const initialState = {
     pages: [
         {
-            title: 'Table',
+            title: 'Cats of our farm',
             path: '/'
         },
         {
-            title: 'Add worker',
+            title: 'Cat registration',
             path: '/add-worker'
         },
         {
-            title: 'Fire worker',
+            title: 'Choose a cat into your house :)',
             path: '/fire-worker'
         }, {
-            title: 'Gallery',
+            title: 'Gallery of our cats',
             path: '/gallery'
         }
     ],
@@ -24,27 +24,27 @@ const initialState = {
 
 let reducer = (state = initialState, action) => {
     switch (action.type) {
-        case ACTIONS_TYPES.GET_WORKERS:
+        case ACTIONS_TYPES.GET_CATS:
             return {
                 ...state,
-                workers: action.payload,
+                cats: action.payload,
             };
-        case ACTIONS_TYPES.EMPLOY_WORKER:
+        case ACTIONS_TYPES.ADD_CAT:
             return {
                 ...state,
-                workers: action.payload.workers,
+                cats: action.payload.cats,
                 loading: action.payload.loading
             };
         case ACTIONS_TYPES.EDIT_WORKTIME:
             return {
                 ...state,
-                workers: action.payload.workers,
+                cats: action.payload.cats,
                 loading: action.payload.loading
             };
-        case ACTIONS_TYPES.FIRE_WORKER:
+        case ACTIONS_TYPES.ISSUE_CAT:
             return {
                 ...state,
-                workers: action.payload.workers,
+                cats: action.payload.cats,
                 loading: action.payload.loading
             };
         case ACTIONS_TYPES.SET_LOADING: {

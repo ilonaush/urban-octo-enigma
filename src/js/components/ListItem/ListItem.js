@@ -22,20 +22,21 @@ class ListItem extends Component {
         this.setState({
             editing: ''
         });
-        const worker = {
-            ...this.props.worker,
+        const cat = {
+            ...this.props.cat,
             [target.name]: target.value
         };
-        this.props.editWorkerTime(worker);
+        this.props.editWorkerTime(cat);
     };
 
     render() {
      const {editing} = this.state;
-     const {worker: {fullname, position, arrival = '', leaving = ''} = {}} = this.props;
+     const {cat: {name, age, color, arrival = '', leaving = ''} = {}} = this.props;
         return (
             <tr>
-                <td>{fullname}</td>
-                <td>{position}</td>
+                <td>{name}</td>
+                <td>{age}</td>
+                <td>{color}</td>
                 <td id='arrival' onClick={this.editTime} onBlur={this.saveTime} className='worker-time'>
                     {editing === 'arrival' ? <MaskedInput
                         mask={[' ', /\d/,  /\d/, ':',  /\d/,  /\d/]}
@@ -62,11 +63,11 @@ class ListItem extends Component {
 }
 
 ListItem.propTypes = {
-    worker: PropTypes.object
+    cat: PropTypes.object
 };
 
 ListItem.defaultProps = {
-    worker: {}
+    cat: {}
 };
 
 export default ListItem;

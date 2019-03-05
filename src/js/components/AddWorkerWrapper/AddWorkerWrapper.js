@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import actions from "../../reducers/actions";
 import {connect} from "react-redux";
 import AddWorkerForm from "../AddWorkerForm/AddWorkerForm";
+import  "./AddWorkerWrapper.styl";
 
 export class AddWorkerWrapper extends Component {
 
@@ -11,20 +12,22 @@ export class AddWorkerWrapper extends Component {
      * @param e
      * @param worker
      */
-    handleSubmit = (e, worker) => {
+    handleSubmit = (e, cat) => {
         e.preventDefault();
-        worker = {
-            fullname: `${worker.name} ${worker.surname}`,
+        cat = {
+            name: `${cat.name}`,
             id: Date.now(),
-            position: worker.position
+            age: cat.age,
+            color: cat.color
         };
-        this.props.employWorker(worker).then(() => this.props.history.push('/'))
+        this.props.addCat(cat).then(() => this.props.history.push('/'))
     };
 
     render() {
         return (
             <Fragment>
                 <AddWorkerForm onSubmit={this.handleSubmit}/>
+                <img  className='cat-bg' src="/images/cat-bg-2.png" alt=""/>
             </Fragment>
         );
     }
@@ -33,6 +36,6 @@ export class AddWorkerWrapper extends Component {
 AddWorkerWrapper.propTypes = {};
 
 export default connect(
-    (state) => ({workers: state.workers}),
-    (dispatch) => ({employWorker: (worker) => dispatch(actions.employWorker(worker))})
+    (state) => ({cats: state.cats}),
+    (dispatch) => ({addCat: (cat) => dispatch(actions.addCat(cat))})
 )(AddWorkerWrapper);

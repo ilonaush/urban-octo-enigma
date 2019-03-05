@@ -2,24 +2,24 @@ import RequestService from "../services/RequestService";
 import {ACTIONS_TYPES, REQUEST_PATHS} from "../constants";
 
 export default {
-    getWorkers: function() {
+    getCats: function() {
         return  async (dispatch) => {
             try {
-                const {data: workers} = await RequestService.get(REQUEST_PATHS.GET_WORKERS);
+                const {data: cats} = await RequestService.get(REQUEST_PATHS.GET_CATS);
                 dispatch({
-                    type: ACTIONS_TYPES.GET_WORKERS,
-                    payload: workers
+                    type: ACTIONS_TYPES.GET_CATS,
+                    payload: cats
                 })
             }
             catch (e) {
                 dispatch({
-                    type: ACTIONS_TYPES.GET_WORKERS,
+                    type: ACTIONS_TYPES.GET_CATS,
                     payload: [],
                 })
             }
         };
     },
-    employWorker: function (worker) {
+    addCat: function (cat) {
         return async (dispatch) => {
             function setLoading() {
                 return dispatch({
@@ -31,22 +31,22 @@ export default {
             setLoading();
 
             try {
-                const {data: {workers, status}} = await RequestService.post(REQUEST_PATHS.EMPLOY_WORKER, worker);
+                const {data: {cats, status}} = await RequestService.post(REQUEST_PATHS.ADD_CAT, cat);
                 if (!status) {
                     dispatch({
-                        type: ACTIONS_TYPES.EMPLOY_WORKER,
-                        payload: {workers: [], loading: false}
+                        type: ACTIONS_TYPES.ADD_CAT,
+                        payload: {cats: [], loading: false}
                     })
                 }
                 dispatch({
-                    type: ACTIONS_TYPES.EMPLOY_WORKER,
-                    payload: {workers, loading: false}
+                    type: ACTIONS_TYPES.ADD_CAT,
+                    payload: {cats, loading: false}
                 });
             }
             catch (e) {
                 dispatch({
-                    type: ACTIONS_TYPES.EMPLOY_WORKER,
-                    payload: {workers: [], loading: false}
+                    type: ACTIONS_TYPES.ADD_CAT,
+                    payload: {cats: [], loading: false}
                 })
             }
         }
@@ -82,7 +82,7 @@ export default {
             }
         }
     },
-    fireWorker: function (workerId) {
+    findHome: function (catId) {
         return async (dispatch) =>  {
             function setLoading() {
                 return dispatch({
@@ -95,25 +95,25 @@ export default {
 
             try {
                 const variables = {
-                    ID: workerId
+                    ID: catId
                 };
 
-                const {data: {workers, status}} = await RequestService.patch(REQUEST_PATHS.FIRE_WORKER, variables);
+                const {data: {cats, status}} = await RequestService.patch(REQUEST_PATHS.ISSUE_CAT, variables);
                 if (!status) {
                     dispatch({
-                        type: ACTIONS_TYPES.FIRE_WORKER,
-                        payload: {workers: [], loading: false}
+                        type: ACTIONS_TYPES.ISSUE_CAT,
+                        payload: {cats: [], loading: false}
                     })
                 }
                 dispatch({
-                    type: ACTIONS_TYPES.FIRE_WORKER,
-                    payload: {workers, loading: false}
+                    type: ACTIONS_TYPES.ISSUE_CAT,
+                    payload: {cats, loading: false}
                 });
             }
             catch (e) {
                 dispatch({
-                    type: ACTIONS_TYPES.FIRE_WORKER,
-                    payload: {workers: [], loading: false}
+                    type: ACTIONS_TYPES.ISSUE_CAT,
+                    payload: {cats: [], loading: false}
                 })
             }
         }

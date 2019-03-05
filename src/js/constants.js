@@ -5,13 +5,13 @@ const MENU_ITEMS = [
         icon: 'list'
     },
     {
-        name: 'Add a worker',
-        to: '/add-worker',
+        name: 'Register a cat',
+        to: '/add-cat',
         icon: 'add'
     },
     {
-        name: 'Fire worker',
-        to: '/fire-worker',
+        name: 'Issue a cat',
+        to: '/find-home',
         icon: 'fire'
     },
     {
@@ -23,16 +23,16 @@ const MENU_ITEMS = [
 
 
 const REQUEST_PATHS = {
-    GET_WORKERS: '/',
-    EMPLOY_WORKER: '/add-worker',
-    FIRE_WORKER: '/fire-worker',
+    GET_CATS: '/',
+    ADD_CAT: '/add-worker',
+    ISSUE_CAT: '/fire-worker',
     EDIT_WORKTIME: '/edit-time'
 };
 
 const ACTIONS_TYPES = {
-    GET_WORKERS: 'GET_WORKERS',
-    EMPLOY_WORKER: 'EMPLOY_WORKER',
-    FIRE_WORKER: 'FIRE_WORKER',
+    GET_CATS: 'GET_WORKERS',
+    ADD_CAT: 'EMPLOY_WORKER',
+    ISSUE_CAT: 'FIRE_WORKER',
     EDIT_WORKTIME: 'EDIT_WORK_TIME',
     SET_LOADING: 'SET_LOADING'
 };

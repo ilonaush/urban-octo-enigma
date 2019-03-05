@@ -7,10 +7,13 @@ export default class AddWorkerForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            worker: {
+            cat: {
                 name: '',
-                surname: '',
-                position: '',
+                age: '',
+                color: '',
+                reason: '',
+                location: '',
+                health: ''
             }
         };
     }
@@ -22,35 +25,51 @@ export default class AddWorkerForm extends Component {
      */
     handleChange = (value, name) => {
         this.setState((state) => ({
-            worker: {
-                ...state.worker,
+            cat: {
+                ...state.cat,
                 [name]: value
             }
         }))
     };
 
     render() {
-        const {worker} = this.state;
+        const {cat} = this.state;
         const {onSubmit} = this.props;
         return (
-            <form className='addWorkerForm' onSubmit={(e) => onSubmit(e, worker)}>
+            <form className='addWorkerForm' onSubmit={(e) => onSubmit(e, cat)}>
+                <h3>Please share some info about the cat with us</h3>
                 <Input id='name-input'
                        name='name'
                        placeholder='Name'
                        onChange={(event) => this.handleChange(event.target.value, event.target.name)}
-                       value={worker.name}
+                       value={cat.name}
                         />
-                <Input name='surname'
-                       placeholder='Surname'
+                <Input name='age'
+                       placeholder='Age'
                        onChange={(event) => this.handleChange(event.target.value, event.target.name)}
-                       value={worker.surname}
+                       value={cat.age}
                 />
-                <Input name='position'
-                       placeholder='Position'
+                <Input name='color'
+                       placeholder='Color'
                        onChange={(event) => this.handleChange(event.target.value, event.target.name)}
-                       value={worker.position}
+                       value={cat.color}
                 />
-                <button id='submit-btn' type='submit'>Employ a worker</button>
+                <textarea name='reason'
+                       placeholder='Reason'
+                       onChange={(event) => this.handleChange(event.target.value, event.target.name)}
+                       value={cat.reason}
+                />
+                <Input name='location'
+                       placeholder='Location'
+                       onChange={(event) => this.handleChange(event.target.value, event.target.name)}
+                       value={cat.location}
+                />
+                <Input name='health'
+                       placeholder='Describe health'
+                       onChange={(event) => this.handleChange(event.target.value, event.target.name)}
+                       value={cat.health}
+                />
+                <button id='submit-btn' type='submit'>Accept the cat</button>
             </form>
         );
     }

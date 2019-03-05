@@ -44,14 +44,14 @@ server.get('/', async function (req, res) {
 /**
  * handler for post request for adding new worker
  */
-server.post('/add-worker', async function (req, res) {
-    const worker = req.body;
+server.post('/add-cat', async function (req, res) {
+    const cat = req.body;
     try {
-        const workers = await readWorkersFromJson();
-        workers.push(worker);
-        const response = await saveWorkerToJson(workers);
+        const cats = await readWorkersFromJson();
+        cats.push(cat);
+        const response = await saveWorkerToJson(cats);
         if (response) {
-            res.send({status: true, workers: workers});
+            res.send({status: true, cats: cats});
         }
     } catch(e) {
         res.status(500).send({status: false});
@@ -61,16 +61,16 @@ server.post('/add-worker', async function (req, res) {
 /**
  * handler for patch request for firing a worker
  */
-server.patch('/fire-worker', async function (req, res) {
+server.patch('/issue-cat', async function (req, res) {
     const {ID} = req.body;
     try {
-        let workers  = await readWorkersFromJson();
-        workers = workers.filter((worker) => {
-            return worker.id !== parseInt(ID);
+        let cats  = await readWorkersFromJson();
+        cats = cats.filter((cats) => {
+            return cats.id !== parseInt(ID);
         });
 
-        await saveWorkerToJson(workers);
-        res.send({status: true, workers});
+        await saveWorkerToJson(cats);
+        res.send({status: true, cats});
 
     } catch(e) {
         res.status(500).send({status: false});
@@ -114,9 +114,8 @@ server.listen(port, function () {
  */
 function saveWorkerToJson(workers) {
     return new Promise ((resolve) => setTimeout(() => {
-        fs.writeFile(path.resolve(__dirname, 'data/workers.json'), JSON.stringify(workers, null, 4), (err) => {
+        fs.writeFile(path.resolve(__dirname, 'data/cats.json'), JSON.stringify(workers, null, 4), (err) => {
             if (err) throw err;
-            console.log('saved');
             resolve(true);
         })
     }, 1000));
@@ -129,15 +128,15 @@ function saveWorkerToJson(workers) {
 function readWorkersFromJson() {
     return new Promise((resolve) => {
         setTimeout(() => {
-            fs.open(path.resolve(__dirname, 'data/workers.json'), 'r' ,function(err, fd){
+            fs.open(path.resolve(__dirname, 'data/cats.json'), 'r' ,function(err, fd){
                 if (err) {
-                    fs.writeFile(path.resolve(__dirname, 'data/workers.json'), '[]', function(err) {
+                    fs.writeFile(path.resolve(__dirname, 'data/cats.json'), '[]', function(err) {
                         if(err) {
                             console.log(err);
                         }
                     });
                 }
-                fs.readFile(path.resolve(__dirname, 'data/workers.json'), {encoding: 'utf8', flag: 'a+'}, (err, data) => {
+                fs.readFile(path.resolve(__dirname, 'data/cats.json'), {encoding: 'utf8', flag: 'a+'}, (err, data) => {
                     if (err) throw err;
                     resolve(JSON.parse(data));
                 })

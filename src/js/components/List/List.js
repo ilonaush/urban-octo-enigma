@@ -9,35 +9,32 @@ import {Link} from "react-router-dom";
 class List extends Component {
     render() {
         return (
-            this.props.workers && this.props.workers.length ?
+            this.props.cats && this.props.cats.length ?
                 (<table>
                 <thead>
                     <tr>
-                        <th>
-                            Name
-                        </th>
-                        <th>
-                            Position
-                        </th>
-                        <th className='time'>
-                            Arrival
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Color</th>
+                        <th className='feeding'>
+                            <button>Feed a cat</button>
                         </th>
                         <th className='time'>
-                            Leaving
+                            <button>Hug a cat</button>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.workers.map ((worker) =>
-                        <ListItem key={worker.id} worker={worker} editWorkerTime={this.props.editWorkTime}/>
+                    {this.props.cats.map ((cat) =>
+                        <ListItem key={cat.id} worker={cat} editWorkerTime={this.props.editWorkTime}/>
                      )}
                 </tbody>
             </table>) :
-            <button className='home-add-btn'><Link to='/add-worker'>Add worker</Link></button>
+            <button className='home-add-btn'><Link to='/add-worker'>Accept a cat</Link></button>
         );
     }
 }
 
 List.propTypes = {};
 
-export default connect((state) => ({workers: state.workers}), (dispatch) => ({editWorkTime: (worker) => dispatch(actions.editWorkTime(worker))}))(List);
+export default connect((state) => ({cats: state.cats}), (dispatch) => ({editWorkTime: (worker) => dispatch(actions.editWorkTime(worker))}))(List);

@@ -9,9 +9,10 @@ class Sidebar extends Component {
     render() {
         return (
             <div className='sidebar'>
-                <Link to='/' className='heading'>Dashboard</Link>
+                <Link to='/' className='heading'>Kitty Farm Dashboard</Link>
                 <hr/>
                 <SidebarMenu />
+                <img  className='cat-bg' src="/images/cat-bg-4.png" alt=""/>
             </div>
         );
     }
