@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FireWorkerWrapper renders correctly 1`] = `
+<div>
+  <form
+    className="fireWorkerForm"
+    onSubmit={[Function]}
+  >
+    <select
+      onChange={[Function]}
+    >
+      <option
+        value=" "
+      >
+        Оберіть
+      </option>
+    </select>
+    <textarea
+      placeholder="Describe reason please"
+    />
+    <button
+      id="submit-btn"
+      type="submit"
+    >
+      Fire a worker
+    </button>
+  </form>
+</div>
+`;
