@@ -12,7 +12,24 @@ class ListItem extends Component {
          };
      }
 
-    editTime = (e)  =>{
+    handleFeedingClick = (e)  => {
+         const now = Date.now();
+         const cat = {
+             ...this.props.cat,
+             feedingTime:  now.setHours((now.getHours() + 2))
+         };
+         console.log(cat.feedingTime);
+        this.setState({
+            editing: e.currentTarget.id
+        })
+    };
+
+     handleHugClick = (e)  =>{
+        this.setState({
+            editing: e.currentTarget.id
+        })
+    };
+     handleWashClick = (e)  =>{
         this.setState({
             editing: e.currentTarget.id
         })
@@ -32,30 +49,14 @@ class ListItem extends Component {
     render() {
      const {editing} = this.state;
      const {cat: {name, age, color, arrival = '', leaving = ''} = {}} = this.props;
+     console.log(this.props);
         return (
             <tr>
                 <td>{name}</td>
-                <td>{age}</td>
-                <td>{color}</td>
-                <td id='arrival' onClick={this.editTime} onBlur={this.saveTime} className='worker-time'>
-                    {editing === 'arrival' ? <MaskedInput
-                        mask={[' ', /\d/,  /\d/, ':',  /\d/,  /\d/]}
-                        className='time-input'
-                        name='arrival'
-                        guide={true}
-                        placeholder='–-–:–-–'
-                    />
-                    : arrival ? arrival : 'Click to select'}
-                </td>
-                <td id='leaving' onClick={this.editTime} onBlur={this.saveTime} className='worker-time'>
-                    {editing === 'leaving' ? <MaskedInput
-                        mask={[/\d/,  /\d/, ':',  /\d/,  /\d/]}
-                        className='time-input'
-                        name='leaving'
-                        guide={true}
-                        placeholder='–-–:–-–'
-                    />
-                    : leaving ? leaving : 'Click to select'}
+                <td>{age ? age : '-'}</td>
+                <td>{color ? color : '-'}</td>
+                <td id='feeding' onClick={this.handleFeedingClick}>
+                    <button>Feed cat</button>
                 </td>
             </tr>
         );

@@ -34,8 +34,8 @@ server.use(crossOrigin);
  */
 server.get('/', async function (req, res) {
     try {
-        const workers = await readWorkersFromJson();
-        res.send(workers);
+        const cats = await readWorkersFromJson();
+        res.send(cats);
     } catch(e) {
         res.status(500).send({status: false});
     }
@@ -81,22 +81,72 @@ server.patch('/issue-cat', async function (req, res) {
 /**
  * handler for patch request for changing time of either arriving or leaving of a worker
  */
-server.patch('/edit-time', async function (req, res) {
-    const worker = req.body;
+server.patch('/feed-cat', async function (req, res) {
+    const cat = req.body;
     try {
-        let workers = await readWorkersFromJson();
-        workers = workers.map((item) => {
-            if (item.id === worker.id) {
+        let cats = await readWorkersFromJson();
+        cats = cats.map((item) => {
+            if (item.id === cat.id) {
                 return {
-                    ...worker
+                    ...cat
                 }
             }
             else {
                 return item;
             }
         });
-        await saveWorkerToJson(workers);
-        res.send({status: true, workers});
+        await saveWorkerToJson(cats);
+        res.send({status: true, cats});
+    }
+    catch (e) {
+        res.status(500).send({status: false});
+    }
+});
+
+/**
+ * handler for patch request for changing time of either arriving or leaving of a worker
+ */
+server.patch('/hug-cat', async function (req, res) {
+    const cat = req.body;
+    try {
+        let cats = await readWorkersFromJson();
+        cats = cats.map((item) => {
+            if (item.id === cat.id) {
+                return {
+                    ...cat
+                }
+            }
+            else {
+                return item;
+            }
+        });
+        await saveWorkerToJson(cats);
+        res.send({status: true, cats});
+    }
+    catch (e) {
+        res.status(500).send({status: false});
+    }
+});
+
+/**
+ * handler for patch request for changing time of either arriving or leaving of a worker
+ */
+server.patch('/wash-cat', async function (req, res) {
+    const cat = req.body;
+    try {
+        let cats = await readWorkersFromJson();
+        cats = cats.map((item) => {
+            if (item.id === cat.id) {
+                return {
+                    ...cat
+                }
+            }
+            else {
+                return item;
+            }
+        });
+        await saveWorkerToJson(cats);
+        res.send({status: true, cats});
     }
     catch (e) {
         res.status(500).send({status: false});

@@ -24,16 +24,20 @@ const MENU_ITEMS = [
 
 const REQUEST_PATHS = {
     GET_CATS: '/',
-    ADD_CAT: '/add-worker',
-    ISSUE_CAT: '/fire-worker',
-    EDIT_WORKTIME: '/edit-time'
+    ADD_CAT: '/add-cat',
+    ISSUE_CAT: '/issue-cat',
+    FEED_CAT: '/feed-cat',
+    HUG_CAT: '/hug-cat',
+    WASH_CAT: '/wash-cat'
 };
 
 const ACTIONS_TYPES = {
-    GET_CATS: 'GET_WORKERS',
-    ADD_CAT: 'EMPLOY_WORKER',
-    ISSUE_CAT: 'FIRE_WORKER',
-    EDIT_WORKTIME: 'EDIT_WORK_TIME',
+    GET_CATS: 'GET_CATS',
+    ADD_CAT: 'ADD_WORKER',
+    ISSUE_CAT: 'ISSUE_CAT',
+    FEED_CAT: 'FEED_CAT',
+    HUG_CAT: 'HUG_CAT',
+    WASH_CAT: 'WASH_CAT',
     SET_LOADING: 'SET_LOADING'
 };
 

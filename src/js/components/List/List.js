@@ -17,16 +17,16 @@ class List extends Component {
                         <th>Age</th>
                         <th>Color</th>
                         <th className='feeding'>
-                            <button>Feed a cat</button>
+                            Feed a cat
                         </th>
                         <th className='time'>
-                            <button>Hug a cat</button>
+                            Hug a cat
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     {this.props.cats.map ((cat) =>
-                        <ListItem key={cat.id} worker={cat} editWorkerTime={this.props.editWorkTime}/>
+                        <ListItem key={cat.id} cat={cat} editWorkerTime={this.props.editWorkTime}/>
                      )}
                 </tbody>
             </table>) :

@@ -38,6 +38,7 @@ export default {
                         payload: {cats: [], loading: false}
                     })
                 }
+                console.log(cats);
                 dispatch({
                     type: ACTIONS_TYPES.ADD_CAT,
                     payload: {cats, loading: false}
@@ -51,7 +52,7 @@ export default {
             }
         }
     },
-    editWorkTime: function (worker) {
+    feedCat(catID) {
         return async (dispatch) =>  {
             function setLoading() {
                 return dispatch({
@@ -62,26 +63,25 @@ export default {
 
             setLoading();
             try {
-                const {data: {workers, status}} = await RequestService.patch(REQUEST_PATHS.EDIT_WORKTIME, worker);
+                const {data: {cats, status}} = await RequestService.patch(REQUEST_PATHS.FEED_CAT, catID);
                 if (!status) {
                     dispatch({
-                        type: ACTIONS_TYPES.EDIT_WORKTIME,
-                        payload: {workers: [], loading: false}
+                        type: ACTIONS_TYPES.FEED_CAT,
+                        payload: {cats: [], loading: false}
                     })
                 }
                 dispatch({
-                    type: ACTIONS_TYPES.EDIT_WORKTIME,
-                    payload: {workers, loading: false}
+                    type: ACTIONS_TYPES.FEED_CAT,
+                    payload: {cats, loading: false}
                 });
             }
             catch (e) {
                 dispatch({
-                    type: ACTIONS_TYPES.EDIT_WORKTIME,
-                    payload: {workers: [], loading: false}
+                    type: ACTIONS_TYPES.FEED_CAT,
+                    payload: {cats: [], loading: false}
                 })
             }
-        }
-    },
+    }},
     findHome: function (catId) {
         return async (dispatch) =>  {
             function setLoading() {

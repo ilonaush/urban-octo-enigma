@@ -10,7 +10,7 @@ export class AddWorkerWrapper extends Component {
     /**
      * handles submit on add WorkerForm, dispatches an action
      * @param e
-     * @param worker
+     * @param cat
      */
     handleSubmit = (e, cat) => {
         e.preventDefault();
@@ -18,7 +18,10 @@ export class AddWorkerWrapper extends Component {
             name: `${cat.name}`,
             id: Date.now(),
             age: cat.age,
-            color: cat.color
+            color: cat.color,
+            reason: cat.reason,
+            location: cat.location,
+            health: cat.health
         };
         this.props.addCat(cat).then(() => this.props.history.push('/'))
     };
