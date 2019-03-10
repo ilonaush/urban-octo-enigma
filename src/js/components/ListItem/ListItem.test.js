@@ -1,28 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ListItem from './ListItem';
+import {ListItem} from './ListItem';
 import { shallow, mount, render } from 'enzyme';
+import {Provider} from "react-redux";
+import {store} from '../../reducers/index';
+
 
 it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<ListItem />, div);
+    ReactDOM.render(<Provider store={store}><ListItem /></Provider>, div);
 });
 
 it('renders without worker info', () => {
-    const ListItemComponent = mount(<ListItem/>);
-    expect(typeof (ListItemComponent.prop('worker'))).toBe('object');
+    const ListItemComponent = mount(<Provider store={store}><ListItem/></Provider>);
+    console.log(ListItemComponent.props())
+    expect(typeof (ListItemComponent.prop('cat'))).toBe('object');
 });
 
-// it('check the onChange callback', () => {
-//     const onChange = jest.fn(),
-//         onClick = jest.fn(),
-//         props = {
-//             value: '13:04',
-//             onChange
-//         },
-//         ListItemComponentInput = mount(<ListItem/>).find('#arrival');
-//     ListItemComponentInput.simulate('click');
-//     expect(ListItemComponentInput.find('.time-input').exists()).toBeTruthy();
-//     ListItemComponentInput.simulate('change', { target: {value: '12:12'} });
-//     expect(onChange).toHaveBeenCalledWith('12:12');
-// });

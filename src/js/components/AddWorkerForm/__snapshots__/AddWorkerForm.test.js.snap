@@ -5,6 +5,9 @@ exports[`AddWorkerForm renders correctly 1`] = `
   className="addWorkerForm"
   onSubmit={[Function]}
 >
+  <h3>
+    Please share some info about the cat with us
+  </h3>
   <input
     id="name-input"
     name="name"
@@ -13,22 +16,40 @@ exports[`AddWorkerForm renders correctly 1`] = `
     value=""
   />
   <input
-    name="surname"
+    name="age"
     onChange={[Function]}
-    placeholder="Surname"
+    placeholder="Age"
     value=""
   />
   <input
-    name="position"
+    name="color"
     onChange={[Function]}
-    placeholder="Position"
+    placeholder="Color"
+    value=""
+  />
+  <textarea
+    name="reason"
+    onChange={[Function]}
+    placeholder="Reason"
+    value=""
+  />
+  <input
+    name="location"
+    onChange={[Function]}
+    placeholder="Location"
+    value=""
+  />
+  <input
+    name="health"
+    onChange={[Function]}
+    placeholder="Describe health"
     value=""
   />
   <button
     id="submit-btn"
     type="submit"
   >
-    Employ a worker
+    Accept the cat
   </button>
 </form>
 `;

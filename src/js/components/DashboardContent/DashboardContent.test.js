@@ -4,8 +4,6 @@ import {MemoryRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import {store} from "../../reducers/index";
 import renderer from "react-test-renderer";
-import { shallow, mount, render } from 'enzyme';
-import Page500 from "../Page500/Page500";
 
 describe('DashboardContent', () => {
     it('renders correctly', () => {

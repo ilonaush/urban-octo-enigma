@@ -1,20 +1,14 @@
 [
     {
-        "name": "Илона Ушакова",
-        "id": 1551970499736,
-        "age": "",
-        "color": "",
+        "name": "BIo0dHunter",
+        "id": 1552218273243,
+        "age": "66",
+        "color": "666",
         "reason": "",
         "location": "",
-        "health": ""
-    },
-    {
-        "name": "Илона Ушакова",
-        "id": 1551970781469,
-        "age": "",
-        "color": "",
-        "reason": "",
-        "location": "",
-        "health": ""
+        "health": "",
+        "feedingTime": "2019-03-10T13:59:39+02:00",
+        "huggingTime": "2019-03-10T14:44:43+02:00",
+        "washingTime": "2019-03-11T13:44:45+02:00"
     }
 ]

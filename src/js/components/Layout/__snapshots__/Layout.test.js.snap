@@ -12,7 +12,7 @@ exports[`Layout renders correctly 1`] = `
       href="/"
       onClick={[Function]}
     >
-      Dashboard
+      Kitty Farm Dashboard
     </a>
     <hr />
     <div>
@@ -40,7 +40,7 @@ exports[`Layout renders correctly 1`] = `
         <li>
           <a
             aria-current={null}
-            href="/add-worker"
+            href="/add-cat"
             onClick={[Function]}
           >
             <span
@@ -52,13 +52,13 @@ exports[`Layout renders correctly 1`] = `
                 }
               }
             />
-            Add a worker
+            Register a cat
           </a>
         </li>
         <li>
           <a
             aria-current={null}
-            href="/fire-worker"
+            href="/find-home"
             onClick={[Function]}
           >
             <span
@@ -70,7 +70,7 @@ exports[`Layout renders correctly 1`] = `
                 }
               }
             />
-            Fire worker
+            Issue a cat
           </a>
         </li>
         <li>
@@ -93,6 +93,11 @@ exports[`Layout renders correctly 1`] = `
         </li>
       </ul>
     </div>
+    <img
+      alt=""
+      className="cat-bg"
+      src="/images/cat-bg-4.png"
+    />
   </div>
   <div
     className="dashboard"
@@ -100,7 +105,7 @@ exports[`Layout renders correctly 1`] = `
     <div
       className="intro"
     >
-      Table
+      Cats of our farm
     </div>
     <div
       className="d-content"

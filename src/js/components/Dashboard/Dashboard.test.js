@@ -35,7 +35,7 @@ describe('Dashboard', () => {
             </MemoryRouter>
         );
         const pageTitle = DashboardComponent.find(Intro).at(0);
-        expect(pageTitle.text()).toEqual('Add worker');
+        expect(pageTitle.text()).toEqual('Cat registration');
     });
 
     it('has loader when such prop is submitted', () => {

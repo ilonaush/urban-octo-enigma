@@ -5,17 +5,7 @@ exports[`Gallery renders correctly gallery component with mock store 1`] = `
   className="workers-gallery"
 >
   <div>
-    Немає співробітників
-  </div>
-</div>
-`;
-
-exports[`renders correctly gallery component with mock store 1`] = `
-<div
-  className="workers-gallery"
->
-  <div>
-    Немає співробітників
+    Немає котиків
   </div>
 </div>
 `;

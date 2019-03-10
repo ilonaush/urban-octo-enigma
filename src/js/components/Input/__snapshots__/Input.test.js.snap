@@ -5,9 +5,3 @@ exports[`Input renders correctly input  component  1`] = `
   value=""
 />
 `;
-
-exports[`renders correctly input  component  1`] = `
-<input
-  value=""
-/>
-`;

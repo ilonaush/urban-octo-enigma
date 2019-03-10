@@ -37,9 +37,10 @@ export class Dashboard extends Component {
 
     render() {
         const {page, loading} = this.state;
+        const {loadingType} = this.props;
         return (
             <div className='dashboard'>
-                {loading && <Loader/>}
+                {loading && <Loader loadingType={loadingType}/>}
                 <Intro>{page.title}</Intro>
                 <DashboardContent/>
             </div>
@@ -50,5 +51,5 @@ export class Dashboard extends Component {
 Dashboard.propTypes = {};
 
 
-export default connect((state) => ({pages: state.pages, loading: state.loading}))(Dashboard);
+export default connect((state) => ({pages: state.pages, loading: state.loading, loadingType: state.loadingType}))(Dashboard);
 

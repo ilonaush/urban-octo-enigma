@@ -6,35 +6,50 @@ import {connect} from "react-redux";
 import ListItem from "../ListItem/ListItem";
 import {Link} from "react-router-dom";
 
+const CatTable = ({cats}) => {
+    return (
+        <div className='table'>
+            <div className='table-row'>
+                <div className='table-head table-row-item'>Name</div>
+                <div className='table-head table-row-item'>Age</div>
+                <div className='table-head table-row-item'>Color</div>
+                <div className='table-head table-row-item'>
+                    Feed a cat
+                </div>
+                <div className='table-head table-row-item'>
+                    Hug a cat
+                </div>
+                <div className='table-head table-row-item'>
+                    Wash a cat
+                </div>
+            </div>
+            {cats.map ((cat) =>
+                <ListItem key={cat.id} cat={cat}/>
+            )}
+        </div>
+    );
+};
+
 class List extends Component {
     render() {
         return (
             this.props.cats && this.props.cats.length ?
-                (<table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Color</th>
-                        <th className='feeding'>
-                            Feed a cat
-                        </th>
-                        <th className='time'>
-                            Hug a cat
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.props.cats.map ((cat) =>
-                        <ListItem key={cat.id} cat={cat} editWorkerTime={this.props.editWorkTime}/>
-                     )}
-                </tbody>
-            </table>) :
-            <button className='home-add-btn'><Link to='/add-worker'>Accept a cat</Link></button>
+                <CatTable cats={this.props.cats}/>
+                :
+                <button className='home-add-btn'>
+                    <Link to='/add-cat'>Accept a cat</Link>
+                </button>
         );
     }
 }
 
 List.propTypes = {};
 
-export default connect((state) => ({cats: state.cats}), (dispatch) => ({editWorkTime: (worker) => dispatch(actions.editWorkTime(worker))}))(List);
+export default connect(
+    (state) => ({cats: state.cats}),
+    (dispatch) => ({
+        feedCat: (cat) => dispatch(actions.feedCat(cat)),
+        hugCat: (cat) => dispatch(actions.hugCat(cat)),
+        washCat: (cat) => dispatch(actions.washCat(cat))
+        })
+)(List);

@@ -14,10 +14,10 @@ describe('FireWorkerWrapper', () => {
         expect((FireWorkerWrapperComponent).toJSON()).toMatchSnapshot();
     });
 
-    it('calls submit function  when  the form is submitted', () => {
-        const mockFireWorkerAction = jest.fn();
+    it('calls submit function  when  the form is submitted', async () => {
+        const mockFindHomeAction = jest.fn().mockResolvedValue();
         const props = {
-            fireWorker: mockFireWorkerAction
+            findHome: mockFindHomeAction
         };
         const FireWorkerWrapperComponent = mount(
             <Provider store={store}>
@@ -26,9 +26,9 @@ describe('FireWorkerWrapper', () => {
         );
 
         const fireWorkerFormComponent = FireWorkerWrapperComponent.find(FireWorkerForm);
-        expect(mockFireWorkerAction.mock.calls.length).toBe(0);
+        expect(mockFindHomeAction.mock.calls.length).toBe(0);
         fireWorkerFormComponent.simulate('submit');
-        expect(mockFireWorkerAction.mock.calls.length).toBe(1)
+        expect(mockFindHomeAction.mock.calls.length).toBe(1)
     });
 
 

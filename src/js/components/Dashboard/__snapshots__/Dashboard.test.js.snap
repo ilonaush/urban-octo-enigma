@@ -7,7 +7,7 @@ exports[`Dashboard renders correctly 1`] = `
   <div
     className="intro"
   >
-    Table
+    Cats of our farm
   </div>
   <div
     className="d-content"

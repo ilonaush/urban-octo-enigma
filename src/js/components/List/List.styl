@@ -1,19 +1,31 @@
 @import "~js/vars"
 
-table
+.table
   background-color white
   width 100%
+  display: flex
+  flex-flow column nowrap
+  justify-content space-between
   padding 15px
-  tr
+  .table-row
     border-bottom 1px solid $gray
     height 40px
-  th
+    display flex
+    width 100%
+    flex-flow: row nowrap;
+
+  .table-row-item
+    display: flex;
+    flex-flow: row nowrap;
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0.5em;
+    word-break: break-word;
+
+  .table-head
     color $orange
     font-size 20px
     font-weight 300
     font-family $montserrat-thin
-    text-align left
-    &.time
-      width 20%
 .home-add-btn
   margin-top 100px

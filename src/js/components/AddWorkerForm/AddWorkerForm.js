@@ -34,9 +34,9 @@ export default class AddWorkerForm extends Component {
 
     render() {
         const {cat} = this.state;
-        const {onSubmit} = this.props;
+        const {handleSubmit} = this.props;
         return (
-            <form className='addWorkerForm' onSubmit={(e) => onSubmit(e, cat)}>
+            <form className='addWorkerForm' onSubmit={(e) => handleSubmit(e, cat)}>
                 <h3>Please share some info about the cat with us</h3>
                 <Input id='name-input'
                        name='name'

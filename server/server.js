@@ -46,6 +46,7 @@ server.get('/', async function (req, res) {
  */
 server.post('/add-cat', async function (req, res) {
     const cat = req.body;
+    console.log(cat);
     try {
         const cats = await readWorkersFromJson();
         cats.push(cat);

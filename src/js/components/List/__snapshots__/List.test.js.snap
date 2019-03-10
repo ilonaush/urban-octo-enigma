@@ -1,124 +1,242 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List renders 1`] = `
-<table>
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Position
-      </th>
-      <th
-        className="time"
+<div
+  className="table"
+>
+  <div
+    className="table-row"
+  >
+    <div
+      className="table-head table-row-item"
+    >
+      Name
+    </div>
+    <div
+      className="table-head table-row-item"
+    >
+      Age
+    </div>
+    <div
+      className="table-head table-row-item"
+    >
+      Color
+    </div>
+    <div
+      className="table-head table-row-item"
+    >
+      Feed a cat
+    </div>
+    <div
+      className="table-head table-row-item"
+    >
+      Hug a cat
+    </div>
+    <div
+      className="table-head table-row-item"
+    >
+      Wash a cat
+    </div>
+  </div>
+  <div
+    className="table-row"
+  >
+    <div
+      className="table-row-item"
+    />
+    <div
+      className="table-row-item"
+    >
+      -
+    </div>
+    <div
+      className="table-row-item"
+    >
+      -
+    </div>
+    <div
+      className="table-row-item"
+      id="feeding"
+      onClick={[Function]}
+    >
+      <button
+        className="btn-action"
       >
-        Arrival
-      </th>
-      <th
-        className="time"
+        Feed cat
+      </button>
+    </div>
+    <div
+      className="table-row-item"
+      id="hugging"
+      onClick={[Function]}
+    >
+      <button
+        className="btn-action"
       >
-        Leaving
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        mike
-      </td>
-      <td>
-        cat
-      </td>
-      <td
-        className="worker-time"
-        id="arrival"
-        onBlur={[Function]}
-        onClick={[Function]}
+        Hug cat
+      </button>
+    </div>
+    <div
+      className="table-row-item"
+      id="washing"
+      onClick={[Function]}
+    >
+      <button
+        className="btn-action"
       >
-        Click to select
-      </td>
-      <td
-        className="worker-time"
-        id="leaving"
-        onBlur={[Function]}
-        onClick={[Function]}
+        Wash cat
+      </button>
+    </div>
+  </div>
+  <div
+    className="table-row"
+  >
+    <div
+      className="table-row-item"
+    />
+    <div
+      className="table-row-item"
+    >
+      -
+    </div>
+    <div
+      className="table-row-item"
+    >
+      -
+    </div>
+    <div
+      className="table-row-item"
+      id="feeding"
+      onClick={[Function]}
+    >
+      <button
+        className="btn-action"
       >
-        Click to select
-      </td>
-    </tr>
-    <tr>
-      <td>
-        mike
-      </td>
-      <td>
-        cat
-      </td>
-      <td
-        className="worker-time"
-        id="arrival"
-        onBlur={[Function]}
-        onClick={[Function]}
+        Feed cat
+      </button>
+    </div>
+    <div
+      className="table-row-item"
+      id="hugging"
+      onClick={[Function]}
+    >
+      <button
+        className="btn-action"
       >
-        Click to select
-      </td>
-      <td
-        className="worker-time"
-        id="leaving"
-        onBlur={[Function]}
-        onClick={[Function]}
+        Hug cat
+      </button>
+    </div>
+    <div
+      className="table-row-item"
+      id="washing"
+      onClick={[Function]}
+    >
+      <button
+        className="btn-action"
       >
-        Click to select
-      </td>
-    </tr>
-    <tr>
-      <td>
-        mike
-      </td>
-      <td>
-        cat
-      </td>
-      <td
-        className="worker-time"
-        id="arrival"
-        onBlur={[Function]}
-        onClick={[Function]}
+        Wash cat
+      </button>
+    </div>
+  </div>
+  <div
+    className="table-row"
+  >
+    <div
+      className="table-row-item"
+    />
+    <div
+      className="table-row-item"
+    >
+      -
+    </div>
+    <div
+      className="table-row-item"
+    >
+      -
+    </div>
+    <div
+      className="table-row-item"
+      id="feeding"
+      onClick={[Function]}
+    >
+      <button
+        className="btn-action"
       >
-        Click to select
-      </td>
-      <td
-        className="worker-time"
-        id="leaving"
-        onBlur={[Function]}
-        onClick={[Function]}
+        Feed cat
+      </button>
+    </div>
+    <div
+      className="table-row-item"
+      id="hugging"
+      onClick={[Function]}
+    >
+      <button
+        className="btn-action"
       >
-        Click to select
-      </td>
-    </tr>
-    <tr>
-      <td>
-        mike
-      </td>
-      <td>
-        cat
-      </td>
-      <td
-        className="worker-time"
-        id="arrival"
-        onBlur={[Function]}
-        onClick={[Function]}
+        Hug cat
+      </button>
+    </div>
+    <div
+      className="table-row-item"
+      id="washing"
+      onClick={[Function]}
+    >
+      <button
+        className="btn-action"
       >
-        Click to select
-      </td>
-      <td
-        className="worker-time"
-        id="leaving"
-        onBlur={[Function]}
-        onClick={[Function]}
+        Wash cat
+      </button>
+    </div>
+  </div>
+  <div
+    className="table-row"
+  >
+    <div
+      className="table-row-item"
+    />
+    <div
+      className="table-row-item"
+    >
+      -
+    </div>
+    <div
+      className="table-row-item"
+    >
+      -
+    </div>
+    <div
+      className="table-row-item"
+      id="feeding"
+      onClick={[Function]}
+    >
+      <button
+        className="btn-action"
       >
-        Click to select
-      </td>
-    </tr>
-  </tbody>
-</table>
+        Feed cat
+      </button>
+    </div>
+    <div
+      className="table-row-item"
+      id="hugging"
+      onClick={[Function]}
+    >
+      <button
+        className="btn-action"
+      >
+        Hug cat
+      </button>
+    </div>
+    <div
+      className="table-row-item"
+      id="washing"
+      onClick={[Function]}
+    >
+      <button
+        className="btn-action"
+      >
+        Wash cat
+      </button>
+    </div>
+  </div>
+</div>
 `;

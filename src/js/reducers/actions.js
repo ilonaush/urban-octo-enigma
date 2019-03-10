@@ -1,5 +1,5 @@
 import RequestService from "../services/RequestService";
-import {ACTIONS_TYPES, REQUEST_PATHS} from "../constants";
+import {ACTIONS_TYPES, LOADING_TYPES, REQUEST_PATHS} from "../constants";
 
 export default {
     getCats: function() {
@@ -52,18 +52,81 @@ export default {
             }
         }
     },
-    feedCat(catID) {
+    feedCat(catInfo) {
         return async (dispatch) =>  {
             function setLoading() {
                 return dispatch({
                     type: ACTIONS_TYPES.SET_LOADING,
-                    payload: true
+                    payload: {loading: true, loadingType: LOADING_TYPES.FEED_CAT}
                 });
             }
 
             setLoading();
+
             try {
-                const {data: {cats, status}} = await RequestService.patch(REQUEST_PATHS.FEED_CAT, catID);
+                const {data: {cats, status}} = await RequestService.patch(REQUEST_PATHS.FEED_CAT, catInfo);
+                if (!status) {
+                    dispatch({
+                        type: ACTIONS_TYPES.FEED_CAT,
+                        payload: {cats: [], loading: false}
+                    })
+                }
+                dispatch({
+                    type: ACTIONS_TYPES.FEED_CAT,
+                    payload: {cats, loading: false}
+                });
+            }
+            catch (e) {
+                dispatch({
+                    type: ACTIONS_TYPES.FEED_CAT,
+                    payload: {cats: [], loading: false}
+                })
+            }
+    }},
+    hugCat(catInfo) {
+        return async (dispatch) =>  {
+            function setLoading() {
+                return dispatch({
+                    type: ACTIONS_TYPES.SET_LOADING,
+                    payload: {loading: true, loadingType: LOADING_TYPES.HUG_CAT}
+                });
+            }
+
+            setLoading();
+
+            try {
+                const {data: {cats, status}} = await RequestService.patch(REQUEST_PATHS.FEED_CAT, catInfo);
+                if (!status) {
+                    dispatch({
+                        type: ACTIONS_TYPES.FEED_CAT,
+                        payload: {cats: [], loading: false }
+                    })
+                }
+                dispatch({
+                    type: ACTIONS_TYPES.FEED_CAT,
+                    payload: {cats, loading: false}
+                });
+            }
+            catch (e) {
+                dispatch({
+                    type: ACTIONS_TYPES.FEED_CAT,
+                    payload: {cats: [], loading: false}
+                })
+            }
+    }},
+    washCat(catInfo) {
+        return async (dispatch) =>  {
+            function setLoading() {
+                return dispatch({
+                    type: ACTIONS_TYPES.SET_LOADING,
+                    payload: {loading: true, loadingType: LOADING_TYPES.WASH_CAT}
+                });
+            }
+
+            setLoading();
+
+            try {
+                const {data: {cats, status}} = await RequestService.patch(REQUEST_PATHS.FEED_CAT, catInfo);
                 if (!status) {
                     dispatch({
                         type: ACTIONS_TYPES.FEED_CAT,

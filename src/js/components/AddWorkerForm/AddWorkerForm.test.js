@@ -17,16 +17,16 @@ describe('AddWorkerForm', () => {
 });
 
 it('calls submit function  when  the form is submitted', () => {
-    const onSubmit = jest.fn(),
+    const handleSubmit = jest.fn(),
           AddWorkerFormComponent = mount(
               <Provider store={store}>
-                  <AddWorkerForm onSubmit={onSubmit}/>
+                  <AddWorkerForm handleSubmit={handleSubmit}/>
               </Provider>);
 
     const button = AddWorkerFormComponent.find('#submit-btn');
     button.simulate('submit');
-    expect(onSubmit).toHaveBeenCalledTimes(1);
-    expect(onSubmit).toHaveBeenCalled();
+    expect(handleSubmit).toHaveBeenCalledTimes(1);
+    expect(handleSubmit).toHaveBeenCalled();
 });
 
 it('change worker state when  the form is submitted', () => {
@@ -35,9 +35,9 @@ it('change worker state when  the form is submitted', () => {
                   <AddWorkerForm/>
               </Provider>).get(0));
     const firstInput = AddWorkerFormComponent.find(Input).at(0);
-    expect(AddWorkerFormComponent.state().worker.name).toEqual('');
+    expect(AddWorkerFormComponent.state().cat.name).toEqual('');
     firstInput.simulate('change', {target: { value: 'mike', name: 'name'}});
-    expect(AddWorkerFormComponent.state().worker.name).toEqual('mike');
+    expect(AddWorkerFormComponent.state().cat.name).toEqual('mike');
 
 });
 

@@ -9,7 +9,7 @@ import configureMockStore from "redux-mock-store";
 
 
 const mockStore = configureMockStore();
-const store = mockStore({ workers: [
+const store = mockStore({ cats: [
         {id: 1, fullname: 'mike', position: 'cat'},
         {id: 2, fullname: 'mike', position: 'cat'},
         {id: 3, fullname: 'mike', position: 'cat'},

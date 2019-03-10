@@ -14,8 +14,8 @@ export class AddWorkerWrapper extends Component {
      */
     handleSubmit = (e, cat) => {
         e.preventDefault();
-        cat = {
-            name: `${cat.name}`,
+        const catInfo = {
+            name: cat.name,
             id: Date.now(),
             age: cat.age,
             color: cat.color,
@@ -23,13 +23,13 @@ export class AddWorkerWrapper extends Component {
             location: cat.location,
             health: cat.health
         };
-        this.props.addCat(cat).then(() => this.props.history.push('/'))
+        this.props.addCat(catInfo).then(() => this.props.history.push('/'))
     };
 
     render() {
         return (
             <Fragment>
-                <AddWorkerForm onSubmit={this.handleSubmit}/>
+                <AddWorkerForm handleSubmit={this.handleSubmit}/>
                 <img  className='cat-bg' src="/images/cat-bg-2.png" alt=""/>
             </Fragment>
         );

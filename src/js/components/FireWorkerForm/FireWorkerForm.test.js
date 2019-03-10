@@ -17,9 +17,8 @@ describe('FireWorkerForm', () => {
                 <FireWorkerForm/>
             </Provider>
         ).get(0));
-        console.log(FireWorkerFormComponent.state());
-        expect(FireWorkerFormComponent.state().workerID).toEqual('');
+        expect(FireWorkerFormComponent.state().catID).toEqual('');
         FireWorkerFormComponent.find('select').simulate('change', {target: { value : '123'}});
-        expect(FireWorkerFormComponent.state().workerID).toEqual('123');
+        expect(FireWorkerFormComponent.state().catID).toEqual('123');
     });
 });

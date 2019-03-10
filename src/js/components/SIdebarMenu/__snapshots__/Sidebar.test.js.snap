@@ -26,7 +26,7 @@ exports[`SidebarMenu render correctly sidebar component 1`] = `
     <li>
       <a
         aria-current={null}
-        href="/add-worker"
+        href="/add-cat"
         onClick={[Function]}
       >
         <span
@@ -38,13 +38,13 @@ exports[`SidebarMenu render correctly sidebar component 1`] = `
             }
           }
         />
-        Add a worker
+        Register a cat
       </a>
     </li>
     <li>
       <a
         aria-current={null}
-        href="/fire-worker"
+        href="/find-home"
         onClick={[Function]}
       >
         <span
@@ -56,7 +56,7 @@ exports[`SidebarMenu render correctly sidebar component 1`] = `
             }
           }
         />
-        Fire worker
+        Issue a cat
       </a>
     </li>
     <li>

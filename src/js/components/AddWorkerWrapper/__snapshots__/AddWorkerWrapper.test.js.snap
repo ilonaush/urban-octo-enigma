@@ -1,34 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AddWorkerWrapper renders correctly 1`] = `
-<form
-  className="addWorkerForm"
-  onSubmit={[Function]}
->
-  <input
-    id="name-input"
-    name="name"
-    onChange={[Function]}
-    placeholder="Name"
-    value=""
-  />
-  <input
-    name="surname"
-    onChange={[Function]}
-    placeholder="Surname"
-    value=""
-  />
-  <input
-    name="position"
-    onChange={[Function]}
-    placeholder="Position"
-    value=""
-  />
-  <button
-    id="submit-btn"
-    type="submit"
+Array [
+  <form
+    className="addWorkerForm"
+    onSubmit={[Function]}
   >
-    Employ a worker
-  </button>
-</form>
+    <h3>
+      Please share some info about the cat with us
+    </h3>
+    <input
+      id="name-input"
+      name="name"
+      onChange={[Function]}
+      placeholder="Name"
+      value=""
+    />
+    <input
+      name="age"
+      onChange={[Function]}
+      placeholder="Age"
+      value=""
+    />
+    <input
+      name="color"
+      onChange={[Function]}
+      placeholder="Color"
+      value=""
+    />
+    <textarea
+      name="reason"
+      onChange={[Function]}
+      placeholder="Reason"
+      value=""
+    />
+    <input
+      name="location"
+      onChange={[Function]}
+      placeholder="Location"
+      value=""
+    />
+    <input
+      name="health"
+      onChange={[Function]}
+      placeholder="Describe health"
+      value=""
+    />
+    <button
+      id="submit-btn"
+      type="submit"
+    >
+      Accept the cat
+    </button>
+  </form>,
+  <img
+    alt=""
+    className="cat-bg"
+    src="/images/cat-bg-2.png"
+  />,
+]
 `;

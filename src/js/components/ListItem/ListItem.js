@@ -1,64 +1,73 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import "./ListItem.styl";
-import MaskedInput from 'react-text-mask'
-import RequestService from "../../services/RequestService";
+import moment from 'moment';
+import {connect} from "react-redux";
+import actions from "../../reducers/actions";
 
-class ListItem extends Component {
-     constructor(props) {
-         super(props);
-         this.state = {
-             editing: ''
-         };
-     }
+moment.locale();
 
-    handleFeedingClick = (e)  => {
-         const now = Date.now();
+export class ListItem extends Component {
+
+    handleFeedingClick = ()  => {
+        const feedingTime = moment().add(15, 'm').format();
+        const cat = {
+             ...this.props.cat,
+             feedingTime,
+        };
+        this.props.feedCat(cat);
+    };
+
+     handleHugClick = ()  =>{
+         const huggingTime = moment().add(1, 'h').format();
          const cat = {
              ...this.props.cat,
-             feedingTime:  now.setHours((now.getHours() + 2))
+             huggingTime,
          };
-         console.log(cat.feedingTime);
-        this.setState({
-            editing: e.currentTarget.id
-        })
+         this.props.hugCat(cat);
+    };
+     handleWashClick = ()  =>{
+         const washingTime = moment().add(1, 'd').format();
+         const cat = {
+             ...this.props.cat,
+             washingTime
+         };
+         this.props.washCat(cat);
     };
 
-     handleHugClick = (e)  =>{
-        this.setState({
-            editing: e.currentTarget.id
-        })
-    };
-     handleWashClick = (e)  =>{
-        this.setState({
-            editing: e.currentTarget.id
-        })
-    };
-
-    saveTime = ({target}) => {
-        this.setState({
-            editing: ''
-        });
-        const cat = {
-            ...this.props.cat,
-            [target.name]: target.value
-        };
-        this.props.editWorkerTime(cat);
+    isTimeToManipulate = (time) => {
+        return  moment().format()  > moment(time).format();
     };
 
     render() {
-     const {editing} = this.state;
-     const {cat: {name, age, color, arrival = '', leaving = ''} = {}} = this.props;
-     console.log(this.props);
+     const {cat: {name, age, color, feedingTime, washingTime, huggingTime} = {}} = this.props;
         return (
-            <tr>
-                <td>{name}</td>
-                <td>{age ? age : '-'}</td>
-                <td>{color ? color : '-'}</td>
-                <td id='feeding' onClick={this.handleFeedingClick}>
-                    <button>Feed cat</button>
-                </td>
-            </tr>
+            <div className='table-row'>
+                <div className='table-row-item' >{name}</div>
+                <div className='table-row-item'>{age ? age : '-'}</div>
+                <div className='table-row-item'>{color ? color : '-'}</div>
+                <div className='table-row-item' id='feeding' onClick={this.handleFeedingClick}>
+                    {!feedingTime || this.isTimeToManipulate(feedingTime) ?
+                        <button className='btn-action'>Feed cat</button>
+                        :
+                        `Next feeding: ${moment(feedingTime).format('HH:mm')}`
+                    }
+                </div>
+                <div className='table-row-item' id='hugging' onClick={this.handleHugClick}>
+                    {!huggingTime || this.isTimeToManipulate(huggingTime) ?
+                        <button className='btn-action'>Hug cat</button>
+                        :
+                        `Next hugging: ${moment(huggingTime).format('HH:mm')}`
+                    }
+                </div>
+                <div className='table-row-item' id='washing' onClick={this.handleWashClick}>
+                    {!washingTime || this.isTimeToManipulate(washingTime) ?
+                        <button className='btn-action'>Wash cat</button>
+                        :
+                        `Next washing: ${moment(washingTime).fromNow()}`
+                    }
+                </div>
+            </div>
         );
     }
 }
@@ -71,4 +80,11 @@ ListItem.defaultProps = {
     cat: {}
 };
 
-export default ListItem;
+export default connect(
+    null,
+    (dispatch) => ({
+        feedCat: (cat) => dispatch(actions.feedCat(cat)),
+        hugCat: (cat) => dispatch(actions.hugCat(cat)),
+        washCat: (cat) => dispatch(actions.washCat(cat))
+    })
+)(ListItem);

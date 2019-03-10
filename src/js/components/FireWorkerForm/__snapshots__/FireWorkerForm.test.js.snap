@@ -11,7 +11,7 @@ exports[`FireWorkerForm renders correctly 1`] = `
     <option
       value=" "
     >
-      Оберіть
+      Choose the meowy
     </option>
   </select>
   <textarea
@@ -21,7 +21,7 @@ exports[`FireWorkerForm renders correctly 1`] = `
     id="submit-btn"
     type="submit"
   >
-    Fire a worker
+    Find home for the cat
   </button>
 </form>
 `;
