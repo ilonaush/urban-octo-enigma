@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AddWorkerForm  from './AddWorkerForm';
+import AddCatForm  from './AddCatForm';
 
 import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
@@ -9,9 +9,9 @@ import {mount, shallow} from "enzyme/build";
 import renderer from "react-test-renderer";
 import Input from "../Input/Input";
 
-describe('AddWorkerForm', () => {
+describe('AddCatForm', () => {
     it('renders correctly', () => {
-        const AddWorkerFormComponent = renderer.create(<AddWorkerForm/>);
+        const AddWorkerFormComponent = renderer.create(<AddCatForm/>);
         expect((AddWorkerFormComponent).toJSON()).toMatchSnapshot();
     })
 });
@@ -20,7 +20,7 @@ it('calls submit function  when  the form is submitted', () => {
     const handleSubmit = jest.fn(),
           AddWorkerFormComponent = mount(
               <Provider store={store}>
-                  <AddWorkerForm handleSubmit={handleSubmit}/>
+                  <AddCatForm handleSubmit={handleSubmit}/>
               </Provider>);
 
     const button = AddWorkerFormComponent.find('#submit-btn');
@@ -32,7 +32,7 @@ it('calls submit function  when  the form is submitted', () => {
 it('change worker state when  the form is submitted', () => {
     const AddWorkerFormComponent = mount(shallow(
               <Provider store={store}>
-                  <AddWorkerForm/>
+                  <AddCatForm/>
               </Provider>).get(0));
     const firstInput = AddWorkerFormComponent.find(Input).at(0);
     expect(AddWorkerFormComponent.state().cat.name).toEqual('');

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import "./FireWorkerForm.styl";
+import "./FindHomeForm.styl";
 import Input from "../Input/Input";
 
-export class FireWorkerForm extends Component {
+export class FindHomeForm extends Component {
 
     constructor(props) {
         super(props);
@@ -30,20 +30,21 @@ export class FireWorkerForm extends Component {
                         <option key={cat.id} value={cat.id} >{cat.name}, {cat.age}</option>
                     )}
                 </select>
-                <textarea placeholder='Describe reason please'/>
+                <Input placeholder='Location of future home'/>
+                <textarea placeholder='Describe the family please'/>
                 <button id='submit-btn' type='submit'>Find home for the cat</button>
             </form>
         );
     }
 }
 
-FireWorkerForm.propTypes = {
+FindHomeForm.propTypes = {
     cats: PropTypes.array,
     onSubmit: PropTypes.func
 };
 
-FireWorkerForm.defaultProps = {
+FindHomeForm.defaultProps = {
     cats: [],
 };
 
-export default FireWorkerForm;
+export default FindHomeForm;

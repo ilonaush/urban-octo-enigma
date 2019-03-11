@@ -146,15 +146,15 @@ module.exports = function () {
                                 enforce: true
                             },
                             addWorkerForm: {
-                                test: /AddWorker/,
-                                name: 'add-worker',
+                                test: /AddCat/,
+                                name: 'add-cat',
                                 chunks: 'async',
                                 priority: 2,
                                 enforce: true
                             },
                             fireWorkerForm: {
-                                test: /FireWorker/,
-                                name: 'fire-worker',
+                                test: /FindHome/,
+                                name: 'find-home',
                                 chunks: 'async',
                                 priority: 2,
                                 enforce: true
@@ -350,6 +350,8 @@ module.exports = function () {
                     }
                 )
             ),
+            new webpack.ContextReplacementPlugin(/moment[/\\]locale$/,
+                /uk/),
             new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),
             new ModuleNotFoundPlugin(paths.appPath),
             new meowChunkCompositionPlugin(),

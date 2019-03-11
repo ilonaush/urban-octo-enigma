@@ -20,8 +20,6 @@ class Input extends Component {
 Input.propTypes = {
     value: PropTypes.string
 };
-Input.defaultProps = {
-    value: ''
-};
+
 
 export default Input;

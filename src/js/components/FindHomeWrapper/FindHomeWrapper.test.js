@@ -1,16 +1,16 @@
 import React from 'react';
-import {FireWorkerWrapper}  from './FireWorkerWrapper';
+import {FindHomeWrapper}  from './FindHomeWrapper';
 import {Provider} from "react-redux";
 import {store} from "../../reducers/index";
 import {mount, shallow} from "enzyme/build";
 import renderer from "react-test-renderer";
-import FireWorkerForm from "../FireWorkerForm/FireWorkerForm";
+import FindHomeForm from "../FindHomeForm/FindHomeForm";
 
 
 
-describe('FireWorkerWrapper', () => {
+describe('FindHomeWrapper', () => {
     it('renders correctly', () => {
-        const FireWorkerWrapperComponent = renderer.create(<FireWorkerWrapper/>);
+        const FireWorkerWrapperComponent = renderer.create(<FindHomeWrapper/>);
         expect((FireWorkerWrapperComponent).toJSON()).toMatchSnapshot();
     });
 
@@ -21,11 +21,11 @@ describe('FireWorkerWrapper', () => {
         };
         const FireWorkerWrapperComponent = mount(
             <Provider store={store}>
-                <FireWorkerWrapper {...props}/>
+                <FindHomeWrapper {...props}/>
             </Provider>
         );
 
-        const fireWorkerFormComponent = FireWorkerWrapperComponent.find(FireWorkerForm);
+        const fireWorkerFormComponent = FireWorkerWrapperComponent.find(FindHomeForm);
         expect(mockFindHomeAction.mock.calls.length).toBe(0);
         fireWorkerFormComponent.simulate('submit');
         expect(mockFindHomeAction.mock.calls.length).toBe(1)

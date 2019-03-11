@@ -2,10 +2,10 @@ import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import actions from "../../reducers/actions";
 import {connect} from "react-redux";
-import AddWorkerForm from "../AddWorkerForm/AddWorkerForm";
-import  "./AddWorkerWrapper.styl";
+import AddCatForm from "../AddCatForm/AddCatForm";
+import "./AddCatWrapper.styl";
 
-export class AddWorkerWrapper extends Component {
+export class AddCatWrapper extends Component {
 
     /**
      * handles submit on add WorkerForm, dispatches an action
@@ -29,16 +29,16 @@ export class AddWorkerWrapper extends Component {
     render() {
         return (
             <Fragment>
-                <AddWorkerForm handleSubmit={this.handleSubmit}/>
+                <AddCatForm handleSubmit={this.handleSubmit}/>
                 <img  className='cat-bg' src="/images/cat-bg-2.png" alt=""/>
             </Fragment>
         );
     }
 }
 
-AddWorkerWrapper.propTypes = {};
+AddCatWrapper.propTypes = {};
 
 export default connect(
     (state) => ({cats: state.cats}),
     (dispatch) => ({addCat: (cat) => dispatch(actions.addCat(cat))})
-)(AddWorkerWrapper);
+)(AddCatWrapper);

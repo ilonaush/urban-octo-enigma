@@ -1,20 +1,20 @@
 import React from 'react';
-import FireWorkerForm from './FireWorkerForm';
+import FindHomeForm from './FindHomeForm';
 import {mount, shallow} from "enzyme/build";
 import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
 import {store} from "../../reducers";
 
-describe('FireWorkerForm', () => {
+describe('FindHomeForm', () => {
     it('renders correctly', () => {
-        const FireWorkerFormComponent = renderer.create(<FireWorkerForm/>);
+        const FireWorkerFormComponent = renderer.create(<FindHomeForm/>);
         expect((FireWorkerFormComponent).toJSON()).toMatchSnapshot();
     });
 
     it('changes its state on select', () => {
         const FireWorkerFormComponent = mount(shallow(
             <Provider store={store}>
-                <FireWorkerForm/>
+                <FindHomeForm/>
             </Provider>
         ).get(0));
         expect(FireWorkerFormComponent.state().catID).toEqual('');

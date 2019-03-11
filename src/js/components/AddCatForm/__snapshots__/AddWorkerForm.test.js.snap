@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddWorkerForm renders correctly 1`] = `
+exports[`AddCatForm renders correctly 1`] = `
 <form
   className="addWorkerForm"
   onSubmit={[Function]}

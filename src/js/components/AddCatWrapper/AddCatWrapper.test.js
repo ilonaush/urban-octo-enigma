@@ -1,16 +1,16 @@
 import React from 'react';
-import {AddWorkerWrapper}  from './AddWorkerWrapper';
+import {AddCatWrapper}  from './AddCatWrapper';
 import {Provider} from "react-redux";
 import {store} from "../../reducers/index";
 import {mount, shallow} from "enzyme/build";
 import renderer from "react-test-renderer";
-import AddWorkerForm from "../AddWorkerForm/AddWorkerForm";
+import AddCatForm from "../AddCatForm/AddCatForm";
 
 
 
-describe('AddWorkerWrapper', () => {
+describe('AddCatWrapper', () => {
     it('renders correctly', () => {
-        const AddWorkerWrapperComponent = renderer.create(<AddWorkerWrapper/>);
+        const AddWorkerWrapperComponent = renderer.create(<AddCatWrapper/>);
         expect((AddWorkerWrapperComponent).toJSON()).toMatchSnapshot();
     });
 
@@ -21,11 +21,11 @@ describe('AddWorkerWrapper', () => {
         };
         const AddWorkerWrapperComponent = mount(
             <Provider store={store}>
-                <AddWorkerWrapper {...props}/>
+                <AddCatWrapper {...props}/>
             </Provider>
         );
 
-        const AddWorkerFormComponent = AddWorkerWrapperComponent.find(AddWorkerForm);
+        const AddWorkerFormComponent = AddWorkerWrapperComponent.find(AddCatForm);
         expect(mockAddCatAction.mock.calls.length).toBe(0);
         AddWorkerFormComponent.simulate('submit');
         expect(mockAddCatAction.mock.calls.length).toBe(1)

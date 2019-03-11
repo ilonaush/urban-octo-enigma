@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FireWorkerWrapper renders correctly 1`] = `
+exports[`FindHomeWrapper renders correctly 1`] = `
 <div>
   <form
     className="fireWorkerForm"
