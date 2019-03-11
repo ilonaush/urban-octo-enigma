@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import "./AddWorkerForm.styl";
+import "./AddCatForm.styl";
 import Input from "../Input/Input";
 
-export default class AddWorkerForm extends Component {
+export default class AddCatForm extends Component {
 
     constructor(props) {
         super(props);
@@ -80,5 +80,5 @@ export default class AddWorkerForm extends Component {
     }
 }
 
-AddWorkerForm.propTypes = {};
+AddCatForm.propTypes = {};
 
