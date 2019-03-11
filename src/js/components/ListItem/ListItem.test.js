@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {ListItem} from './ListItem';
-import { shallow, mount, render } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import {Provider} from "react-redux";
 import {store} from '../../reducers/index';
 
@@ -11,9 +11,15 @@ it('renders without crashing', () => {
     ReactDOM.render(<Provider store={store}><ListItem /></Provider>, div);
 });
 
-it('renders without worker info', () => {
-    const ListItemComponent = mount(<Provider store={store}><ListItem/></Provider>);
-    console.log(ListItemComponent.props())
-    expect(typeof (ListItemComponent.prop('cat'))).toBe('object');
+it('does not render button', () => {
+    const cat =  {
+        feedingTime: '2019-03-11T10:59:53+02:00'
+    };
+    const ListItemComponent = mount(<Provider store={store}><ListItem cat={cat}/></Provider>);
+    expect(ListItemComponent.find('#feeding-btn').exists()).toBeFalsy();
 });
 
+it('renders button', () => {
+    const ListItemComponentButton = mount(<Provider store={store}><ListItem/></Provider>);
+    expect(ListItemComponentButton.find('#feeding-btn').exists()).toBeTruthy();
+});

@@ -11,35 +11,23 @@ const mockStore = configureMockStore(middlewares);
 
 describe('actions', () => {
 
-    it('creates GET_WORKERS after successfuly fetching workers', async () => {
+    it('creates GET_CATS after successfuly fetching cats', async () => {
         const expectedActions = [
-            { type: ACTIONS_TYPES.GET_WORKERS, payload: {workers: [{ id: 1, name: 'John Smith' }]} },
+            { type: ACTIONS_TYPES.GET_CATS, payload: {cats: [{ id: 1, name: 'John Smith' }]} },
         ];
 
         mockAxios.onGet('/').reply(200, {
-            workers: [
+            cats: [
                 {id: 1, name: 'John Smith'}
             ]
         });
 
-        const store = mockStore({ workers: []});
 
-        await store.dispatch(actions.getWorkers()) ;
-            // return of async actions
-        expect(store.getActions()).toEqual(expectedActions);
 
-    });
+        const store = mockStore({ cats: []});
 
-    it('creates GET_WORKERS after fail while fetching workers', async () => {
-        const expectedActions = [
-            { type: ACTIONS_TYPES.GET_WORKERS, payload: [] },
-        ];
-
-        mockAxios.onGet('/').networkError();
-
-        const store = mockStore({ workers: []});
-
-        await store.dispatch(actions.getWorkers());
+        await store.dispatch(actions.getCats()) ;
+        console.log(mockAxios.history);
 
         expect(store.getActions()).toEqual(expectedActions);
 
@@ -47,23 +35,50 @@ describe('actions', () => {
 
     it('creates SET_LOADING after fail while fetching workers', async () => {
 
-        const worker = { id: 1, name: 'John Smith' };
+        const cat = { id: 1, name: 'John Smith' };
 
         const expectedActions = [
             { type: ACTIONS_TYPES.SET_LOADING, payload: true },
-            { type: ACTIONS_TYPES.EMPLOY_WORKER, payload: {workers: [{ id: 1, name: 'John Smith' }], loading: false}},
+            { type: ACTIONS_TYPES.ADD_CAT, payload: {cats: [{ id: 1, name: 'John Smith' }], loading: false}},
         ];
 
-        mockAxios.onPost(REQUEST_PATHS.EMPLOY_WORKER).reply(function (config) {
-            return RequestService.get(REQUEST_PATHS.GET_WORKERS)
-        });
+        RequestService.post(REQUEST_PATHS.ADD_CAT, {
+            _id: '123'
+        })
+            .then(function(response) {
+                console.log(response.data.cats);
+            })
+            .catch(e => {
+                console.log(e);
+            })
+
+        // mockAxios.onPost(REQUEST_PATHS.ADD_CAT).reply(200, { status: true, cats: 'stuff to reply with' });
 
 
-        const store = mockStore({ workers: []});
 
-        await store.dispatch(actions.employWorker(worker));
+
+        const store = mockStore({ cats: []});
+
+        await store.dispatch(actions.addCat(cat));
 
         expect(store.getActions()).toEqual(expectedActions);
 
     });
+
+    it('creates GET_CATS after fail while fetching cats', async () => {
+        const expectedActions = [
+            { type: ACTIONS_TYPES.GET_CATS, payload: [] },
+        ];
+
+        mockAxios.onGet('/').networkError();
+
+        const store = mockStore({ workers: []});
+
+        await store.dispatch(actions.getCats());
+
+        expect(store.getActions()).toEqual(expectedActions);
+
+    });
+
+
 });

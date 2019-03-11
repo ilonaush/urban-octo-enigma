@@ -36,11 +36,12 @@ export class ListItem extends Component {
     };
 
     isTimeToManipulate = (time) => {
+        console.log(moment().format()  > moment(time).format());
         return  moment().format()  > moment(time).format();
     };
 
     render() {
-     const {cat: {name, age, color, feedingTime, washingTime, huggingTime} = {}} = this.props;
+     const {cat: {name, age, color, feedingTime, washingTime, huggingTime}} = this.props;
         return (
             <div className='table-row'>
                 <div className='table-row-item' >{name}</div>
@@ -48,7 +49,7 @@ export class ListItem extends Component {
                 <div className='table-row-item'>{color ? color : '-'}</div>
                 <div className='table-row-item' id='feeding' onClick={this.handleFeedingClick}>
                     {!feedingTime || this.isTimeToManipulate(feedingTime) ?
-                        <button className='btn-action'>Feed cat</button>
+                        <button className='btn-action' id='feeding-btn'>Feed cat</button>
                         :
                         `Next feeding: ${moment(feedingTime).format('HH:mm')}`
                     }

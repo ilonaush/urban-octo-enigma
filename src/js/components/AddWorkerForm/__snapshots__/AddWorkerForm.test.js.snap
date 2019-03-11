@@ -13,18 +13,21 @@ exports[`AddWorkerForm renders correctly 1`] = `
     name="name"
     onChange={[Function]}
     placeholder="Name"
+    required={true}
     value=""
   />
   <input
     name="age"
     onChange={[Function]}
     placeholder="Age"
+    required={true}
     value=""
   />
   <input
     name="color"
     onChange={[Function]}
     placeholder="Color"
+    required={true}
     value=""
   />
   <textarea
@@ -37,12 +40,14 @@ exports[`AddWorkerForm renders correctly 1`] = `
     name="location"
     onChange={[Function]}
     placeholder="Location"
+    required={true}
     value=""
   />
   <input
     name="health"
     onChange={[Function]}
     placeholder="Describe health"
+    required={true}
     value=""
   />
   <button

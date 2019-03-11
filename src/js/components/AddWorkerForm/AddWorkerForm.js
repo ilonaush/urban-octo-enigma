@@ -43,16 +43,19 @@ export default class AddWorkerForm extends Component {
                        placeholder='Name'
                        onChange={(event) => this.handleChange(event.target.value, event.target.name)}
                        value={cat.name}
+                       required
                         />
                 <Input name='age'
                        placeholder='Age'
                        onChange={(event) => this.handleChange(event.target.value, event.target.name)}
                        value={cat.age}
+                       required
                 />
                 <Input name='color'
                        placeholder='Color'
                        onChange={(event) => this.handleChange(event.target.value, event.target.name)}
                        value={cat.color}
+                       required
                 />
                 <textarea name='reason'
                        placeholder='Reason'
@@ -63,11 +66,13 @@ export default class AddWorkerForm extends Component {
                        placeholder='Location'
                        onChange={(event) => this.handleChange(event.target.value, event.target.name)}
                        value={cat.location}
+                       required
                 />
                 <Input name='health'
                        placeholder='Describe health'
                        onChange={(event) => this.handleChange(event.target.value, event.target.name)}
                        value={cat.health}
+                       required
                 />
                 <button id='submit-btn' type='submit'>Accept the cat</button>
             </form>

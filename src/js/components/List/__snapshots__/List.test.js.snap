@@ -61,6 +61,7 @@ exports[`List renders 1`] = `
     >
       <button
         className="btn-action"
+        id="feeding-btn"
       >
         Feed cat
       </button>
@@ -111,6 +112,7 @@ exports[`List renders 1`] = `
     >
       <button
         className="btn-action"
+        id="feeding-btn"
       >
         Feed cat
       </button>
@@ -161,6 +163,7 @@ exports[`List renders 1`] = `
     >
       <button
         className="btn-action"
+        id="feeding-btn"
       >
         Feed cat
       </button>
@@ -211,6 +214,7 @@ exports[`List renders 1`] = `
     >
       <button
         className="btn-action"
+        id="feeding-btn"
       >
         Feed cat
       </button>
