@@ -89,7 +89,7 @@
   },
   "scripts": {
     "start": "SET \"NODE_ENV=development\" && webpack-dev-server --open  --config config/webpack.config.js",
-    "build": "SET \"NODE_ENV=production\" && webpack --config config/webpack.prod.config.js",
+    "build": "SET \"NODE_ENV=production\" && webpack --config config/webpack.config.js",
     "testDom": "SET \"TEST_ENV=dom\" && jest -c jest.config.js",
     "testNode": "SET \"TEST_ENV=node\"  && jest -c jest.config.js",
     "server": "node server/server.js"
