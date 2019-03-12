@@ -30,20 +30,23 @@ const CatTable = ({cats}) => {
     );
 };
 
-class List extends Component {
-    render() {
-        return (
-            this.props.cats && this.props.cats.length ?
-                <CatTable cats={this.props.cats}/>
-                :
-                <button className='home-add-btn'>
-                    <Link to='/add-cat'>Accept a cat</Link>
-                </button>
-        );
-    }
-}
+const List = ({cats}) => {
+    return (
+        cats && cats.length ?
+            <CatTable cats={cats}/>
+            :
+            <button className='home-add-btn'>
+                <Link to='/add-cat'>Accept a cat</Link>
+            </button>
+    )
+};
 
-List.propTypes = {};
+List.propTypes = {
+    cats: PropTypes.array,
+    feedCat: PropTypes.func,
+    hugCat:  PropTypes.func,
+    washCat:  PropTypes.func
+};
 
 export default connect(
     (state) => ({cats: state.cats}),

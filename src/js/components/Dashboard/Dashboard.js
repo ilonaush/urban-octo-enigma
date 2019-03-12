@@ -4,6 +4,8 @@ import Intro from "../Intro/Intro";
 import DashboardContent from "../DashboardContent/DashboardContent";
 import {connect} from "react-redux";
 import Loader from "../Loader/Loader";
+import PropTypes from 'prop-types';
+
 
 export class Dashboard extends Component {
 
@@ -15,18 +17,30 @@ export class Dashboard extends Component {
         };
     }
 
+    static propTypes = {
+        pages: PropTypes.array,
+        loading: PropTypes.bool,
+        loadingType: PropTypes.string,
+    };
+
+    componentDidMount() {
+        this.setState({
+            page: this.getPage(this.props.location.pathname, this.props.pages)
+        })
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.loading !== this.props.loading) {
             this.setState({
                 loading: nextProps.loading
             })
         }
-    }
 
-    componentDidMount() {
-        this.setState({
-            page: this.getPage(this.props.location.pathname, this.props.pages)
-        })
+        if (this.props.location.pathname !== nextProps.location.pathname) {
+            this.setState({
+                page: this.getPage(nextProps.location.pathname, nextProps.pages)
+            })
+        }
     }
 
     getPage = (path, pages = []) => {
@@ -48,8 +62,7 @@ export class Dashboard extends Component {
     }
 }
 
-Dashboard.propTypes = {};
-
-
-export default connect((state) => ({pages: state.pages, loading: state.loading, loadingType: state.loadingType}))(Dashboard);
+export default connect(
+    (state) => ({pages: state.pages, loading: state.loading, loadingType: state.loadingType})
+)(Dashboard);
 

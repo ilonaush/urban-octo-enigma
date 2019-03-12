@@ -23,14 +23,15 @@ export default class AddCatForm extends Component {
      * @param value
      * @param name
      */
-    handleChange = (value, name) => {
-        this.setState((state) => ({
+    handleChange = ({target: {value, name}}) => {
+        this.setState((prevState) => ({
             cat: {
-                ...state.cat,
+                ...prevState.cat,
                 [name]: value
             }
         }))
     };
+
 
     render() {
         const {cat} = this.state;
@@ -41,39 +42,38 @@ export default class AddCatForm extends Component {
                 <Input id='name-input'
                        name='name'
                        placeholder='Name'
-                       onChange={(event) => this.handleChange(event.target.value, event.target.name)}
+                       onChange={this.handleChange}
                        value={cat.name}
                        required
                         />
                 <Input name='age'
                        placeholder='Age'
-                       onChange={(event) => this.handleChange(event.target.value, event.target.name)}
+                       onChange={this.handleChange}
                        value={cat.age}
                        required
                 />
                 <Input name='color'
                        placeholder='Color'
-                       onChange={(event) => this.handleChange(event.target.value, event.target.name)}
+                       onChange={this.handleChange}
                        value={cat.color}
                        required
                 />
                 <textarea name='reason'
                        placeholder='Reason'
-                       onChange={(event) => this.handleChange(event.target.value, event.target.name)}
+                       onChange={this.handleChange}
                        value={cat.reason}
                 />
                 <Input name='location'
                        placeholder='Location'
-                       onChange={(event) => this.handleChange(event.target.value, event.target.name)}
+                       onChange={this.handleChange}
                        value={cat.location}
                        required
                 />
-                <Input name='health'
-                       placeholder='Describe health'
-                       onChange={(event) => this.handleChange(event.target.value, event.target.name)}
-                       value={cat.health}
-                       required
-                />
+                <select value={cat.health} name='health' onChange={this.handleChange}>
+                    <option value="Satisfying">Satisfying</option>
+                    <option value="Minor problems">Minor problems</option>
+                    <option value="Not satisfying">Not satisfying</option>
+                </select>
                 <button id='submit-btn' type='submit'>Accept the cat</button>
             </form>
         );

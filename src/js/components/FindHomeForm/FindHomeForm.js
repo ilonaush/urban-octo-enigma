@@ -1,7 +1,24 @@
-import React, {Component} from 'react';
+import React, {useState, Component} from 'react';
 import PropTypes from 'prop-types';
 import "./FindHomeForm.styl";
 import Input from "../Input/Input";
+
+// export function FindHomeForm ({onSubmit, cats}) {
+//     const [catID, changeCatId] = useState('');
+//     return (
+//         <form className='fireWorkerForm' onSubmit={(e) => onSubmit(e, catID)}>
+//             <select onChange={({target})=> changeCatId(target.value)}>
+//                 <option value=" ">Choose the meowy</option>
+//                 {cats.map((cat) =>
+//                     <option key={cat.id} value={cat.id} >{cat.name}, {cat.age}</option>
+//                 )}
+//             </select>
+//             <Input placeholder='Location of future home'/>
+//             <textarea placeholder='Describe the family please'/>
+//             <button id='submit-btn' type='submit'>Find home for the cat</button>
+//         </form>
+//     );
+// };
 
 export class FindHomeForm extends Component {
 
@@ -48,3 +65,4 @@ FindHomeForm.defaultProps = {
 };
 
 export default FindHomeForm;
+

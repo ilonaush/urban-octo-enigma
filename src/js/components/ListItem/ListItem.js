@@ -36,7 +36,6 @@ export class ListItem extends Component {
     };
 
     isTimeToManipulate = (time) => {
-        console.log(moment().format()  > moment(time).format());
         return  moment().format()  > moment(time).format();
     };
 
@@ -51,21 +50,21 @@ export class ListItem extends Component {
                     {!feedingTime || this.isTimeToManipulate(feedingTime) ?
                         <button className='btn-action' id='feeding-btn'>Feed cat</button>
                         :
-                        `Next feeding: ${moment(feedingTime).format('HH:mm')}`
+                        `Next feeding ${moment(feedingTime).fromNow()}`
                     }
                 </div>
                 <div className='table-row-item' id='hugging' onClick={this.handleHugClick}>
                     {!huggingTime || this.isTimeToManipulate(huggingTime) ?
                         <button className='btn-action'>Hug cat</button>
                         :
-                        `Next hugging: ${moment(huggingTime).format('HH:mm')}`
+                        `Next hugging ${moment(huggingTime).fromNow()}`
                     }
                 </div>
                 <div className='table-row-item' id='washing' onClick={this.handleWashClick}>
                     {!washingTime || this.isTimeToManipulate(washingTime) ?
                         <button className='btn-action'>Wash cat</button>
                         :
-                        `Next washing: ${moment(washingTime).fromNow()}`
+                        `Next washing ${moment(washingTime).fromNow()}`
                     }
                 </div>
             </div>

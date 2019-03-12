@@ -1,3 +1,4 @@
+
 const testDom = process.env.TEST_ENV === 'dom';
 
 module.exports = {

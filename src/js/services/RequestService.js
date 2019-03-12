@@ -5,7 +5,7 @@ export class RequestService {
         let service = axios.create({
             baseURL: 'http://localhost:5000',
         });
-        // service.interceptors.response.use(this.handleSuccess, this.handleError);
+        service.interceptors.response.use(this.handleSuccess, this.handleError);
         this.service = service;
     }
 
@@ -13,20 +13,20 @@ export class RequestService {
         return response;
     }
 
-    // handleError = (error) => {
-    //     switch (error.response.status) {
-    //         case 401:
-    //             this.redirectTo(document, '/')
-    //             break;
-    //         case 404:
-    //             this.redirectTo(document, '/404')
-    //             break;
-    //         default:
-    //             this.redirectTo(document, '/500')
-    //             break;
-    //     }
-    //     return Promise.reject(error)
-    // };
+    handleError = (error) => {
+        switch (error.response.status) {
+            case 401:
+                this.redirectTo(document, '/')
+                break;
+            case 404:
+                this.redirectTo(document, '/404')
+                break;
+            default:
+                this.redirectTo(document, '/500')
+                break;
+        }
+        return Promise.reject(error)
+    };
 
     redirectTo = (document, path) => {
         document.location = path;

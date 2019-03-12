@@ -8,11 +8,11 @@ const initialState = {
         },
         {
             title: 'Cat registration',
-            path: '/add-worker'
+            path: '/add-cat'
         },
         {
             title: 'Choose a cat into your house :)',
-            path: '/fire-worker'
+            path: '/find-home'
         }, {
             title: 'Gallery of our cats',
             path: '/gallery'

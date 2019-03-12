@@ -3,6 +3,11 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
 const server = express();
+const util = require('util');
+
+const readFile = util.promisify(fs.readFile);
+const writeFile = util.promisify(fs.writeFile);
+const delay = time => new Promise(res=> setTimeout(res,time));
 
 server.use(bodyParser.json());
 
@@ -28,13 +33,12 @@ const port = 5000;
 
 server.use(crossOrigin);
 
-
 /**
  * handler for get request; gives all workers
  */
 server.get('/', async function (req, res) {
     try {
-        const cats = await readWorkersFromJson();
+        const cats = await readDataFromJson();
         res.send(cats);
     } catch(e) {
         res.status(500).send({status: false});
@@ -46,11 +50,10 @@ server.get('/', async function (req, res) {
  */
 server.post('/add-cat', async function (req, res) {
     const cat = req.body;
-    console.log(cat);
     try {
-        const cats = await readWorkersFromJson();
+        const cats = await readDataFromJson();
         cats.push(cat);
-        const response = await saveWorkerToJson(cats);
+        const response = await saveDataToJson(cats);
         if (response) {
             res.send({status: true, cats: cats});
         }
@@ -65,12 +68,12 @@ server.post('/add-cat', async function (req, res) {
 server.patch('/issue-cat', async function (req, res) {
     const {ID} = req.body;
     try {
-        let cats  = await readWorkersFromJson();
+        let cats  = await readDataFromJson();
         cats = cats.filter((cats) => {
             return cats.id !== parseInt(ID);
         });
 
-        await saveWorkerToJson(cats);
+        await saveDataToJson(cats);
         res.send({status: true, cats});
 
     } catch(e) {
@@ -85,18 +88,17 @@ server.patch('/issue-cat', async function (req, res) {
 server.patch('/feed-cat', async function (req, res) {
     const cat = req.body;
     try {
-        let cats = await readWorkersFromJson();
+        let cats = await readDataFromJson();
         cats = cats.map((item) => {
             if (item.id === cat.id) {
-                return {
-                    ...cat
-                }
+                return cat;
+
             }
             else {
                 return item;
             }
         });
-        await saveWorkerToJson(cats);
+        await saveDataToJson(cats);
         res.send({status: true, cats});
     }
     catch (e) {
@@ -110,18 +112,16 @@ server.patch('/feed-cat', async function (req, res) {
 server.patch('/hug-cat', async function (req, res) {
     const cat = req.body;
     try {
-        let cats = await readWorkersFromJson();
+        let cats = await readDataFromJson();
         cats = cats.map((item) => {
             if (item.id === cat.id) {
-                return {
-                    ...cat
-                }
+                return cat;
             }
             else {
                 return item;
             }
         });
-        await saveWorkerToJson(cats);
+        await saveDataToJson(cats);
         res.send({status: true, cats});
     }
     catch (e) {
@@ -135,18 +135,16 @@ server.patch('/hug-cat', async function (req, res) {
 server.patch('/wash-cat', async function (req, res) {
     const cat = req.body;
     try {
-        let cats = await readWorkersFromJson();
+        let cats = await readDataFromJson();
         cats = cats.map((item) => {
             if (item.id === cat.id) {
-                return {
-                    ...cat
-                }
+                return cat;
             }
             else {
                 return item;
             }
         });
-        await saveWorkerToJson(cats);
+        await saveDataToJson(cats);
         res.send({status: true, cats});
     }
     catch (e) {
@@ -160,40 +158,37 @@ server.listen(port, function () {
 
 /**
  * saves modified json file with workers
- * @param workers
- * @returns {Promise<any>}
+ * @param data
+ * @returns {Promise<boolean>}
  */
-function saveWorkerToJson(workers) {
-    return new Promise ((resolve) => setTimeout(() => {
-        fs.writeFile(path.resolve(__dirname, 'data/cats.json'), JSON.stringify(workers, null, 4), (err) => {
-            if (err) throw err;
-            resolve(true);
-        })
-    }, 1000));
+async function saveDataToJson(data) {
+    try {
+        await writeFile(path.resolve(__dirname, 'data/cats.json'), JSON.stringify(data, null, 4));
+        await delay(1000);
+        return true;
+    }
+    catch (err) {
+        throw err;
+    }
 }
 
 /**
- * gets workers data from json
+ * gets data from json
  * @returns {Promise<any>}
  */
-function readWorkersFromJson() {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            fs.open(path.resolve(__dirname, 'data/cats.json'), 'r' ,function(err, fd){
-                if (err) {
-                    fs.writeFile(path.resolve(__dirname, 'data/cats.json'), '[]', function(err) {
-                        if(err) {
-                            console.log(err);
-                        }
-                    });
-                }
-                fs.readFile(path.resolve(__dirname, 'data/cats.json'), {encoding: 'utf8', flag: 'a+'}, (err, data) => {
-                    if (err) throw err;
-                    resolve(JSON.parse(data));
-                })
-            });
-        }, 1000)
-    })
+async function readDataFromJson() {
+    if (!fs.existsSync(path.resolve(__dirname, 'data/cats.json'))) {
+        writeFile(path.resolve(__dirname, 'data/cats.json'), '[]')
+    }
+    try {
+        const data = await readFile(path.resolve(__dirname, 'data/cats.json'), {encoding: 'utf8', flag: 'a+'});
+        await delay(1000);
+        return JSON.parse(data);
+    }
+    catch (err) {
+        throw err;
+    }
 }
+
 
 

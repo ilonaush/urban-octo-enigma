@@ -25,7 +25,7 @@ describe('Dashboard', () => {
 
     it('renders correctly page info', () => {
         const props = {
-            location : { pathname: '/add-worker' }
+            location : { pathname: '/add-cat' }
         };
         const DashboardComponent = mount(
             <MemoryRouter>
@@ -41,7 +41,7 @@ describe('Dashboard', () => {
     it('has loader when such prop is submitted', () => {
         const props = {
             loading : true,
-            location : { pathname: '/add-worker' }
+            location : { pathname: '/add-cat' }
         };
         const DashboardComponent = mount(
             <MemoryRouter>
