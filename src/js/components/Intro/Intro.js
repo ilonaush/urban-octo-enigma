@@ -3,9 +3,9 @@ import React from 'react';
 
 const Intro = ({children, ...props}) => {
     return (
-    <div className='intro'>
-        {children}
-    </div>
+        <div className='intro'>
+            {children}
+        </div>
     )
 };
 

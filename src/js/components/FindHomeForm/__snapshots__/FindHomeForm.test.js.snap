@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FindHomeForm renders correctly 1`] = `
+<form
+  className="fireWorkerForm"
+  onSubmit={[Function]}
+>
+  <select
+    onChange={[Function]}
+  >
+    <option
+      value=" "
+    >
+      Choose the meowy
+    </option>
+  </select>
+  <input
+    placeholder="Location of future home"
+  />
+  <textarea
+    placeholder="Describe the family please"
+  />
+  <button
+    id="submit-btn"
+    type="submit"
+  >
+    Find home for the cat
+  </button>
+</form>
+`;

@@ -12,6 +12,8 @@ const DashboardContent = () =>  {
                     render={(routeProps) => <DynamicComponent component='AddCatWrapper'  {...routeProps}/>}/>
             <Route  exact path='/find-home'
                     render={(routeProps) => <DynamicComponent component='FindHomeWrapper'  {...routeProps}/>}/>
+            <Route  exact path='/cat/:id'
+                    render={(routeProps) => <DynamicComponent component='CatPage'  {...routeProps}/>}/>
             <Route  exact path='/gallery'
                     render={(routeProps) => <DynamicComponent component='Gallery'  {...routeProps}/>}/>
             <Route  exact path='/500'
@@ -20,7 +22,5 @@ const DashboardContent = () =>  {
         </div>
     );
 };
-
-DashboardContent.propTypes = {};
 
 export default DashboardContent;

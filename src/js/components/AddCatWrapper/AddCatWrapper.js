@@ -36,7 +36,10 @@ export class AddCatWrapper extends Component {
     }
 }
 
-AddCatWrapper.propTypes = {};
+AddCatWrapper.propTypes = {
+    cats: PropTypes.array,
+    addCat: PropTypes.func
+};
 
 export default connect(
     (state) => ({cats: state.cats}),

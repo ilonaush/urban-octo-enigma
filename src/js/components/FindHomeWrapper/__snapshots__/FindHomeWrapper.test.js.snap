@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FindHomeWrapper renders correctly 1`] = `
+<div>
+  <form
+    className="fireWorkerForm"
+    onSubmit={[Function]}
+  >
+    <select
+      onChange={[Function]}
+    >
+      <option
+        value=" "
+      >
+        Choose the meowy
+      </option>
+    </select>
+    <input
+      placeholder="Location of future home"
+    />
+    <textarea
+      placeholder="Describe the family please"
+    />
+    <button
+      id="submit-btn"
+      type="submit"
+    >
+      Find home for the cat
+    </button>
+  </form>
+  <img
+    alt=""
+    className="cat-bg"
+    src="/images/cat-bg-1.png"
+  />
+</div>
+`;

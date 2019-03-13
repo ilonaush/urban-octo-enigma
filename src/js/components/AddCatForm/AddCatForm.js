@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import "./AddCatForm.styl";
 import Input from "../Input/Input";
+import PropTypes from 'prop-types';
 
 export default class AddCatForm extends Component {
 
@@ -69,10 +70,13 @@ export default class AddCatForm extends Component {
                        value={cat.location}
                        required
                 />
-                <select value={cat.health} name='health' onChange={this.handleChange}>
-                    <option value="Satisfying">Satisfying</option>
-                    <option value="Minor problems">Minor problems</option>
-                    <option value="Not satisfying">Not satisfying</option>
+                <select
+                    value={cat.health}
+                    name='health'
+                    onChange={this.handleChange}>
+                        <option value="Satisfying">Satisfying</option>
+                        <option value="Minor problems">Minor problems</option>
+                        <option value="Not satisfying">Not satisfying</option>
                 </select>
                 <button id='submit-btn' type='submit'>Accept the cat</button>
             </form>
@@ -80,5 +84,7 @@ export default class AddCatForm extends Component {
     }
 }
 
-AddCatForm.propTypes = {};
+AddCatForm.propTypes = {
+    handleSubmit: PropTypes.func,
+};
 

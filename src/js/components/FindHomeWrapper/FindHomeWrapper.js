@@ -2,6 +2,8 @@ import React, {Component, Fragment} from 'react';
 import actions from "../../reducers/actions";
 import {connect} from "react-redux";
 import {FindHomeForm} from "../FindHomeForm/FindHomeForm";
+import PropTypes from 'prop-types';
+
 
 export class FindHomeWrapper extends Component {
 
@@ -20,7 +22,10 @@ export class FindHomeWrapper extends Component {
     }
 }
 
-FindHomeWrapper.propTypes = {};
+FindHomeWrapper.propTypes = {
+    cats: PropTypes.array,
+    findHome: PropTypes.func
+};
 
 export default connect((state) => ({cats: state.cats}),
     (dispatch) => ({findHome: (catID) => dispatch(actions.findHome(catID))}) )(FindHomeWrapper);

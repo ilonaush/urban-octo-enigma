@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddCatForm renders correctly 1`] = `
+<form
+  className="addWorkerForm"
+  onSubmit={[Function]}
+>
+  <h3>
+    Please share some info about the cat with us
+  </h3>
+  <input
+    id="name-input"
+    name="name"
+    onChange={[Function]}
+    placeholder="Name"
+    required={true}
+    value=""
+  />
+  <input
+    name="age"
+    onChange={[Function]}
+    placeholder="Age"
+    required={true}
+    value=""
+  />
+  <input
+    name="color"
+    onChange={[Function]}
+    placeholder="Color"
+    required={true}
+    value=""
+  />
+  <textarea
+    name="reason"
+    onChange={[Function]}
+    placeholder="Reason"
+    value=""
+  />
+  <input
+    name="location"
+    onChange={[Function]}
+    placeholder="Location"
+    required={true}
+    value=""
+  />
+  <select
+    name="health"
+    onChange={[Function]}
+    value=""
+  >
+    <option
+      value="Satisfying"
+    >
+      Satisfying
+    </option>
+    <option
+      value="Minor problems"
+    >
+      Minor problems
+    </option>
+    <option
+      value="Not satisfying"
+    >
+      Not satisfying
+    </option>
+  </select>
+  <button
+    id="submit-btn"
+    type="submit"
+  >
+    Accept the cat
+  </button>
+</form>
+`;
