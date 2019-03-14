@@ -145,14 +145,14 @@ module.exports = function () {
                                 priority: 2,
                                 enforce: true
                             },
-                            addWorkerForm: {
+                            addCatForm: {
                                 test: /AddCat/,
                                 name: 'add-cat',
                                 chunks: 'async',
                                 priority: 2,
                                 enforce: true
                             },
-                            fireWorkerForm: {
+                            FindHomeForm: {
                                 test: /FindHome/,
                                 name: 'find-home',
                                 chunks: 'async',

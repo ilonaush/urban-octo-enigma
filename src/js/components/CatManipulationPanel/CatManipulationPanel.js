@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import moment from "moment";
-import connect from "react-redux/es/connect/connect";
+import {connect} from "react-redux";
 import actions from "../../reducers/actions";
 
 class CatManipulationPanel extends Component {

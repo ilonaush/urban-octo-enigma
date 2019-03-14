@@ -3,7 +3,7 @@ import React from 'react';
 import Layout  from './Layout';
 import { shallow, mount, render } from 'enzyme';
 import ReactDOM from 'react-dom';
-import {MemoryRouter} from "react-router";
+import {MemoryRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import {store} from "../../reducers/index";
 import renderer from "react-test-renderer";

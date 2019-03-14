@@ -1,32 +1,34 @@
 import React, {Component} from 'react';
 
-class DynamicComponent extends  Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            Component: null
-        }
-    }
+function DynamicImport(options) {
+    const {resolve, loader} = options;
 
-    async componentDidMount() {
-        const name = this.props.component;
-        let component;
-        try {
-            component = await import( `components/${name}/${name}`);
-            this.setState({
-                Component: component.default
-            })
+    return class DynamicComponent extends  Component{
+        constructor(props) {
+            super(props);
+            this.state = {
+                Component: null
+            }
         }
-        catch(err) {
-            console.log(err);
-            this.props.history.push('/500');
-        };
-    }
 
-    render() {
-        const {Component} = this.state;
-        return  Component ?  <Component {...this.props}/> : null;
+        async componentDidMount() {
+            try {
+                const component = await resolve();
+                this.setState({
+                    Component: component.default
+                })
+            }
+            catch(err) {
+                console.log(err);
+                this.props.history.push('/500');
+            }
+        }
+
+        render() {
+            const {Component} = this.state;
+            return  Component ?  <Component/> : React.createElement(loader);
+        }
     }
 }
 
-export default DynamicComponent;
+export default DynamicImport;

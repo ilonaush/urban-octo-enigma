@@ -12,7 +12,7 @@ export const Gallery = ({cats}) =>  {
                 cats.map((cat, index) => {
                     return (
                     <div className='worker-photo' key={cat.id}>
-                        <LazyLoadImage  src={`cat-${index}.jpg`}/>
+                        <LazyLoadImage height={200} src={`cat-${index}.jpg`}/>
                         <div className='worker-name'>{cat.name}</div>
                         <div className='worker-position'>{cat.age}</div>
                     </div>

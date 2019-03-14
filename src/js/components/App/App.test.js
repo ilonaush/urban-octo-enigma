@@ -1,6 +1,6 @@
 import React from 'react';
 import App  from './App';
-import {MemoryRouter} from "react-router";
+import {MemoryRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import {store} from "../../reducers/index";
 import renderer from "react-test-renderer";

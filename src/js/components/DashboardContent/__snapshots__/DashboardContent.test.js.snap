@@ -3,5 +3,14 @@
 exports[`DashboardContent renders correctly 1`] = `
 <div
   className="d-content"
-/>
+>
+  <div
+    className="loader"
+  >
+    <img
+      alt=""
+      src="/images/blue-loader.gif"
+    />
+  </div>
+</div>
 `;

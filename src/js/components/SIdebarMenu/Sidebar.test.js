@@ -1,6 +1,6 @@
 import React from 'react';
 import SidebarMenu  from './SidebarMenu';
-import {MemoryRouter} from "react-router";
+import { MemoryRouter } from 'react-router-dom';
 import {mount} from "enzyme/build";
 import Sidebar from "../Sidebar/Sidebar";
 import {NavLink} from "react-router-dom";

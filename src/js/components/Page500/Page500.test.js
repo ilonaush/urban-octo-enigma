@@ -1,6 +1,6 @@
 import React from 'react';
 import Page500  from './Page500';
-import {MemoryRouter} from "react-router";
+import {MemoryRouter} from "react-router-dom";
 import renderer from "react-test-renderer";
 
 

@@ -1,23 +1,55 @@
 import React from 'react';
 import "./DashboardContent.styl";
 import {Route} from "react-router-dom";
-import DynamicComponent from "../../tools/DynamicImport";
+import Loader from "../Loader/Loader";
+import DynamicImport from "../../tools/DynamicImport";
+
+const List = DynamicImport({
+    resolve: () => import('../List/List'),
+    loader: Loader
+});
+const AddCatWrapper = DynamicImport({
+    resolve: () => import('../AddCatWrapper/AddCatWrapper'),
+    loader: Loader
+});
+const FindHomeWrapper = DynamicImport({
+    resolve: () => import('../FindHomeWrapper/FindHomeWrapper'),
+    loader: Loader
+});
+const CatPage = DynamicImport({
+    resolve: () => import('../CatPage/CatPage'),
+    loader: Loader
+});
+const Gallery = DynamicImport({
+    resolve: () => import('../Gallery/Gallery'),
+    loader: Loader
+});
+const Page500 = DynamicImport({
+    resolve: () => import('../Page500/Page500'),
+    loader: Loader
+});
+
 
 const DashboardContent = () =>  {
     return (
         <div className='d-content'>
             <Route  exact path='/'
-                    render={(routeProps) => <DynamicComponent component='List'  {...routeProps}/>}/>
+                    component={List}
+            />
             <Route  exact path='/add-cat'
-                    render={(routeProps) => <DynamicComponent component='AddCatWrapper'  {...routeProps}/>}/>
+                    component={AddCatWrapper}
+            />
             <Route  exact path='/find-home'
-                    render={(routeProps) => <DynamicComponent component='FindHomeWrapper'  {...routeProps}/>}/>
+                    component={FindHomeWrapper}
+            />
             <Route  exact path='/cat/:id'
-                    render={(routeProps) => <DynamicComponent component='CatPage'  {...routeProps}/>}/>
+                    component={CatPage}
+            />
             <Route  exact path='/gallery'
-                    render={(routeProps) => <DynamicComponent component='Gallery'  {...routeProps}/>}/>
+                    component={Gallery}
+            />
             <Route  exact path='/500'
-                    render={(routeProps) => <DynamicComponent component='Page500' {...routeProps}/>}
+                    component={Page500}
             />
         </div>
     );
