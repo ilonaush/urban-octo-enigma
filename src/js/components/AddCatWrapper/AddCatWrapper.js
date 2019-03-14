@@ -21,9 +21,15 @@ export class AddCatWrapper extends Component {
             color: cat.color,
             reason: cat.reason,
             location: cat.location,
-            health: cat.health
+            health: cat.health,
+            img: this.selectCatImage()
         };
         this.props.addCat(catInfo).then(() => this.props.history.push('/'))
+    };
+
+    selectCatImage = () => {
+        const random = Math.floor(Math.random() * 11);
+        return `cat-${random}.jpg`;
     };
 
     render() {

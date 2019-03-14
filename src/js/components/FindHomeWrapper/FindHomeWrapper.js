@@ -7,6 +7,10 @@ import PropTypes from 'prop-types';
 
 export class FindHomeWrapper extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     handleSubmit = (e, cat) => {
         e.preventDefault();
         this.props.findHome(cat).then(() => this.props.history.push('/'));

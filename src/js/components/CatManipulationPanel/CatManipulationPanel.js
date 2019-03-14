@@ -6,7 +6,7 @@ import actions from "../../reducers/actions";
 
 class CatManipulationPanel extends Component {
 
-    handleFeedingClick = ()  => {
+    handleFeedingClick = () => {
         const feedingTime = moment().add(15, 'm').format();
         const cat = {
             ...this.props.cat,
@@ -15,7 +15,7 @@ class CatManipulationPanel extends Component {
         this.props.feedCat(cat);
     };
 
-    handleHugClick = ()  =>{
+    handleHugClick = () =>{
         const huggingTime = moment().add(1, 'h').format();
         const cat = {
             ...this.props.cat,
@@ -24,7 +24,7 @@ class CatManipulationPanel extends Component {
         this.props.hugCat(cat);
     };
 
-    handleWashClick = ()  =>{
+    handleWashClick = () =>{
         const washingTime = moment().add(1, 'd').format();
         const cat = {
             ...this.props.cat,
@@ -34,7 +34,7 @@ class CatManipulationPanel extends Component {
     };
 
     isTimeToManipulate = (time) => {
-        return  moment().format()  > moment(time).format();
+        return  moment().format() > moment(time).format();
     };
 
     render() {

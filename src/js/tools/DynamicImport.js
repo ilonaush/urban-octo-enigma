@@ -26,7 +26,7 @@ function DynamicImport(options) {
 
         render() {
             const {Component} = this.state;
-            return  Component ?  <Component/> : React.createElement(loader);
+            return  Component ?  <Component {...this.props}/> : React.createElement(loader);
         }
     }
 }

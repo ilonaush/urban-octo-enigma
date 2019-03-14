@@ -53,7 +53,7 @@ let reducer = (state = initialState, action) => {
         case ACTIONS_TYPES.SET_LOADING: {
             return {
                 ...state,
-                loading: action.payload,
+                loading: action.payload.loading,
                 loadingType: action.payload.loadingType
             }
         }

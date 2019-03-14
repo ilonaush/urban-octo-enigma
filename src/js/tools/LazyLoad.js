@@ -13,25 +13,14 @@ class lazyLoadImage extends Component  {
     }
 
      componentDidMount() {
-        // this.io = new IntersectionObserver(entries => {
-        //     console.log(entries)
-        //     // if (entries[0].isIntersecting) {
-        //     //     this.setState({ isVisible: entries[0].isIntersecting });
-        //     // }
-        // }, {});
-        // this.io.observe(this.box);
-    }
-
-    // componentWillUnmount() {
-    //     if (this.io) {
-    //         this.io.disconnect();
-    //     }
-    // }
-
-    componentWillUpdate(nextProps, nextState) {
-        if (nextState.isVisible) {
-            this.loadImage();
-        }
+        this.io = new IntersectionObserver(([entry]) => {
+            const { isIntersecting } = entry;
+            if (isIntersecting) {
+                this.loadImage();
+                this.io = this.io.disconnect();
+            }
+        }, {});
+        this.io.observe(this.box);
     }
 
     defineRef = (ref) => {
@@ -54,12 +43,12 @@ class lazyLoadImage extends Component  {
 
     render () {
         const {height} = this.props;
-        const {img, isVisible} = this.state;
+        const {img} = this.state;
         return (
             <div className='img-holder'
                  style={{height: `${height}px`}}
                  ref={this.defineRef}>
-                    {img && isVisible ? <img src={img.src} alt=""/> : null }
+                {img ? <img src={img.src}  alt=""/> : null}
             </div>
         )
     }

@@ -48,13 +48,12 @@ List.propTypes = {
     washCat:  PropTypes.func
 };
 
-export default List;
 
-// export default connect(
-//     (state) => ({cats: state.cats}),
-//     (dispatch) => ({
-//         feedCat: (cat) => dispatch(actions.feedCat(cat)),
-//         hugCat: (cat) => dispatch(actions.hugCat(cat)),
-//         washCat: (cat) => dispatch(actions.washCat(cat))
-//         })
-// )(List);
+export default connect(
+    (state) => ({cats: state.cats}),
+    (dispatch) => ({
+        feedCat: (cat) => dispatch(actions.feedCat(cat)),
+        hugCat: (cat) => dispatch(actions.hugCat(cat)),
+        washCat: (cat) => dispatch(actions.washCat(cat))
+        })
+)(List);

@@ -1,6 +1,13 @@
 import RequestService from "../services/RequestService";
 import {ACTIONS_TYPES, LOADING_TYPES, REQUEST_PATHS} from "../constants";
 
+function setLoading(type, dispatch) {
+    return dispatch({
+        type: ACTIONS_TYPES.SET_LOADING,
+        payload: {loading: true, loadingType: type}
+    });
+}
+
 export default {
     getCats: function() {
         return  async (dispatch) => {
@@ -21,14 +28,7 @@ export default {
     },
     addCat: function (cat) {
         return async (dispatch) => {
-            function setLoading() {
-                return dispatch({
-                    type: ACTIONS_TYPES.SET_LOADING,
-                    payload: true
-                });
-            }
-
-            setLoading();
+            setLoading(null, dispatch);
 
             try {
                 const {data: {cats, status}} = await RequestService.post(REQUEST_PATHS.ADD_CAT, cat);
@@ -54,14 +54,7 @@ export default {
     },
     feedCat(catInfo) {
         return async (dispatch) =>  {
-            function setLoading() {
-                return dispatch({
-                    type: ACTIONS_TYPES.SET_LOADING,
-                    payload: {loading: true, loadingType: LOADING_TYPES.FEED_CAT}
-                });
-            }
-
-            setLoading();
+            setLoading(LOADING_TYPES.FEED_CAT, dispatch);
 
             try {
                 const {data: {cats, status}} = await RequestService.patch(REQUEST_PATHS.FEED_CAT, catInfo);
@@ -85,14 +78,7 @@ export default {
     }},
     hugCat(catInfo) {
         return async (dispatch) =>  {
-            function setLoading() {
-                return dispatch({
-                    type: ACTIONS_TYPES.SET_LOADING,
-                    payload: {loading: true, loadingType: LOADING_TYPES.HUG_CAT}
-                });
-            }
-
-            setLoading();
+            setLoading(LOADING_TYPES.HUG_CAT, dispatch);
 
             try {
                 const {data: {cats, status}} = await RequestService.patch(REQUEST_PATHS.FEED_CAT, catInfo);
@@ -116,14 +102,8 @@ export default {
     }},
     washCat(catInfo) {
         return async (dispatch) =>  {
-            function setLoading() {
-                return dispatch({
-                    type: ACTIONS_TYPES.SET_LOADING,
-                    payload: {loading: true, loadingType: LOADING_TYPES.WASH_CAT}
-                });
-            }
 
-            setLoading();
+            setLoading(LOADING_TYPES.WASH_CAT, dispatch);
 
             try {
                 const {data: {cats, status}} = await RequestService.patch(REQUEST_PATHS.FEED_CAT, catInfo);
@@ -147,14 +127,7 @@ export default {
     }},
     findHome: function (catId) {
         return async (dispatch) =>  {
-            function setLoading() {
-                return dispatch({
-                    type: ACTIONS_TYPES.SET_LOADING,
-                    payload: true
-                });
-            }
-
-            setLoading();
+            setLoading(null, dispatch);
 
             try {
                 const variables = {
