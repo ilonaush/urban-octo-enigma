@@ -3,17 +3,18 @@ import actions from "../../reducers/actions";
 import {connect} from "react-redux";
 import {FindHomeForm} from "../FindHomeForm/FindHomeForm";
 import PropTypes from 'prop-types';
+import moment from "moment";
 
 
 export class FindHomeWrapper extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     handleSubmit = (e, cat) => {
+        const variables = {
+            ...cat,
+            date: moment()
+        };
         e.preventDefault();
-        this.props.findHome(cat).then(() => this.props.history.push('/'));
+        this.props.findHome(variables).then(() => this.props.history.push('/'));
     };
 
     render() {

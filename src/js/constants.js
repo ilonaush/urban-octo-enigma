@@ -5,6 +5,11 @@ const MENU_ITEMS = [
         icon: 'list'
     },
     {
+        name: 'Cats found home',
+        to: '/history',
+        icon: 'list'
+    },
+    {
         name: 'Register a cat',
         to: '/add-cat',
         icon: 'add'
@@ -24,6 +29,7 @@ const MENU_ITEMS = [
 
 const REQUEST_PATHS = {
     GET_CATS: '/',
+    GET_HISTORY: '/history',
     ADD_CAT: '/add-cat',
     ISSUE_CAT: '/issue-cat',
     FEED_CAT: '/feed-cat',

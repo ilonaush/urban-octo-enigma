@@ -6,7 +6,6 @@ class lazyLoadImage extends Component  {
         super(props);
         this.state = {
             img: null,
-            isVisible: false
         };
         this.io = null;
         this.box = null;
@@ -23,10 +22,18 @@ class lazyLoadImage extends Component  {
         this.io.observe(this.box);
     }
 
+    /**
+     * assigns ref to the variable
+     * @param ref
+     */
     defineRef = (ref) => {
         this.box = ref;
     };
 
+    /**
+     * loads image when in viewport
+     * @returns {Promise<void>}
+     */
     loadImage = async () => {
         try {
             const img = await import(/* webpackMode: "eager"  */`images/${this.props.src}`);

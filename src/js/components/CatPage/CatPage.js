@@ -5,12 +5,13 @@ import {connect} from "react-redux";
 
 class CatPage extends Component {
 
-    getCat() {
-        return this.props.cats.find((c) => c.id === this.props.params.id)
-    }
+    getCat = () => {
+        return this.props.cats.find((c) => c.id === +this.props.match.params.id)
+    };
 
     render() {
-        const {cat: name, age, location, health, color, reason } = this.props;
+        const cat = this.getCat();
+        const {name, age, location, health, color, reason, img } = cat;
         return (
             <Fragment>
                 <div className='info'>
@@ -20,12 +21,12 @@ class CatPage extends Component {
                     <div>{reason}</div>
                 </div>
                 <div>
-                    <img src="images/cat-1.jpg" alt=""/>
+                    <img src={`images/${img}`} alt=""/>
                     <div>{name}</div>
                     <div>{age}</div>
                 </div>
                 <div>
-                    <CatManipulationPanel cat={this.props.cat}/>
+                    <CatManipulationPanel cat={cat}/>
                 </div>
             </Fragment>
         );

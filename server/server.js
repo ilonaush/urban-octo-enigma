@@ -38,8 +38,20 @@ server.use(crossOrigin);
  */
 server.get('/', async function (req, res) {
     try {
-        const cats = await readDataFromJson();
+        const cats = await readDataFromJson('currentCats');
         res.send(cats);
+    } catch(e) {
+        res.status(500).send({status: false});
+    }
+});
+
+/**
+ * handler for get history request; gives all workers
+ */
+server.get('/history', async function (req, res) {
+    try {
+        const history = await readDataFromJson('history');
+        res.send(history);
     } catch(e) {
         res.status(500).send({status: false});
     }
@@ -51,9 +63,9 @@ server.get('/', async function (req, res) {
 server.post('/add-cat', async function (req, res) {
     const cat = req.body;
     try {
-        const cats = await readDataFromJson();
+        const cats = await readDataFromJson('currentCats');
         cats.push(cat);
-        const response = await saveDataToJson(cats);
+        const response = await saveDataToJson(cats, 'currentCats');
         if (response) {
             res.send({status: true, cats: cats});
         }
@@ -67,13 +79,20 @@ server.post('/add-cat', async function (req, res) {
  */
 server.patch('/issue-cat', async function (req, res) {
     const {ID} = req.body;
+    let issuedCat;
     try {
-        let cats  = await readDataFromJson();
-        cats = cats.filter((cats) => {
-            return cats.id !== parseInt(ID);
+        let cats  = await readDataFromJson('currentCats');
+        cats = cats.filter((cat) => {
+            if (cat.id === parseInt(ID)) {
+                issuedCat = cat;
+            }
+            return cat.id !== parseInt(ID);
         });
 
-        await saveDataToJson(cats);
+        await saveDataToJson(cats, 'currentCats');
+        const history = await readDataFromJson('history');
+        history.push(issuedCat);
+        await saveDataToJson(history, 'history');
         res.send({status: true, cats});
 
     } catch(e) {
@@ -88,17 +107,16 @@ server.patch('/issue-cat', async function (req, res) {
 server.patch('/feed-cat', async function (req, res) {
     const cat = req.body;
     try {
-        let cats = await readDataFromJson();
+        let cats = await readDataFromJson('currentCats');
         cats = cats.map((item) => {
             if (item.id === cat.id) {
                 return cat;
-
             }
             else {
                 return item;
             }
         });
-        await saveDataToJson(cats);
+        await saveDataToJson(cats, 'currentCats');
         res.send({status: true, cats});
     }
     catch (e) {
@@ -112,7 +130,7 @@ server.patch('/feed-cat', async function (req, res) {
 server.patch('/hug-cat', async function (req, res) {
     const cat = req.body;
     try {
-        let cats = await readDataFromJson();
+        let cats = await readDataFromJson('currentCats');
         cats = cats.map((item) => {
             if (item.id === cat.id) {
                 return cat;
@@ -121,7 +139,7 @@ server.patch('/hug-cat', async function (req, res) {
                 return item;
             }
         });
-        await saveDataToJson(cats);
+        await saveDataToJson(cats, 'currentCats');
         res.send({status: true, cats});
     }
     catch (e) {
@@ -135,7 +153,7 @@ server.patch('/hug-cat', async function (req, res) {
 server.patch('/wash-cat', async function (req, res) {
     const cat = req.body;
     try {
-        let cats = await readDataFromJson();
+        let cats = await readDataFromJson('currentCats');
         cats = cats.map((item) => {
             if (item.id === cat.id) {
                 return cat;
@@ -144,7 +162,7 @@ server.patch('/wash-cat', async function (req, res) {
                 return item;
             }
         });
-        await saveDataToJson(cats);
+        await saveDataToJson(cats, 'currentCats');
         res.send({status: true, cats});
     }
     catch (e) {
@@ -161,9 +179,9 @@ server.listen(port, function () {
  * @param data
  * @returns {Promise<boolean>}
  */
-async function saveDataToJson(data) {
+async function saveDataToJson(data, type) {
     try {
-        await writeFile(path.resolve(__dirname, 'data/cats.json'), JSON.stringify(data, null, 4));
+        await writeFile(path.resolve(__dirname, `data/${type}.json`), JSON.stringify(data, null, 4));
         await delay(1000);
         return true;
     }
@@ -176,12 +194,12 @@ async function saveDataToJson(data) {
  * gets data from json
  * @returns {Promise<any>}
  */
-async function readDataFromJson() {
-    if (!fs.existsSync(path.resolve(__dirname, 'data/cats.json'))) {
-        writeFile(path.resolve(__dirname, 'data/cats.json'), '[]')
+async function readDataFromJson(type) {
+    if (!fs.existsSync(path.resolve(__dirname, `data/${type}.json`))) {
+        writeFile(path.resolve(__dirname, `data/${type}.json`), '[]')
     }
     try {
-        const data = await readFile(path.resolve(__dirname, 'data/cats.json'), {encoding: 'utf8', flag: 'a+'});
+        const data = await readFile(path.resolve(__dirname, `data/${type}.json`), {encoding: 'utf8', flag: 'a+'});
         await delay(1000);
         return JSON.parse(data);
     }

@@ -8,6 +8,10 @@ const List = DynamicImport({
     resolve: () => import('../List/List'),
     loader: Loader
 });
+const History = DynamicImport({
+    resolve: () => import('../History/History'),
+    loader: Loader
+});
 const AddCatWrapper = DynamicImport({
     resolve: () => import('../AddCatWrapper/AddCatWrapper'),
     loader: Loader
@@ -35,6 +39,9 @@ const DashboardContent = () =>  {
         <div className='d-content'>
             <Route  exact path='/'
                     component={List}
+            />
+            <Route  exact path='/history'
+                    component={History}
             />
             <Route  exact path='/add-cat'
                     component={AddCatWrapper}

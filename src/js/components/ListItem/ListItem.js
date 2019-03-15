@@ -3,16 +3,19 @@ import PropTypes from 'prop-types';
 import "./ListItem.styl";
 import moment from 'moment';
 import CatManipulationPanel from "../CatManipulationPanel/CatManipulationPanel";
+import {Link} from "react-router-dom";
 
 moment.locale();
 
 export class ListItem extends Component {
 
     render() {
-     const {cat: {name, age, color}} = this.props;
+     const {cat: {name, age, color, id}} = this.props;
         return (
             <div className='table-row'>
-                <div className='table-row-item' >{name}</div>
+                <div className='table-row-item' >
+                    <Link to={`/cat/${id}`}>{name}</Link>
+                </div>
                 <div className='table-row-item'>{age ? age : '-'}</div>
                 <div className='table-row-item'>{color ? color : '-'}</div>
                 <CatManipulationPanel cat={this.props.cat}/>
