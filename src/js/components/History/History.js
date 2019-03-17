@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 import withRequest from "../RequestHOC/RequestHOC";
 import {REQUEST_PATHS} from "../../constants";
 import Loader from "../Loader/Loader";
+import moment from "moment";
 
 const HistoryItem = ({cat: {name, address, date, family}}) => {
     return (
         <div className='table-row'>
-            <div className='table-head table-row-item'>{name}</div>
-            <div className='table-head table-row-item'>{address}</div>
-            <div className='table-head table-row-item'>{family}</div>
-            <div className='table-head table-row-item'>{date}</div>
+            <div className='table-row-item'>{name}</div>
+            <div className='table-row-item'>{address}</div>
+            <div className='table-row-item'>{family}</div>
+            <div className='table-row-item'>{moment(date).format('MMMM Do YYYY')}</div>
         </div>
     )
 };
 
 class History extends Component {
     render() {
-        debugger;
         const {history, loading} = this.props;
         if (loading) return <Loader/>;
         return (

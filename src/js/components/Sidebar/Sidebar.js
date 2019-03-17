@@ -8,7 +8,7 @@ const Sidebar = () => {
     return (
         <div className='sidebar'>
             <Link to='/' className='heading'>
-                <span className='icon' style={{backgroundImage: `url('images/add.svg`}} alt=""/>
+                <span className='icon' style={{backgroundImage: `url('images/cat.svg`}} alt=""/>
                 Kitty Farm Dashboard
             </Link>
             <SidebarMenu />

@@ -9,12 +9,24 @@ function withRequest(WrappedComponent, options) {
             this.state = {
                 loading: true,
                 data: null
+            };
+            this.options = options;
+        }
+
+        componentWillReceiveProps(nextProps, nextContext) {
+            if (nextProps.location.pathname !== this.props.location.pathname) {
+                this.makeRequest(nextProps);
             }
         }
 
-        async componentDidMount () {
+        componentDidMount () {
+            this.makeRequest(this.props);
+        }
+
+        async makeRequest(props) {
+            const options = typeof this.options.options === 'function' && this.options.options(props);
             try {
-                const {data} = await RequestService.get(options.request);
+                const {data} = await RequestService.get(this.options.request, options);
                 this.setState({
                     data,
                     loading: false
@@ -31,7 +43,7 @@ function withRequest(WrappedComponent, options) {
         render () {
             const props =  {
                 loading: this.state.loading,
-                [options.name] : this.state.data
+                [this.options.name ? this.options.name : 'data'] : this.state.data
             };
             return (
                 <WrappedComponent {...props}/>

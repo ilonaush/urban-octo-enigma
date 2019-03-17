@@ -26,10 +26,32 @@ const MENU_ITEMS = [
     }
 ];
 
+const PAGE_TITLES = [
+    {
+        title: 'Cats of our farm',
+        path: '/'
+    },
+    {
+        title: 'Cat registration',
+        path: '/add-cat'
+    },{
+        title: 'Cats that already found home',
+        path: '/history'
+    },
+    {
+        title: 'Choose a cat into your house :)',
+        path: '/find-home'
+    }, {
+        title: 'Gallery of our cats',
+        path: '/gallery'
+    }
+];
+
 
 const REQUEST_PATHS = {
     GET_CATS: '/',
     GET_HISTORY: '/history',
+    GET_PAGE: '/page',
     ADD_CAT: '/add-cat',
     ISSUE_CAT: '/issue-cat',
     FEED_CAT: '/feed-cat',
@@ -53,4 +75,4 @@ const LOADING_TYPES = {
     WASH_CAT: 'WASH_CAT',
 };
 
-export {MENU_ITEMS, REQUEST_PATHS, ACTIONS_TYPES, LOADING_TYPES};
+export {MENU_ITEMS, REQUEST_PATHS, ACTIONS_TYPES, LOADING_TYPES, PAGE_TITLES};

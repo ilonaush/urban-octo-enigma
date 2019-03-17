@@ -5,6 +5,9 @@ import DashboardContent from "../DashboardContent/DashboardContent";
 import {connect} from "react-redux";
 import Loader from "../Loader/Loader";
 import PropTypes from 'prop-types';
+import withRequest from "../RequestHOC/RequestHOC";
+import {PAGE_TITLES, REQUEST_PATHS} from "../../constants";
+import {withRouter} from "react-router";
 
 
 export class Dashboard extends Component {
@@ -25,7 +28,7 @@ export class Dashboard extends Component {
 
     componentDidMount() {
         this.setState({
-            page: this.getPage(this.props.location.pathname, this.props.pages)
+            page: this.getPage(this.props.location.pathname)
         })
     }
 
@@ -38,14 +41,14 @@ export class Dashboard extends Component {
 
         if (this.props.location.pathname !== nextProps.location.pathname) {
             this.setState({
-                page: this.getPage(nextProps.location.pathname, nextProps.pages)
+                page: this.getPage(nextProps.location.pathname)
             })
         }
     }
 
-    getPage = (path, pages = []) => {
+    getPage = (path,) => {
         return {
-            ...pages.find((page) => page.path === path)
+            ...PAGE_TITLES.find((page) => page.path === path)
         };
     };
 
@@ -62,7 +65,5 @@ export class Dashboard extends Component {
     }
 }
 
-export default connect(
-    (state) => ({pages: state.pages, loading: state.loading, loadingType: state.loadingType})
-)(Dashboard);
+export default connect((state) => ({pages: state.pages, loading: state.loading, loadingType: state.loadingType}))(Dashboard);
 

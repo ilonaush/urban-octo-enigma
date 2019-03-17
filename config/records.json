@@ -1,0 +1,791 @@
+{
+  "HtmlWebpackCompiler": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/html-webpack-plugin/lib/loader.js!public/index.html": 0,
+          "node_modules/lodash/lodash.js": 1,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/webpack/buildin/global.js": 2,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/webpack/buildin/module.js": 3
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "3": 3
+        }
+      },
+      "chunks": {
+        "byName": {
+          "HtmlWebpackPlugin_0": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/index.styl": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/index.styl": 0,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/css-loader/lib/css-base.js": 1
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1
+        }
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Layout/Layout.styl": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Layout/Layout.styl": 0,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/css-loader/lib/css-base.js": 1
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1
+        }
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Sidebar/Sidebar.styl": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Sidebar/Sidebar.styl": 0,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/css-loader/lib/css-base.js": 1
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1
+        }
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Dashboard/Dashboard.styl": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Dashboard/Dashboard.styl": 0,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/css-loader/lib/css-base.js": 1
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1
+        }
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/SIdebarMenu/SidebarMenu.styl": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/SIdebarMenu/SidebarMenu.styl": 0,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/css-loader/lib/css-base.js": 1
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1
+        }
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/DashboardContent/DashboardContent.styl": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/DashboardContent/DashboardContent.styl": 0,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/css-loader/lib/css-base.js": 1
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1
+        }
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Intro/Intro.styl": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Intro/Intro.styl": 0,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/css-loader/lib/css-base.js": 1
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1
+        }
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Loader/Loader.styl": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Loader/Loader.styl": 0,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/css-loader/lib/css-base.js": 1
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1
+        }
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/AddCatWrapper/AddCatWrapper.styl": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/AddCatWrapper/AddCatWrapper.styl": 0,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/css-loader/lib/css-base.js": 1
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1
+        }
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/List/List.styl": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/List/List.styl": 0,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/css-loader/lib/css-base.js": 1
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1
+        }
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/CatPage/CatPage.styl": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/CatPage/CatPage.styl": 0,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/css-loader/lib/css-base.js": 1
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1
+        }
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Page500/Page500.styl": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Page500/Page500.styl": 0,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/css-loader/lib/css-base.js": 1
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1
+        }
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Gallery/Gallery.styl": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Gallery/Gallery.styl": 0,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/css-loader/lib/css-base.js": 1
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1
+        }
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/AddCatForm/AddCatForm.styl": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/AddCatForm/AddCatForm.styl": 0,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/css-loader/lib/css-base.js": 1
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1
+        }
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/ListItem/ListItem.styl": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/ListItem/ListItem.styl": 0,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/css-loader/lib/css-base.js": 1
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1
+        }
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/FindHomeForm/FindHomeForm.styl": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/FindHomeForm/FindHomeForm.styl": 0,
+          "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/css-loader/lib/css-base.js": 1
+        },
+        "usedIds": {
+          "0": 0,
+          "1": 1
+        }
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "modules": {
+    "byIdentifier": {
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react/index.js": 0,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/prop-types/index.js": 1,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/constants.js": 2,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/history/node_modules/warning/browser.js": 3,
+      "node_modules/@babel/runtime/regenerator/index.js": 4,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/invariant/browser.js": 5,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/utils.js": 6,
+      "node_modules/@babel/runtime/helpers/esm/objectSpread.js": 7,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/warning/warning.js": 8,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/Loader/Loader.js": 9,
+      "node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js": 10,
+      "node_modules/@babel/runtime/helpers/esm/classCallCheck.js": 11,
+      "node_modules/@babel/runtime/helpers/esm/createClass.js": 12,
+      "node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js": 13,
+      "node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js": 14,
+      "node_modules/@babel/runtime/helpers/esm/defineProperty.js": 15,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/services/RequestService.js": 16,
+      "node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js": 17,
+      "node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js 09c449822b7743f90fb2818d5bbd7d7f": 18,
+      "node_modules/@babel/runtime/helpers/esm/inherits.js e155dbbe28f9b1c510e25dec513b6885": 19,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/redux/es/redux.js": 20,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-redux/es/index.js 53c4efab0f610f2c243d12227d556e53": 21,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router-dom/es/index.js": 22,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/history/es/index.js c0dd845f591a00ef6b77b6c8fbf247fe": 23,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/webpack/buildin/global.js": 24,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/defaults.js": 25,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-is/index.js": 26,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/symbol-observable/es/index.js": 27,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/moment/moment.js": 28,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/reducers/actions.js": 29,
+      "node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js": 30,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/object-assign/index.js": 31,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/helpers/bind.js": 32,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/adapters/xhr.js": 33,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/core/createError.js": 34,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/cancel/isCancel.js": 35,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/cancel/Cancel.js": 36,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/moment/locale/uk.js": 37,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-dom/index.js": 38,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js": 39,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/symbol-observable/es/ponyfill.js": 40,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router/node_modules/path-to-regexp/index.js": 41,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/redux-thunk/es/index.js": 42,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/redux-logger/dist/redux-logger.js": 43,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/index.js": 44,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react/cjs/react.production.min.js": 45,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-dom/cjs/react-dom.production.min.js": 46,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/scheduler/index.js": 47,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/scheduler/cjs/scheduler.production.min.js": 48,
+      "node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-4-0!node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/index.styl": 49,
+      "css node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/index.styl 0": 50,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/prop-types/factoryWithThrowingShims.js": 51,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/prop-types/lib/ReactPropTypesSecret.js": 52,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-is/cjs/react-is.production.min.js": 53,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/webpack/buildin/harmony-module.js": 54,
+      "node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-4-0!node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Sidebar/Sidebar.styl": 55,
+      "css node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Sidebar/Sidebar.styl 0": 56,
+      "node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-4-0!node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/SIdebarMenu/SidebarMenu.styl": 57,
+      "css node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/SIdebarMenu/SidebarMenu.styl 0": 58,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router/node_modules/isarray/index.js": 59,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router-dom/es/Link.js": 60,
+      "node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-4-0!node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Dashboard/Dashboard.styl": 61,
+      "css node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Dashboard/Dashboard.styl 0": 62,
+      "node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-4-0!node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Intro/Intro.styl": 63,
+      "css node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Intro/Intro.styl 0": 64,
+      "node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-4-0!node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/DashboardContent/DashboardContent.styl": 65,
+      "css node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/DashboardContent/DashboardContent.styl 0": 66,
+      "node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-4-0!node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Loader/Loader.styl": 67,
+      "css node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Loader/Loader.styl 0": 68,
+      "node_modules/@babel/runtime/node_modules/regenerator-runtime/runtime-module.js": 69,
+      "node_modules/@babel/runtime/node_modules/regenerator-runtime/runtime.js": 70,
+      "node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-4-0!node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Layout/Layout.styl": 71,
+      "css node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Layout/Layout.styl 0": 72,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/axios.js": 73,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/core/Axios.js": 74,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/process/browser.js": 75,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/helpers/normalizeHeaderName.js": 76,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/core/settle.js": 77,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/core/enhanceError.js": 78,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/helpers/buildURL.js": 79,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/helpers/parseHeaders.js": 80,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/helpers/isURLSameOrigin.js": 81,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/helpers/btoa.js": 82,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/helpers/cookies.js": 83,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/core/InterceptorManager.js": 84,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/core/dispatchRequest.js": 85,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/core/transformData.js": 86,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/helpers/isAbsoluteURL.js": 87,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/helpers/combineURLs.js": 88,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/cancel/CancelToken.js": 89,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/axios/lib/helpers/spread.js": 90,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/webpack/buildin/module.js": 91,
+      "node_modules/moment/locale sync /uk/": 92,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/index.js 9438d0f5c987359061eae2849a050a09": 93,
+      "node_modules/@babel/runtime/helpers/esm/slicedToArray.js a2dd849507fb238c1257b60813dc2909": 94,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/CatManipulationPanel/CatManipulationPanel.js": 95,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/Input/Input.js": 96,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/tools/LazyLoad.js": 97,
+      "src/images eager /^\\.\\/.*$/ groupOptions: {} namespace object": 98,
+      "node_modules/file-loader/dist/cjs.js??ref--6-oneOf-5!src/images/add.svg": 99,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/bg.jpg": 100,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/blue-loader.gif": 101,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/cat-0.jpg": 102,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/cat-1.jpg": 103,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/cat-10.jpg": 104,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/cat-11.jpg": 105,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/cat-2.jpg": 106,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/cat-3.jpg": 107,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/cat-4.jpg": 108,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/cat-5.jpg": 109,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/cat-6.jpg": 110,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/cat-7.jpg": 111,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/cat-8.jpg": 112,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/cat-9.jpg": 113,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/cat-bg-1.png": 114,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/cat-bg-2.png": 115,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/cat-bg-3.jpg": 116,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/cat-bg-4.jpg": 117,
+      "node_modules/file-loader/dist/cjs.js??ref--6-oneOf-5!src/images/cat.svg": 118,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/feed-cat-loader.gif": 119,
+      "node_modules/file-loader/dist/cjs.js??ref--6-oneOf-5!src/images/fire.svg": 120,
+      "node_modules/file-loader/dist/cjs.js??ref--6-oneOf-5!src/images/gallery.svg": 121,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/hug-cat-loader.gif": 122,
+      "node_modules/file-loader/dist/cjs.js??ref--6-oneOf-5!src/images/list.svg": 123,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/paw.png": 124,
+      "node_modules/file-loader/dist/cjs.js??ref--6-oneOf-5!src/images/paw.svg": 125,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/wash-cat-loader.gif": 126,
+      "node_modules/url-loader/dist/cjs.js??ref--6-oneOf-0!src/images/yellow-loader.gif": 127,
+      "node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-4-0!node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/List/List.styl": 128,
+      "css node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/List/List.styl 0": 129,
+      "node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-4-0!node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/ListItem/ListItem.styl": 130,
+      "css node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/ListItem/ListItem.styl 0": 131,
+      "node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-4-0!node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/AddCatForm/AddCatForm.styl": 132,
+      "css node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/AddCatForm/AddCatForm.styl 0": 133,
+      "node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-4-0!node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/AddCatWrapper/AddCatWrapper.styl": 134,
+      "css node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/AddCatWrapper/AddCatWrapper.styl 0": 135,
+      "node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-4-0!node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/FindHomeForm/FindHomeForm.styl": 136,
+      "css node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/FindHomeForm/FindHomeForm.styl 0": 137,
+      "node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-4-0!node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/CatPage/CatPage.styl": 138,
+      "css node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/CatPage/CatPage.styl 0": 139,
+      "node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-4-0!node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Gallery/Gallery.styl": 140,
+      "css node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Gallery/Gallery.styl 0": 141,
+      "node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-4-0!node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Page500/Page500.styl": 142,
+      "css node_modules/css-loader/index.js??ref--6-oneOf-4-1!node_modules/stylus-loader/index.js??ref--6-oneOf-4-2!src/js/components/Page500/Page500.styl 0": 143,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router-dom/es/Route.js aac59d05106581e8e4f091147c96b8b2": 144,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router-dom/es/NavLink.js": 145,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/CatPage/CatPage.js": 146,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/Gallery/Gallery.js": 147,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/Page500/Page500.js": 148,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router-dom/es/BrowserRouter.js 64ba4e836487e2bec504f8267fea8fc0": 149,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/List/List.js 0931b104f73de506f76daba71c5ebe92": 150,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/History/History.js 0b87ff6871534620c8cb6060da8707e7": 151,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/AddCatWrapper/AddCatWrapper.js 082f3004d4e56cda6dd29fdcdba493d4": 152,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/FindHomeWrapper/FindHomeWrapper.js 1005305ae1415422536056e7e53ead19": 153,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router-dom/es/HashRouter.js": 154,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router-dom/es/MemoryRouter.js": 155,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router-dom/es/Prompt.js": 156,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router-dom/es/Redirect.js": 157,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router-dom/es/StaticRouter.js": 158,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router-dom/es/Switch.js": 159,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router-dom/es/generatePath.js": 160,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router-dom/es/matchPath.js": 161,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router-dom/es/withRouter.js": 162,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router/es/MemoryRouter.js": 163,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router/es/Prompt.js": 164,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router/es/Redirect.js": 165,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router/es/StaticRouter.js": 166,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router/es/Switch.js": 167,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router/es/generatePath.js": 168,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router/es/withRouter.js": 169,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-2!node_modules/react-router/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js": 170,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/RequestHOC/RequestHOC.js": 151,
+      "node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/History/History.js": 171
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7,
+      "8": 8,
+      "9": 9,
+      "10": 10,
+      "11": 11,
+      "12": 12,
+      "13": 13,
+      "14": 14,
+      "15": 15,
+      "16": 16,
+      "17": 17,
+      "18": 18,
+      "19": 19,
+      "20": 20,
+      "21": 21,
+      "22": 22,
+      "23": 23,
+      "24": 24,
+      "25": 25,
+      "26": 26,
+      "27": 27,
+      "28": 28,
+      "29": 29,
+      "30": 30,
+      "31": 31,
+      "32": 32,
+      "33": 33,
+      "34": 34,
+      "35": 35,
+      "36": 36,
+      "37": 37,
+      "38": 38,
+      "39": 39,
+      "40": 40,
+      "41": 41,
+      "42": 42,
+      "43": 43,
+      "44": 44,
+      "45": 45,
+      "46": 46,
+      "47": 47,
+      "48": 48,
+      "49": 49,
+      "50": 50,
+      "51": 51,
+      "52": 52,
+      "53": 53,
+      "54": 54,
+      "55": 55,
+      "56": 56,
+      "57": 57,
+      "58": 58,
+      "59": 59,
+      "60": 60,
+      "61": 61,
+      "62": 62,
+      "63": 63,
+      "64": 64,
+      "65": 65,
+      "66": 66,
+      "67": 67,
+      "68": 68,
+      "69": 69,
+      "70": 70,
+      "71": 71,
+      "72": 72,
+      "73": 73,
+      "74": 74,
+      "75": 75,
+      "76": 76,
+      "77": 77,
+      "78": 78,
+      "79": 79,
+      "80": 80,
+      "81": 81,
+      "82": 82,
+      "83": 83,
+      "84": 84,
+      "85": 85,
+      "86": 86,
+      "87": 87,
+      "88": 88,
+      "89": 89,
+      "90": 90,
+      "91": 91,
+      "92": 92,
+      "93": 93,
+      "94": 94,
+      "95": 95,
+      "96": 96,
+      "97": 97,
+      "98": 98,
+      "99": 99,
+      "100": 100,
+      "101": 101,
+      "102": 102,
+      "103": 103,
+      "104": 104,
+      "105": 105,
+      "106": 106,
+      "107": 107,
+      "108": 108,
+      "109": 109,
+      "110": 110,
+      "111": 111,
+      "112": 112,
+      "113": 113,
+      "114": 114,
+      "115": 115,
+      "116": 116,
+      "117": 117,
+      "118": 118,
+      "119": 119,
+      "120": 120,
+      "121": 121,
+      "122": 122,
+      "123": 123,
+      "124": 124,
+      "125": 125,
+      "126": 126,
+      "127": 127,
+      "128": 128,
+      "129": 129,
+      "130": 130,
+      "131": 131,
+      "132": 132,
+      "133": 133,
+      "134": 134,
+      "135": 135,
+      "136": 136,
+      "137": 137,
+      "138": 138,
+      "139": 139,
+      "140": 140,
+      "141": 141,
+      "142": 142,
+      "143": 143,
+      "144": 144,
+      "145": 145,
+      "146": 146,
+      "147": 147,
+      "148": 148,
+      "149": 149,
+      "150": 150,
+      "151": 151,
+      "152": 152,
+      "153": 153,
+      "154": 154,
+      "155": 155,
+      "156": 156,
+      "157": 157,
+      "158": 158,
+      "159": 159,
+      "160": 160,
+      "161": 161,
+      "162": 162,
+      "163": 163,
+      "164": 164,
+      "165": 165,
+      "166": 166,
+      "167": 167,
+      "168": 168,
+      "169": 169,
+      "170": 170,
+      "171": 171
+    }
+  },
+  "chunks": {
+    "byName": {
+      "vendors": 2,
+      "main": 1,
+      "add-cat": 9,
+      "find-home": 10,
+      "list": 11,
+      "gallery": 12
+    },
+    "bySource": {
+      "0 node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/DashboardContent/DashboardContent.js ../CatPage/CatPage": 2,
+      "1 node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/DashboardContent/DashboardContent.js ../Gallery/Gallery": 2,
+      "1 node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/DashboardContent/DashboardContent.js ../List/List": 2,
+      "0 node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/DashboardContent/DashboardContent.js ../History/History": 2,
+      "1 node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/DashboardContent/DashboardContent.js ../AddCatWrapper/AddCatWrapper": 4,
+      "1 node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/DashboardContent/DashboardContent.js ../FindHomeWrapper/FindHomeWrapper": 2,
+      "1 node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/DashboardContent/DashboardContent.js ../CatPage/CatPage": 6,
+      "2 node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/DashboardContent/DashboardContent.js ../Gallery/Gallery": 7,
+      "0 node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/DashboardContent/DashboardContent.js ../Page500/Page500": 8,
+      "0 node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/DashboardContent/DashboardContent.js ../AddCatWrapper/AddCatWrapper": 9,
+      "0 node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/DashboardContent/DashboardContent.js ../FindHomeWrapper/FindHomeWrapper": 10,
+      "0 node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/DashboardContent/DashboardContent.js ../List/List": 11,
+      "0 node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/DashboardContent/DashboardContent.js ../Gallery/Gallery": 12,
+      "2 node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/DashboardContent/DashboardContent.js ../List/List": 13,
+      "1 node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/DashboardContent/DashboardContent.js ../History/History": 14,
+      "2 node_modules/babel-loader/lib/index.js??ref--6-oneOf-1!node_modules/eslint-loader/index.js??ref--5-0!src/js/components/DashboardContent/DashboardContent.js ../FindHomeWrapper/FindHomeWrapper": 15
+    },
+    "usedIds": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      2,
+      4,
+      6,
+      7,
+      8,
+      9
+    ]
+  }
+}

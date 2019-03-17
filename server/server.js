@@ -57,6 +57,7 @@ server.get('/history', async function (req, res) {
     }
 });
 
+
 /**
  * handler for post request for adding new worker
  */
@@ -78,15 +79,16 @@ server.post('/add-cat', async function (req, res) {
  * handler for patch request for firing a worker
  */
 server.patch('/issue-cat', async function (req, res) {
-    const {ID} = req.body;
+    const {id, address, family, date} = req.body;
     let issuedCat;
     try {
         let cats  = await readDataFromJson('currentCats');
         cats = cats.filter((cat) => {
-            if (cat.id === parseInt(ID)) {
-                issuedCat = cat;
+            if (cat.id === parseInt(id)) {
+                console.log(cat);
+                issuedCat = {...cat, address, family, date};
             }
-            return cat.id !== parseInt(ID);
+            return cat.id !== parseInt(id);
         });
 
         await saveDataToJson(cats, 'currentCats');

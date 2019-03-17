@@ -64,3 +64,30 @@ button
   border none
   margin 10px auto
   cursor pointer
+
+.table
+  background-color white
+  display flex
+  flex-flow column nowrap
+  justify-content space-between
+  padding 40px
+  .table-row
+    border-bottom 1px solid $gray
+    height 40px
+    display flex
+    width 100%
+    flex-flow row nowrap
+
+  .table-row-item
+    display flex
+    flex-flow row nowrap
+    flex-grow 1
+    flex-basis 0
+    padding 0.5em
+    word-break break-word
+
+  .table-head
+    color #E58291
+    font-size 20px
+    font-weight 300
+    font-family $montserrat-thin

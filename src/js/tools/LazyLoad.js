@@ -53,13 +53,13 @@ class lazyLoadImage extends Component  {
         const {img} = this.state;
         return (
             <div className='img-holder'
-                 style={{height: `${height}px`}}
+                 style={{height: `${height}px`, textAlign: 'center'}}
                  ref={this.defineRef}>
-                {img ? <img src={img.src}  alt=""/> : null}
+                {img ? <img style={{maxHeight: '100%'}}src={img.src}  alt=""/> : null}
             </div>
         )
     }
-};
+}
 
 export default lazyLoadImage;
 

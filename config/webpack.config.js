@@ -17,6 +17,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safePostCssParser = require('postcss-safe-parser');
 const TerserPlugin = require('terser-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = process.env.NODE_ENV === 'production';
@@ -71,7 +72,7 @@ module.exports = function () {
         },
         watch: true,
         output: {
-            path: undefined,
+            path: path.resolve(__dirname, '../build'),
             pathinfo: isDev,
             filename: isDev ? 'static/js/[name].js' : 'static/js/[name].[chunkhash:8].js',
             chunkFilename: isDev ? 'static/js/[name].chunk.js' : 'static/js/[name].[chunkhash:8].chunk.js',
@@ -378,7 +379,11 @@ module.exports = function () {
                     new RegExp('/[^/]+\\.[^/]+$'),
                 ],
             }),
-            isProd && new CleanWebpackPlugin(['build'])
+            isProd && new CleanWebpackPlugin(),
+            isProd && new BundleAnalyzerPlugin({
+                openAnalyzer: false,
+            })
+
         ].filter(Boolean),
         node: {
             dgram: 'empty',

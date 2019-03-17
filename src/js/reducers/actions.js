@@ -125,13 +125,13 @@ export default {
                 })
             }
     }},
-    findHome: function (catId) {
+    findHome: function (cat) {
         return async (dispatch) =>  {
             setLoading(null, dispatch);
 
             try {
                 const variables = {
-                    ID: catId
+                    ...cat
                 };
 
                 const {data: {cats, status}} = await RequestService.patch(REQUEST_PATHS.ISSUE_CAT, variables);

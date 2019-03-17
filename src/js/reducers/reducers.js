@@ -1,23 +1,6 @@
 import {ACTIONS_TYPES} from "../constants";
 
 const initialState = {
-    pages: [
-        {
-            title: 'Cats of our farm',
-            path: '/'
-        },
-        {
-            title: 'Cat registration',
-            path: '/add-cat'
-        },
-        {
-            title: 'Choose a cat into your house :)',
-            path: '/find-home'
-        }, {
-            title: 'Gallery of our cats',
-            path: '/gallery'
-        }
-    ],
     loading: false,
 };
 

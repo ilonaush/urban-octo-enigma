@@ -32,8 +32,10 @@ export class RequestService {
         document.location = path;
     };
 
-    get(path) {
-        return this.service.get(path)
+    get(path, params='') {
+        return this.service.get(path, {
+            params: params
+        })
     }
 
     patch(path, payload, callback) {

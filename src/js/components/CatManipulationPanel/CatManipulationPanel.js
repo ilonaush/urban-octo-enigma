@@ -41,21 +41,21 @@ class CatManipulationPanel extends Component {
         const {cat: {feedingTime, huggingTime, washingTime}} = this.props;
         return (
             <Fragment>
-                <div className='table-row-item' id='feeding' onClick={this.handleFeedingClick}>
+                <div className='table-row-item manipulation' id='feeding' onClick={this.handleFeedingClick}>
                     {!feedingTime || this.isTimeToManipulate(feedingTime) ?
                         <button className='btn-action' id='feeding-btn'>Feed cat</button>
                         :
                         `Next feeding ${moment(feedingTime).fromNow()}`
                     }
                 </div>
-                <div className='table-row-item' id='hugging' onClick={this.handleHugClick}>
+                <div className='table-row-item manipulation' id='hugging' onClick={this.handleHugClick}>
                     {!huggingTime || this.isTimeToManipulate(huggingTime) ?
                         <button className='btn-action'>Hug cat</button>
                         :
                         `Next hugging ${moment(huggingTime).fromNow()}`
                     }
                 </div>
-                <div className='table-row-item' id='washing' onClick={this.handleWashClick}>
+                <div className='table-row-item manipulation' id='washing' onClick={this.handleWashClick}>
                     {!washingTime || this.isTimeToManipulate(washingTime) ?
                         <button className='btn-action'>Wash cat</button>
                         :

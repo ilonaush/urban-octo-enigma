@@ -44,7 +44,7 @@ export class FindHomeForm extends Component {
         const {cat} = this.state;
         return (
             <form className='fireWorkerForm' onSubmit={(e) => onSubmit(e, cat)}>
-                <select name="catID" onChange={this.handleChange} required>
+                <select name="id" onChange={this.handleChange} required>
                     <option value=" ">Choose the meowy</option>
                     {cats.map((cat) =>
                         <option key={cat.id} value={cat.id} >{cat.name}, {cat.age}</option>
