@@ -14,16 +14,18 @@ export class RequestService {
     }
 
     handleError = (error) => {
-        switch (error.response.status) {
-            case 401:
-                this.redirectTo(document, '/')
-                break;
-            case 404:
-                this.redirectTo(document, '/404')
-                break;
-            default:
-                this.redirectTo(document, '/500')
-                break;
+        if (error.response.status && document) {
+            switch (error.response.status) {
+                case 401:
+                    this.redirectTo(document, '/');
+                    break;
+                case 404:
+                    this.redirectTo(document, '/404');
+                    break;
+                default:
+                    this.redirectTo(document, '/500');
+                    break;
+            }
         }
         return Promise.reject(error)
     };
@@ -38,9 +40,9 @@ export class RequestService {
         })
     }
 
-    patch(path, payload, callback) {
+    patch(path, payload) {
         return this.service.request({
-            method: 'PATCH',
+            method: 'patch',
             url: path,
             responseType: 'json',
             data: payload
@@ -49,7 +51,7 @@ export class RequestService {
 
     post(path, payload) {
         return this.service.request({
-            method: 'POST',
+            method: 'post',
             url: path,
             responseType: 'json',
             data: payload

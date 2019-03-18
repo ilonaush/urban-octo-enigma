@@ -46,7 +46,7 @@ server.get('/', async function (req, res) {
 });
 
 /**
- * handler for get history request; gives all workers
+ * handler for get history request
  */
 server.get('/history', async function (req, res) {
     try {
@@ -85,7 +85,6 @@ server.patch('/issue-cat', async function (req, res) {
         let cats  = await readDataFromJson('currentCats');
         cats = cats.filter((cat) => {
             if (cat.id === parseInt(id)) {
-                console.log(cat);
                 issuedCat = {...cat, address, family, date};
             }
             return cat.id !== parseInt(id);
@@ -179,6 +178,7 @@ server.listen(port, function () {
 /**
  * saves modified json file with workers
  * @param data
+ * @param type
  * @returns {Promise<boolean>}
  */
 async function saveDataToJson(data, type) {
@@ -194,6 +194,7 @@ async function saveDataToJson(data, type) {
 
 /**
  * gets data from json
+ * @param type
  * @returns {Promise<any>}
  */
 async function readDataFromJson(type) {

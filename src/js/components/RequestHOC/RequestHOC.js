@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import RequestService from "../../services/RequestService";
 
-function withRequest(WrappedComponent, options) {
+function withRequest(WrappedComponent, opts) {
 
     return class extends Component {
         constructor(props) {
@@ -10,21 +10,20 @@ function withRequest(WrappedComponent, options) {
                 loading: true,
                 data: null
             };
-            this.options = options;
+            this.opts = opts;
         }
 
-        componentWillReceiveProps(nextProps, nextContext) {
-            if (nextProps.location.pathname !== this.props.location.pathname) {
-                this.makeRequest(nextProps);
-            }
-        }
-
-        componentDidMount () {
+        componentDidMount() {
             this.makeRequest(this.props);
         }
 
+        /**
+         * makes given request
+         * @param props
+         * @returns {Promise<void>}
+         */
         async makeRequest(props) {
-            const options = typeof this.options.options === 'function' && this.options.options(props);
+            const options = typeof this.opts.options === 'function' && this.opts.options(props);
             try {
                 const {data} = await RequestService.get(this.options.request, options);
                 this.setState({
@@ -40,11 +39,20 @@ function withRequest(WrappedComponent, options) {
             }
         }
 
-        render () {
-            const props =  {
+        /**
+         * formulate props for wrapped component
+         * @returns {loading: boolean, [p: string]: data}
+         */
+        formProps() {
+            return {
                 loading: this.state.loading,
-                [this.options.name ? this.options.name : 'data'] : this.state.data
-            };
+                [this.opts.name ? this.opts.name : 'data'] : this.state.data,
+                ...this.props
+            }
+        }
+
+        render () {
+            const props =  this.formProps();
             return (
                 <WrappedComponent {...props}/>
             )

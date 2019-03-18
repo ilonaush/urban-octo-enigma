@@ -55,7 +55,7 @@ class lazyLoadImage extends Component  {
             <div className='img-holder'
                  style={{height: `${height}px`, textAlign: 'center'}}
                  ref={this.defineRef}>
-                {img ? <img style={{maxHeight: '100%'}}src={img.src}  alt=""/> : null}
+                {img ? <img style={{maxHeight: '100%'}} src={img.src}  alt=""/> : null}
             </div>
         )
     }

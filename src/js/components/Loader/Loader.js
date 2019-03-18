@@ -7,25 +7,25 @@ const Loader = ({loadingType}) => {
         case LOADING_TYPES.FEED_CAT:
             return (
                 <div className='loader'>
-                    <img src="/images/feed-cat-loader.gif" alt=""/>
+                    <img src="/images/loaders/feed-cat-loader.gif" alt=""/>
                 </div>
             );
         case LOADING_TYPES.HUG_CAT:
             return (
                 <div className='loader'>
-                    <img src="/images/hug-cat-loader.gif" alt=""/>
+                    <img src="/images/loaders/hug-cat-loader.gif" alt=""/>
                 </div>
             );
         case LOADING_TYPES.WASH_CAT:
             return (
                 <div className='loader'>
-                    <img src="/images/wash-cat-loader.gif" alt=""/>
+                    <img src="/images/loaders/wash-cat-loader.gif" alt=""/>
                 </div>
             );
         default:
             return (
                 <div className='loader'>
-                    <img src="/images/blue-loader.gif" alt=""/>
+                    <img src="/images/loaders/blue-loader.gif" alt=""/>
                 </div>
             );
     }

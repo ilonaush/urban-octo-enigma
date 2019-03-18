@@ -14,14 +14,14 @@ export class FindHomeWrapper extends Component {
             date: moment()
         };
         e.preventDefault();
-        this.props.findHome(variables).then(() => this.props.history.push('/'));
+        this.props.findHome(variables).then(() => this.props.history.push('/')).catch(e => console.log(e));
     };
 
     render() {
         return (
             <div>
                 <FindHomeForm onSubmit={this.handleSubmit} cats={this.props.cats}/>
-                <img  className='cat-bg' src="/images/cat-bg-1.png" alt=""/>
+                <img  className='cat-bg' src="/images/backgrounds/cat-bg-1.png" alt=""/>
             </div>
         );
     }

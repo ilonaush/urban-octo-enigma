@@ -16,6 +16,15 @@ exports[`SidebarMenu render correctly sidebar component 1`] = `
   <li>
     <a
       aria-current={null}
+      href="/history"
+      onClick={[Function]}
+    >
+      Cats found home
+    </a>
+  </li>
+  <li>
+    <a
+      aria-current={null}
       href="/add-cat"
       onClick={[Function]}
     >

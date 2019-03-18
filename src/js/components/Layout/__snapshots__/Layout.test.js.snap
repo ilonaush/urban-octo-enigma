@@ -17,7 +17,7 @@ exports[`Layout renders correctly 1`] = `
         className="icon"
         style={
           Object {
-            "backgroundImage": "url('images/add.svg",
+            "backgroundImage": "url('images/cat.svg",
           }
         }
       />
@@ -33,6 +33,15 @@ exports[`Layout renders correctly 1`] = `
           style={Object {}}
         >
           Home
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          href="/history"
+          onClick={[Function]}
+        >
+          Cats found home
         </a>
       </li>
       <li>
@@ -80,7 +89,7 @@ exports[`Layout renders correctly 1`] = `
       >
         <img
           alt=""
-          src="/images/blue-loader.gif"
+          src="/images/loaders/blue-loader.gif"
         />
       </div>
     </div>

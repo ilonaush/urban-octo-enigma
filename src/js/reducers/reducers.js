@@ -4,13 +4,14 @@ const initialState = {
     loading: false,
 };
 
-
 let reducer = (state = initialState, action) => {
     switch (action.type) {
         case ACTIONS_TYPES.GET_CATS:
             return {
                 ...state,
-                cats: action.payload,
+                cats: action.payload.cats,
+                loading: action.payload.loading,
+                loadingType: action.payload.loadingType
             };
         case ACTIONS_TYPES.ADD_CAT:
             return {
@@ -20,6 +21,20 @@ let reducer = (state = initialState, action) => {
                 loadingType: action.payload.loadingType
             };
         case ACTIONS_TYPES.FEED_CAT:
+            return {
+                ...state,
+                cats: action.payload.cats,
+                loading: action.payload.loading,
+                loadingType: action.payload.loadingType
+            };
+        case ACTIONS_TYPES.HUG_CAT:
+            return {
+                ...state,
+                cats: action.payload.cats,
+                loading: action.payload.loading,
+                loadingType: action.payload.loadingType
+            };
+        case ACTIONS_TYPES.WASH_CAT:
             return {
                 ...state,
                 cats: action.payload.cats,
@@ -43,5 +58,6 @@ let reducer = (state = initialState, action) => {
         default:
             return state;
     }
-}
+};
+
 export default reducer;

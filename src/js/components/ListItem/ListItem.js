@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import "./ListItem.styl";
-import moment from 'moment';
 import CatManipulationPanel from "../CatManipulationPanel/CatManipulationPanel";
 import {Link} from "react-router-dom";
 
-moment.locale();
 
 export class ListItem extends Component {
 

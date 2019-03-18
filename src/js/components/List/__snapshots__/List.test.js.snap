@@ -43,11 +43,11 @@ exports[`List renders 1`] = `
   >
     <div
       className="table-row-item"
-    />
-    <div
-      className="table-row-item"
     >
-      -
+      <a
+        href="/cat/1"
+        onClick={[Function]}
+      />
     </div>
     <div
       className="table-row-item"
@@ -56,6 +56,11 @@ exports[`List renders 1`] = `
     </div>
     <div
       className="table-row-item"
+    >
+      -
+    </div>
+    <div
+      className="table-row-item manipulation"
       id="feeding"
       onClick={[Function]}
     >
@@ -67,7 +72,7 @@ exports[`List renders 1`] = `
       </button>
     </div>
     <div
-      className="table-row-item"
+      className="table-row-item manipulation"
       id="hugging"
       onClick={[Function]}
     >
@@ -78,7 +83,7 @@ exports[`List renders 1`] = `
       </button>
     </div>
     <div
-      className="table-row-item"
+      className="table-row-item manipulation"
       id="washing"
       onClick={[Function]}
     >
@@ -94,11 +99,11 @@ exports[`List renders 1`] = `
   >
     <div
       className="table-row-item"
-    />
-    <div
-      className="table-row-item"
     >
-      -
+      <a
+        href="/cat/2"
+        onClick={[Function]}
+      />
     </div>
     <div
       className="table-row-item"
@@ -107,6 +112,11 @@ exports[`List renders 1`] = `
     </div>
     <div
       className="table-row-item"
+    >
+      -
+    </div>
+    <div
+      className="table-row-item manipulation"
       id="feeding"
       onClick={[Function]}
     >
@@ -118,7 +128,7 @@ exports[`List renders 1`] = `
       </button>
     </div>
     <div
-      className="table-row-item"
+      className="table-row-item manipulation"
       id="hugging"
       onClick={[Function]}
     >
@@ -129,7 +139,7 @@ exports[`List renders 1`] = `
       </button>
     </div>
     <div
-      className="table-row-item"
+      className="table-row-item manipulation"
       id="washing"
       onClick={[Function]}
     >
@@ -145,11 +155,11 @@ exports[`List renders 1`] = `
   >
     <div
       className="table-row-item"
-    />
-    <div
-      className="table-row-item"
     >
-      -
+      <a
+        href="/cat/3"
+        onClick={[Function]}
+      />
     </div>
     <div
       className="table-row-item"
@@ -158,6 +168,11 @@ exports[`List renders 1`] = `
     </div>
     <div
       className="table-row-item"
+    >
+      -
+    </div>
+    <div
+      className="table-row-item manipulation"
       id="feeding"
       onClick={[Function]}
     >
@@ -169,7 +184,7 @@ exports[`List renders 1`] = `
       </button>
     </div>
     <div
-      className="table-row-item"
+      className="table-row-item manipulation"
       id="hugging"
       onClick={[Function]}
     >
@@ -180,7 +195,7 @@ exports[`List renders 1`] = `
       </button>
     </div>
     <div
-      className="table-row-item"
+      className="table-row-item manipulation"
       id="washing"
       onClick={[Function]}
     >
@@ -196,11 +211,11 @@ exports[`List renders 1`] = `
   >
     <div
       className="table-row-item"
-    />
-    <div
-      className="table-row-item"
     >
-      -
+      <a
+        href="/cat/4"
+        onClick={[Function]}
+      />
     </div>
     <div
       className="table-row-item"
@@ -209,6 +224,11 @@ exports[`List renders 1`] = `
     </div>
     <div
       className="table-row-item"
+    >
+      -
+    </div>
+    <div
+      className="table-row-item manipulation"
       id="feeding"
       onClick={[Function]}
     >
@@ -220,7 +240,7 @@ exports[`List renders 1`] = `
       </button>
     </div>
     <div
-      className="table-row-item"
+      className="table-row-item manipulation"
       id="hugging"
       onClick={[Function]}
     >
@@ -231,7 +251,7 @@ exports[`List renders 1`] = `
       </button>
     </div>
     <div
-      className="table-row-item"
+      className="table-row-item manipulation"
       id="washing"
       onClick={[Function]}
     >

@@ -6,7 +6,9 @@ exports[`FindHomeForm renders correctly 1`] = `
   onSubmit={[Function]}
 >
   <select
+    name="id"
     onChange={[Function]}
+    required={true}
   >
     <option
       value=" "
@@ -15,10 +17,17 @@ exports[`FindHomeForm renders correctly 1`] = `
     </option>
   </select>
   <input
+    name="address"
+    onChange={[Function]}
     placeholder="Location of future home"
+    required={true}
+    value=""
   />
   <textarea
+    name="family"
+    onChange={[Function]}
     placeholder="Describe the family please"
+    required={true}
   />
   <button
     id="submit-btn"

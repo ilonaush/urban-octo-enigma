@@ -20,7 +20,7 @@ it('renders correctly with links', () => {
             <Sidebar/>
         </MemoryRouter>
     );
-    expect(SidebarComponent.find(NavLink).length).toEqual(4);
+    expect(SidebarComponent.find(NavLink).length).toEqual(5);
 });
 
 

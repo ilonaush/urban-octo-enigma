@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import actions from "../reducers/actions"
-import {ACTIONS_TYPES, REQUEST_PATHS} from "../constants";
+import {ACTIONS_TYPES, LOADING_TYPES, REQUEST_PATHS} from "../constants";
 import MockAdapter from 'axios-mock-adapter';
 import RequestService from "../services/RequestService";
 
@@ -22,40 +22,24 @@ describe('actions', () => {
             ]
         });
 
-
-
         const store = mockStore({ cats: []});
 
         await store.dispatch(actions.getCats()) ;
-        console.log(mockAxios.history);
 
         expect(store.getActions()).toEqual(expectedActions);
 
     });
 
-    it('creates SET_LOADING after fail while fetching workers', async () => {
+    it('creates SET_LOADING after adding new cat', async () => {
 
         const cat = { id: 1, name: 'John Smith' };
 
         const expectedActions = [
-            { type: ACTIONS_TYPES.SET_LOADING, payload: true },
-            { type: ACTIONS_TYPES.ADD_CAT, payload: {cats: [{ id: 1, name: 'John Smith' }], loading: false}},
+            { type: ACTIONS_TYPES.SET_LOADING, payload: {loading: true, loadingType: null} },
+            { type: ACTIONS_TYPES.ADD_CAT, payload: {cats: [{ id: 1, name: 'John Smith' }], loading: false, }},
         ];
 
-        RequestService.post(REQUEST_PATHS.ADD_CAT, {
-            _id: '123'
-        })
-            .then(function(response) {
-                console.log(response.data.cats);
-            })
-            .catch(e => {
-                console.log(e);
-            })
-
-        // mockAxios.onPost(REQUEST_PATHS.ADD_CAT).reply(200, { status: true, cats: 'stuff to reply with' });
-
-
-
+        mockAxios.onPost(REQUEST_PATHS.ADD_CAT).reply(200, { status: true, cats: [{ id: 1, name: 'John Smith' }] });
 
         const store = mockStore({ cats: []});
 
@@ -72,7 +56,7 @@ describe('actions', () => {
 
         mockAxios.onGet('/').networkError();
 
-        const store = mockStore({ workers: []});
+        const store = mockStore({ cats: []});
 
         await store.dispatch(actions.getCats());
 
@@ -80,5 +64,20 @@ describe('actions', () => {
 
     });
 
+    it('creates HUG_CAT after dispatching action HUG_CAT', async () => {
+        const expectedActions = [
+            { type: ACTIONS_TYPES.SET_LOADING, payload: {loading: true, loadingType: LOADING_TYPES.HUG_CAT}},
+            { type: ACTIONS_TYPES.HUG_CAT, payload: {cats: [{ id: 1, name: 'John Smith', huggingTime: 'now' }], loading: false}},
+        ];
+
+        mockAxios.onPatch(REQUEST_PATHS.HUG_CAT).reply(200, { status: true, cats: [{ id: 1, name: 'John Smith', huggingTime: 'now' }] });
+
+        const store = mockStore({ cats: []});
+
+        await store.dispatch(actions.hugCat());
+
+        expect(store.getActions()).toEqual(expectedActions);
+
+    });
 
 });

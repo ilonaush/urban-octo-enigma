@@ -1,9 +1,8 @@
 import React from 'react';
 import FindHomeForm from './FindHomeForm';
-import {mount, shallow} from "enzyme/build";
+import {mount, } from "enzyme/build";
 import renderer from "react-test-renderer";
-import {Provider} from "react-redux";
-import {store} from "../../reducers";
+
 
 describe('FindHomeForm', () => {
     it('renders correctly', () => {
@@ -12,13 +11,12 @@ describe('FindHomeForm', () => {
     });
 
     it('changes its state on select', () => {
-        const FireWorkerFormComponent = mount(shallow(
-            <Provider store={store}>
-                <FindHomeForm/>
-            </Provider>
-        ).get(0));
-        expect(FireWorkerFormComponent.state().catID).toEqual('');
-        FireWorkerFormComponent.find('select').simulate('change', {target: { value : '123'}});
-        expect(FireWorkerFormComponent.state().catID).toEqual('123');
+        const FireWorkerFormComponent = mount(
+            <FindHomeForm/>
+        );
+
+        expect(FireWorkerFormComponent.state('cat')).toEqual(null);
+        FireWorkerFormComponent.find('select[name="id"]').simulate('change', {target: { value : '123', name: 'id'}});
+        expect(FireWorkerFormComponent.state('cat').id).toEqual('123');
     });
 });

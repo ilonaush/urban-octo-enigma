@@ -7,6 +7,10 @@ import LazyLoad from "../../tools/LazyLoad";
 
 class CatPage extends Component {
 
+    /**
+     * finds cat based on param
+     * @returns {*}
+     */
     getCat = () => {
         return this.props.cats.find((c) => c.id === +this.props.match.params.id)
     };
@@ -18,7 +22,7 @@ class CatPage extends Component {
             <div className='cat-page'>
                     <div className="info-container">
                         <div>
-                            <LazyLoad src={img} height={300}/>
+                            <LazyLoad src={`cat-avatars/${img}`} height={300}/>
                             <div className='name'>{name}</div>
                             <div className='age'>{age} years old</div>
                             <hr/>

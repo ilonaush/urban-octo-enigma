@@ -15,9 +15,11 @@ describe('FindHomeWrapper', () => {
     });
 
     it('calls submit function  when  the form is submitted', async () => {
+        const historyMock = { push: jest.fn() };
         const mockFindHomeAction = jest.fn().mockResolvedValue();
         const props = {
-            findHome: mockFindHomeAction
+            findHome: mockFindHomeAction,
+            history: historyMock
         };
         const FireWorkerWrapperComponent = mount(
             <Provider store={store}>

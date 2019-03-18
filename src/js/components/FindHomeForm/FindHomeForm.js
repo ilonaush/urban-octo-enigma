@@ -29,7 +29,10 @@ export class FindHomeForm extends Component {
         };
     }
 
-
+    /**
+     * handles select change
+     * @param target
+     */
     handleChange = ({target = null}) => {
         this.setState((prevState) => ({
             cat: {

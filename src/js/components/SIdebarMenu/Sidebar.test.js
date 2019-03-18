@@ -22,9 +22,10 @@ describe('SidebarMenu', () => {
                 <Sidebar/>
             </MemoryRouter>
         );
-        expect(SidebarComponent.find(NavLink).at(1).prop('to')).toEqual('/add-cat');
-        expect(SidebarComponent.find(NavLink).at(2).prop('to')).toEqual('/find-home');
-        expect(SidebarComponent.find(NavLink).at(3).prop('to')).toEqual('/gallery');
+        expect(SidebarComponent.find(NavLink).at(1).prop('to')).toEqual('/history');
+        expect(SidebarComponent.find(NavLink).at(2).prop('to')).toEqual('/add-cat');
+        expect(SidebarComponent.find(NavLink).at(3).prop('to')).toEqual('/find-home');
+        expect(SidebarComponent.find(NavLink).at(4).prop('to')).toEqual('/gallery');
     });
 
 

@@ -24,9 +24,13 @@ export class AddCatWrapper extends Component {
             health: cat.health,
             img: this.selectCatImage()
         };
-        this.props.addCat(catInfo).then(() => this.props.history.push('/'))
+        this.props.addCat(catInfo).then(() => this.props.history.push('/')).catch(e => console.log(e))
     };
 
+    /**
+     * chooses random cat pic
+     * @returns {string}
+     */
     selectCatImage = () => {
         const random = Math.floor(Math.random() * 11);
         return `cat-${random}.jpg`;
@@ -36,7 +40,7 @@ export class AddCatWrapper extends Component {
         return (
             <Fragment>
                 <AddCatForm handleSubmit={this.handleSubmit}/>
-                <img  className='cat-bg' src="/images/cat-bg-2.png" alt=""/>
+                <img  className='cat-bg' src="/images/backgrounds/cat-bg-2.png" alt=""/>
             </Fragment>
         );
     }

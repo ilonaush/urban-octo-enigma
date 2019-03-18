@@ -160,6 +160,13 @@ module.exports = function () {
                                 priority: 2,
                                 enforce: true
                             },
+                            History: {
+                                test: /History/,
+                                name: 'history',
+                                chunks: 'async',
+                                priority: 2,
+                                enforce: true
+                            },
                             gallery: {
                                 test: /Gallery/,
                                 name: 'gallery',

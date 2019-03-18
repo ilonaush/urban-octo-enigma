@@ -1,7 +1,7 @@
+import './Sidebar.styl';
+
 import React from 'react';
 import {Link} from 'react-router-dom';
-
-import './Sidebar.styl';
 import SidebarMenu from "../SIdebarMenu/SidebarMenu";
 
 const Sidebar = () => {

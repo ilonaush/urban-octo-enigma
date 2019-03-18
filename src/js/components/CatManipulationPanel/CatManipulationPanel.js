@@ -6,6 +6,9 @@ import actions from "../../reducers/actions";
 
 class CatManipulationPanel extends Component {
 
+    /**
+     * handles feeding click
+     */
     handleFeedingClick = () => {
         const feedingTime = moment().add(15, 'm').format();
         const cat = {
@@ -15,6 +18,9 @@ class CatManipulationPanel extends Component {
         this.props.feedCat(cat);
     };
 
+    /**
+     * handles hugging click
+     */
     handleHugClick = () =>{
         const huggingTime = moment().add(1, 'h').format();
         const cat = {
@@ -24,6 +30,9 @@ class CatManipulationPanel extends Component {
         this.props.hugCat(cat);
     };
 
+    /**
+     * handles washing click
+     */
     handleWashClick = () =>{
         const washingTime = moment().add(1, 'd').format();
         const cat = {
@@ -33,6 +42,11 @@ class CatManipulationPanel extends Component {
         this.props.washCat(cat);
     };
 
+    /**
+     * checks if the action button should be active or not
+     * @param time
+     * @returns {boolean}
+     */
     isTimeToManipulate = (time) => {
         return  moment().format() > moment(time).format();
     };
@@ -67,7 +81,11 @@ class CatManipulationPanel extends Component {
     }
 }
 
-CatManipulationPanel.propTypes = {};
+CatManipulationPanel.propTypes = {
+    feedCat: PropTypes.func,
+    hugCat: PropTypes.func,
+    washCat: PropTypes.func
+};
 
 export default connect(
     null,

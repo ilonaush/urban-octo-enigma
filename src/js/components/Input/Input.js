@@ -16,6 +16,9 @@ const Input = ({placeholder, onChange, value, name, className, ...props}) => {
 Input.propTypes = {
     value: PropTypes.string
 };
+Input.defaultProps = {
+    value: ''
+};
 
 
 export default Input;

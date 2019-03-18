@@ -5,6 +5,7 @@ import {store} from "../../reducers/index";
 import {mount, shallow} from "enzyme/build";
 import renderer from "react-test-renderer";
 import AddCatForm from "../AddCatForm/AddCatForm";
+import {MemoryRouter} from "react-router-dom";
 
 
 
@@ -15,9 +16,11 @@ describe('AddCatWrapper', () => {
     });
 
     it('calls submit function  when  the form is submitted', async () => {
+        const historyMock = { push: jest.fn() };
         const mockAddCatAction = jest.fn().mockResolvedValue(43);
         const props = {
-            addCat: mockAddCatAction
+            addCat: mockAddCatAction,
+            history: historyMock
         };
         const AddWorkerWrapperComponent = mount(
             <Provider store={store}>

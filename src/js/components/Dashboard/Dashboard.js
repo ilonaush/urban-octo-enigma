@@ -5,9 +5,7 @@ import DashboardContent from "../DashboardContent/DashboardContent";
 import {connect} from "react-redux";
 import Loader from "../Loader/Loader";
 import PropTypes from 'prop-types';
-import withRequest from "../RequestHOC/RequestHOC";
-import {PAGE_TITLES, REQUEST_PATHS} from "../../constants";
-import {withRouter} from "react-router";
+import {PAGE_TITLES} from "../../constants";
 
 
 export class Dashboard extends Component {
@@ -15,7 +13,6 @@ export class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: false,
             page: ''
         };
     }
@@ -33,12 +30,6 @@ export class Dashboard extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.loading !== this.props.loading) {
-            this.setState({
-                loading: nextProps.loading
-            })
-        }
-
         if (this.props.location.pathname !== nextProps.location.pathname) {
             this.setState({
                 page: this.getPage(nextProps.location.pathname)
@@ -46,15 +37,20 @@ export class Dashboard extends Component {
         }
     }
 
-    getPage = (path,) => {
+    /**
+     * get page title based on route
+     * @param path
+     * @returns {{}}
+     */
+    getPage = (path) => {
         return {
             ...PAGE_TITLES.find((page) => page.path === path)
         };
     };
 
     render() {
-        const {page, loading} = this.state;
-        const {loadingType} = this.props;
+        const {page} = this.state;
+        const {loadingType, loading} = this.props;
         return (
             <div className='dashboard'>
                 {loading && <Loader loadingType={loadingType}/>}

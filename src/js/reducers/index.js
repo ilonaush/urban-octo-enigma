@@ -6,18 +6,19 @@ import { createLogger } from 'redux-logger'
 
 const loggerMiddleware = createLogger();
 
-const predefinedStore = loadStore();
+// const predefinedStore = loadStore();
 
 const store = createStore(
     reducer,
-    predefinedStore,
+    // predefinedStore,
     applyMiddleware(thunk, loggerMiddleware)
 );
 
-store.subscribe(() => {
-    saveStore(store.getState())
-});
+// store.subscribe(() => {
+//     saveStore(store.getState())
+// });
 
 export {
-    store, predefinedStore
+    store,
+    // predefinedStore
 };
