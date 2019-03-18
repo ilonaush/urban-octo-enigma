@@ -5,6 +5,7 @@ import actions from "../../reducers/actions";
 import {connect} from "react-redux";
 import ListItem from "../ListItem/ListItem";
 import {Link} from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 const CatTable = ({cats}) => {
     return (
@@ -30,7 +31,10 @@ const CatTable = ({cats}) => {
     );
 };
 
-const List = ({cats}) => {
+const List = ({cats, loading}) => {
+    if (loading) {
+        return null;
+    }
     return (
         cats && cats.length ?
             <CatTable cats={cats}/>
@@ -50,7 +54,7 @@ List.propTypes = {
 
 
 export default connect(
-    (state) => ({cats: state.cats}),
+    (state) => ({cats: state.cats, loading: state.loading}),
     (dispatch) => ({
         feedCat: (cat) => dispatch(actions.feedCat(cat)),
         hugCat: (cat) => dispatch(actions.hugCat(cat)),

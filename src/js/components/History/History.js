@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import withRequest from "../RequestHOC/RequestHOC";
 import {REQUEST_PATHS} from "../../constants";
-import Loader from "../Loader/Loader";
 import moment from "moment";
 
 const HistoryItem = ({cat: {name, address, date, family}}) => {
@@ -18,8 +17,10 @@ const HistoryItem = ({cat: {name, address, date, family}}) => {
 
 class History extends Component {
     render() {
-        const {history, loading} = this.props;
-        if (loading) return <Loader/>;
+        const {catsHistory, loading} = this.props;
+        if (loading) {
+            return null;
+        }
         return (
             <div className='table'>
                 <div className='table-row'>
@@ -28,7 +29,7 @@ class History extends Component {
                     <div className='table-head table-row-item'>Current address</div>
                     <div className='table-head table-row-item'>Date</div>
                 </div>
-                {history.map ((cat) =>
+                {catsHistory && catsHistory.length && catsHistory.map ((cat) =>
                     <HistoryItem key={cat.id} cat={cat}/>
                 )}
             </div>
@@ -37,9 +38,9 @@ class History extends Component {
 }
 
 History.propTypes = {
-    history: PropTypes.array,
+    catsHistory: PropTypes.array,
     loading: PropTypes.bool
 };
 
 
-export default withRequest(History, {request: REQUEST_PATHS.GET_HISTORY, name: 'history'});
+export default withRequest(History, {request: REQUEST_PATHS.GET_HISTORY, name: 'catsHistory'});

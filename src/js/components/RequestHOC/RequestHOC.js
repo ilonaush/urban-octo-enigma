@@ -23,9 +23,9 @@ function withRequest(WrappedComponent, opts) {
          * @returns {Promise<void>}
          */
         async makeRequest(props) {
-            const options = typeof this.opts.options === 'function' && this.opts.options(props);
+            // const options = typeof this.opts.options === 'function' && this.opts.options(props);
             try {
-                const {data} = await RequestService.get(this.options.request, options);
+                const {data} = await RequestService.get(this.opts.request);
                 this.setState({
                     data,
                     loading: false
