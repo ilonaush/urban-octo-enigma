@@ -1,81 +1,118 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AddCatWrapper renders correctly 1`] = `
-Array [
-  <form
-    className="addWorkerForm"
-    onSubmit={[Function]}
+<AddCatWrapper>
+  <AddCatForm
+    handleSubmit={[Function]}
   >
-    <h3>
-      Please share some info about the cat with us
-    </h3>
-    <input
-      id="name-input"
-      name="name"
-      onChange={[Function]}
-      placeholder="Name"
-      required={true}
-      value=""
-    />
-    <input
-      name="age"
-      onChange={[Function]}
-      placeholder="Age"
-      required={true}
-      value=""
-    />
-    <input
-      name="color"
-      onChange={[Function]}
-      placeholder="Color"
-      required={true}
-      value=""
-    />
-    <textarea
-      name="reason"
-      onChange={[Function]}
-      placeholder="Reason"
-      value=""
-    />
-    <input
-      name="location"
-      onChange={[Function]}
-      placeholder="Location"
-      required={true}
-      value=""
-    />
-    <select
-      name="health"
-      onChange={[Function]}
-      value=""
+    <form
+      className="addWorkerForm"
+      onSubmit={[Function]}
     >
-      <option
-        value="Satisfying"
+      <h3>
+        Please share some info about the cat with us
+      </h3>
+      <Input
+        id="name-input"
+        name="name"
+        onChange={[Function]}
+        placeholder="Name"
+        required={true}
+        value=""
       >
-        Satisfying
-      </option>
-      <option
-        value="Minor problems"
+        <input
+          id="name-input"
+          name="name"
+          onChange={[Function]}
+          placeholder="Name"
+          required={true}
+          value=""
+        />
+      </Input>
+      <Input
+        name="age"
+        onChange={[Function]}
+        placeholder="Age"
+        required={true}
+        value=""
       >
-        Minor problems
-      </option>
-      <option
-        value="Not satisfying"
+        <input
+          name="age"
+          onChange={[Function]}
+          placeholder="Age"
+          required={true}
+          value=""
+        />
+      </Input>
+      <Input
+        name="color"
+        onChange={[Function]}
+        placeholder="Color"
+        required={true}
+        value=""
       >
-        Not satisfying
-      </option>
-    </select>
-    <button
-      id="submit-btn"
-      type="submit"
-    >
-      Accept the cat
-    </button>
-  </form>,
+        <input
+          name="color"
+          onChange={[Function]}
+          placeholder="Color"
+          required={true}
+          value=""
+        />
+      </Input>
+      <textarea
+        name="reason"
+        onChange={[Function]}
+        placeholder="Reason"
+        value=""
+      />
+      <Input
+        name="location"
+        onChange={[Function]}
+        placeholder="Location"
+        required={true}
+        value=""
+      >
+        <input
+          name="location"
+          onChange={[Function]}
+          placeholder="Location"
+          required={true}
+          value=""
+        />
+      </Input>
+      <select
+        name="health"
+        onChange={[Function]}
+        value=""
+      >
+        <option
+          value="Satisfying"
+        >
+          Satisfying
+        </option>
+        <option
+          value="Minor problems"
+        >
+          Minor problems
+        </option>
+        <option
+          value="Not satisfying"
+        >
+          Not satisfying
+        </option>
+      </select>
+      <button
+        id="submit-btn"
+        type="submit"
+      >
+        Accept the cat
+      </button>
+    </form>
+  </AddCatForm>
   <img
     alt=""
     className="cat-bg"
     src="/images/backgrounds/cat-bg-2.png"
-  />,
-]
+  />
+</AddCatWrapper>
 `;

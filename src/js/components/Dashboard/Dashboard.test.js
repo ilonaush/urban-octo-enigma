@@ -1,40 +1,29 @@
 import React from 'react';
-import Dashboard  from './Dashboard';
-import {MemoryRouter} from "react-router-dom";
-import {Provider} from "react-redux";
-import {store} from "../../reducers/index";
-import renderer from "react-test-renderer";
+import {Dashboard}  from './Dashboard';
 import Intro from "../Intro/Intro";
-import { shallow, mount, render } from 'enzyme';
+import {shallow} from 'enzyme';
 import Loader from "../Loader/Loader";
 
+describe('Dashboard', function () {
 
+    beforeEach(() => {
+        this.wrapper = shallow(
+                <Dashboard location={{}}/>
+        );
+    });
 
-describe('Dashboard', () => {
     it('renders correctly', () => {
         const location = { pathname: '/' };
-        const DashboardComponent = renderer.create(
-            <MemoryRouter>
-                <Provider store={store}>
-                    <Dashboard location={location}/>
-                </Provider>
-            </MemoryRouter>
-        );
-        expect((DashboardComponent).toJSON()).toMatchSnapshot();
+        this.wrapper.setProps({location});
+        expect(this.wrapper).toMatchSnapshot();
     });
 
     it('renders correctly page info', () => {
         const props = {
             location : { pathname: '/add-cat' }
         };
-        const DashboardComponent = mount(
-            <MemoryRouter>
-                <Provider store={store}>
-                    <Dashboard location={props.location}/>
-                </Provider>
-            </MemoryRouter>
-        );
-        const pageTitle = DashboardComponent.find(Intro).at(0);
+        this.wrapper.setProps(props);
+        const pageTitle = this.wrapper.find(Intro).children();
         expect(pageTitle.text()).toEqual('Cat registration');
     });
 
@@ -43,14 +32,8 @@ describe('Dashboard', () => {
             loading : true,
             location : { pathname: '/add-cat' }
         };
-        const DashboardComponent = mount(
-            <MemoryRouter>
-                <Provider store={store}>
-                    <Dashboard {...props}/>
-                </Provider>
-            </MemoryRouter>
-        );
-        expect(DashboardComponent.containsMatchingElement(Loader)).toBeTruthy();
+        this.wrapper.setProps(props);
+        expect(this.wrapper.containsMatchingElement(Loader)).toBeTruthy();
     })
 });
 

@@ -3,15 +3,18 @@ import {FindHomeWrapper}  from './FindHomeWrapper';
 import {Provider} from "react-redux";
 import {store} from "../../reducers/index";
 import {mount, shallow} from "enzyme/build";
-import renderer from "react-test-renderer";
 import FindHomeForm from "../FindHomeForm/FindHomeForm";
 
 
+describe('FindHomeWrapper', function () {
 
-describe('FindHomeWrapper', () => {
+    beforeEach(() => {
+        this.wrapper = shallow(
+                <FindHomeWrapper/>
+        );
+    });
     it('renders correctly', () => {
-        const FireWorkerWrapperComponent = renderer.create(<FindHomeWrapper/>);
-        expect((FireWorkerWrapperComponent).toJSON()).toMatchSnapshot();
+        expect(this.wrapper).toMatchSnapshot();
     });
 
     it('calls submit function  when  the form is submitted', async () => {
@@ -21,18 +24,13 @@ describe('FindHomeWrapper', () => {
             findHome: mockFindHomeAction,
             history: historyMock
         };
-        const FireWorkerWrapperComponent = mount(
-            <Provider store={store}>
-                <FindHomeWrapper {...props}/>
-            </Provider>
-        );
 
-        const fireWorkerFormComponent = FireWorkerWrapperComponent.find(FindHomeForm);
+        this.wrapper.setProps(props);
+
+        const fireWorkerFormComponent = this.wrapper.find(FindHomeForm);
         expect(mockFindHomeAction.mock.calls.length).toBe(0);
         fireWorkerFormComponent.simulate('submit');
         expect(mockFindHomeAction.mock.calls.length).toBe(1)
     });
-
-
 });
 

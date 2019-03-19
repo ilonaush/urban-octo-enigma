@@ -61,5 +61,5 @@ export class Dashboard extends Component {
     }
 }
 
-export default connect((state) => ({pages: state.pages, loading: state.loading, loadingType: state.loadingType}))(Dashboard);
+export default connect((state) => ({loading: state.loading, loadingType: state.loadingType}))(Dashboard);
 

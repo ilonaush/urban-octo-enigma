@@ -1,22 +1,22 @@
 import React from 'react';
 import FindHomeForm from './FindHomeForm';
-import {mount, } from "enzyme/build";
-import renderer from "react-test-renderer";
+import {shallow} from "enzyme/build";
 
 
-describe('FindHomeForm', () => {
+describe('FindHomeForm', function () {
+
+    beforeEach(() => {
+        this.wrapper =  shallow(
+            <FindHomeForm/>
+        );
+    });
     it('renders correctly', () => {
-        const FireWorkerFormComponent = renderer.create(<FindHomeForm/>);
-        expect((FireWorkerFormComponent).toJSON()).toMatchSnapshot();
+        expect(this.wrapper).toMatchSnapshot();
     });
 
     it('changes its state on select', () => {
-        const FireWorkerFormComponent = mount(
-            <FindHomeForm/>
-        );
-
-        expect(FireWorkerFormComponent.state('cat')).toEqual(null);
-        FireWorkerFormComponent.find('select[name="id"]').simulate('change', {target: { value : '123', name: 'id'}});
-        expect(FireWorkerFormComponent.state('cat').id).toEqual('123');
+        expect(this.wrapper.state('cat')).toEqual(null);
+        this.wrapper.find('select[name="id"]').simulate('change', {target: { value : '123', name: 'id'}});
+        expect(this.wrapper.state('cat').id).toEqual('123');
     });
 });

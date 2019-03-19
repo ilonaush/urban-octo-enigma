@@ -3,7 +3,7 @@ import List  from './List';
 import {Provider} from "react-redux";
 import {MemoryRouter} from "react-router-dom";
 import renderer from "react-test-renderer";
-import { shallow, mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import ListItem from "../ListItem/ListItem";
 import configureMockStore from "redux-mock-store";
 

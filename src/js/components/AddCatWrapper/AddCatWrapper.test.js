@@ -1,18 +1,17 @@
 import React from 'react';
 import {AddCatWrapper}  from './AddCatWrapper';
-import {Provider} from "react-redux";
-import {store} from "../../reducers/index";
-import {mount, shallow} from "enzyme/build";
-import renderer from "react-test-renderer";
+import {mount} from "enzyme/build";
 import AddCatForm from "../AddCatForm/AddCatForm";
-import {MemoryRouter} from "react-router-dom";
 
 
+describe('AddCatWrapper', function () {
 
-describe('AddCatWrapper', () => {
+    beforeEach(() => {
+        this.wrapper = mount(<AddCatWrapper/>);
+    });
+
     it('renders correctly', () => {
-        const AddWorkerWrapperComponent = renderer.create(<AddCatWrapper/>);
-        expect((AddWorkerWrapperComponent).toJSON()).toMatchSnapshot();
+        expect(this.wrapper).toMatchSnapshot();
     });
 
     it('calls submit function  when  the form is submitted', async () => {
@@ -22,18 +21,13 @@ describe('AddCatWrapper', () => {
             addCat: mockAddCatAction,
             history: historyMock
         };
-        const AddWorkerWrapperComponent = mount(
-            <Provider store={store}>
-                <AddCatWrapper {...props}/>
-            </Provider>
-        );
 
-        const AddWorkerFormComponent = AddWorkerWrapperComponent.find(AddCatForm);
+        this.wrapper.setProps(props);
+
+        const AddWorkerFormComponent = this.wrapper.find(AddCatForm);
         expect(mockAddCatAction.mock.calls.length).toBe(0);
         AddWorkerFormComponent.simulate('submit');
         expect(mockAddCatAction.mock.calls.length).toBe(1)
     });
-
-
 });
 

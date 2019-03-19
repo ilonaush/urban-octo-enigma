@@ -68,7 +68,7 @@ server.post('/add-cat', async function (req, res) {
         cats.push(cat);
         const response = await saveDataToJson(cats, 'currentCats');
         if (response) {
-            res.send({status: true, cats: cats});
+            res.send({status: true, cats});
         }
     } catch(e) {
         res.status(500).send({status: false});

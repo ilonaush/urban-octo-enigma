@@ -27,8 +27,6 @@ describe('SidebarMenu', () => {
         expect(SidebarComponent.find(NavLink).at(3).prop('to')).toEqual('/find-home');
         expect(SidebarComponent.find(NavLink).at(4).prop('to')).toEqual('/gallery');
     });
-
-
 });
 
 

@@ -1,39 +1,30 @@
 import React from 'react';
 import {Gallery}  from './Gallery';
-import {Provider} from "react-redux";
-import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store'
-import { shallow, mount, render } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 const mockStore = configureMockStore();
 const store = mockStore({ cats: [{id: 1, fullname: 'mike', position: 'cat'}] });
 const emptyStore = mockStore({});
 
-describe('Gallery', () => {
-    it('renders correctly gallery component with mock store', () => {
-        const GalleryComponent = renderer.create(<Provider store={store}>
+describe('Gallery',  function () {
+
+    beforeEach(() => {
+        this.wrapper = shallow(
             <Gallery/>
-        </Provider>
-        ).toJSON();
-        expect(GalleryComponent).toMatchSnapshot();
-    });
-
-
-    it('renders correctly gallery component with default parameters', () => {
-        const GalleryComponent = mount(
-            <Provider store={emptyStore}>
-                <Gallery/>
-            </Provider>);
-        expect(Array.isArray(GalleryComponent.props().children.props.cats)).toBe(true);
-    });
-
-    it('renders correctly gallery component with default parameters', () => {
-        const GalleryComponent = mount(
-            <Provider store={emptyStore}>
-                <Gallery/>
-            </Provider>
         );
-        expect(GalleryComponent.childAt(0).text()).toBe('Немає котиків');
+    });
+
+    it('renders correctly gallery component with mock store', () => {
+        expect(this.wrapper).toMatchSnapshot();
+    });
+
+    it('renders correctly gallery component with default parameters', () => {
+        expect(Array.isArray(this.wrapper.props('cats'))).toBe(true);
+    });
+
+    it('renders correctly gallery component with default parameters', () => {
+        expect(this.wrapper.props().children.text()).toBe('Немає котиків');
     });
 });
 

@@ -4,13 +4,40 @@ exports[`DashboardContent renders correctly 1`] = `
 <div
   className="d-content"
 >
-  <div
-    className="loader"
-  >
-    <img
-      alt=""
-      src="/images/loaders/blue-loader.gif"
-    />
-  </div>
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/history"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/add-cat"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/find-home"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/cat/:id"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/gallery"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/500"
+  />
 </div>
 `;

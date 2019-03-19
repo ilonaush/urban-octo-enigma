@@ -36,7 +36,7 @@ export default {
                 const {data: cats} = await RequestService.get(REQUEST_PATHS.GET_CATS);
                 dispatch({
                     type: ACTIONS_TYPES.GET_CATS,
-                    payload: { cats, loading: false }
+                    payload: { cats : cats.cats, loading: false }
                 })
             }
             catch (e) {

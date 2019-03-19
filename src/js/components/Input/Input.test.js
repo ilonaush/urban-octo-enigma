@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Input from "./Input";
-import { shallow, mount, render } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 describe('Input', () => {
     it('renders correctly input  component ', () => {

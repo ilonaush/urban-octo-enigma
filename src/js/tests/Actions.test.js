@@ -13,7 +13,8 @@ describe('actions', () => {
 
     it('creates GET_CATS after successfuly fetching cats', async () => {
         const expectedActions = [
-            { type: ACTIONS_TYPES.GET_CATS, payload: {cats: [{ id: 1, name: 'John Smith' }]} },
+            { type: ACTIONS_TYPES.SET_LOADING, payload: {loading: true, loadingType: null}},
+            { type: ACTIONS_TYPES.GET_CATS, payload: {cats: [{ id: 1, name: 'John Smith' }], loading: false}},
         ];
 
         mockAxios.onGet('/').reply(200, {
@@ -36,7 +37,7 @@ describe('actions', () => {
 
         const expectedActions = [
             { type: ACTIONS_TYPES.SET_LOADING, payload: {loading: true, loadingType: null} },
-            { type: ACTIONS_TYPES.ADD_CAT, payload: {cats: [{ id: 1, name: 'John Smith' }], loading: false, }},
+            { type: ACTIONS_TYPES.ADD_CAT, payload: {cats: [{ id: 1, name: 'John Smith' }], loading: false}},
         ];
 
         mockAxios.onPost(REQUEST_PATHS.ADD_CAT).reply(200, { status: true, cats: [{ id: 1, name: 'John Smith' }] });
@@ -51,7 +52,8 @@ describe('actions', () => {
 
     it('creates GET_CATS after fail while fetching cats', async () => {
         const expectedActions = [
-            { type: ACTIONS_TYPES.GET_CATS, payload: [] },
+            { type: ACTIONS_TYPES.SET_LOADING, payload: {loading: true, loadingType: null} },
+            { type: ACTIONS_TYPES.GET_CATS, payload: {cats: [], loading: false} },
         ];
 
         mockAxios.onGet('/').networkError();

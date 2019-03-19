@@ -2,41 +2,10 @@
 
 exports[`FindHomeWrapper renders correctly 1`] = `
 <div>
-  <form
-    className="fireWorkerForm"
+  <FindHomeForm
+    cats={Array []}
     onSubmit={[Function]}
-  >
-    <select
-      name="id"
-      onChange={[Function]}
-      required={true}
-    >
-      <option
-        value=" "
-      >
-        Choose the meowy
-      </option>
-    </select>
-    <input
-      name="address"
-      onChange={[Function]}
-      placeholder="Location of future home"
-      required={true}
-      value=""
-    />
-    <textarea
-      name="family"
-      onChange={[Function]}
-      placeholder="Describe the family please"
-      required={true}
-    />
-    <button
-      id="submit-btn"
-      type="submit"
-    >
-      Find home for the cat
-    </button>
-  </form>
+  />
   <img
     alt=""
     className="cat-bg"

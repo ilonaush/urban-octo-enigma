@@ -4,22 +4,9 @@ exports[`Dashboard renders correctly 1`] = `
 <div
   className="dashboard"
 >
-  <div
-    className="intro"
-  >
+  <Intro>
     Cats of our farm
-  </div>
-  <div
-    className="d-content"
-  >
-    <div
-      className="loader"
-    >
-      <img
-        alt=""
-        src="/images/loaders/blue-loader.gif"
-      />
-    </div>
-  </div>
+  </Intro>
+  <DashboardContent />
 </div>
 `;

@@ -1,20 +1,14 @@
 import React from 'react';
 import DashboardContent  from './DashboardContent';
-import {MemoryRouter} from "react-router-dom";
-import {Provider} from "react-redux";
-import {store} from "../../reducers/index";
-import renderer from "react-test-renderer";
+import {shallow} from 'enzyme';
+
 
 describe('DashboardContent', () => {
     it('renders correctly', () => {
-        const DashboardContentComponent = renderer.create(
-            <MemoryRouter>
-                <Provider store={store}>
-                    <DashboardContent/>
-                </Provider>
-            </MemoryRouter>
+        const DashboardContentComponent = shallow(
+            <DashboardContent/>
         );
-        expect((DashboardContentComponent).toJSON()).toMatchSnapshot();
+        expect(DashboardContentComponent).toMatchSnapshot();
     });
 });
 
