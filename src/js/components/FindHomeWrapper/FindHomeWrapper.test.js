@@ -13,6 +13,7 @@ describe('FindHomeWrapper', function () {
                 <FindHomeWrapper/>
         );
     });
+
     it('renders correctly', () => {
         expect(this.wrapper).toMatchSnapshot();
     });
@@ -29,7 +30,9 @@ describe('FindHomeWrapper', function () {
 
         const fireWorkerFormComponent = this.wrapper.find(FindHomeForm);
         expect(mockFindHomeAction.mock.calls.length).toBe(0);
-        fireWorkerFormComponent.simulate('submit');
+        fireWorkerFormComponent.simulate('submit', {
+            preventDefault: () => {
+            }});
         expect(mockFindHomeAction.mock.calls.length).toBe(1)
     });
 });

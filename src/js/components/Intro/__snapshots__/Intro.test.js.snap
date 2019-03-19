@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render correctly intro component 1`] = `
+exports[`Intro render correctly intro component 1`] = `
 <div
   className="intro"
 />

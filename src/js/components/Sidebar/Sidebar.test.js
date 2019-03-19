@@ -2,25 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Sidebar from './Sidebar';
 import {MemoryRouter} from "react-router-dom";
-import {NavLink} from "react-router-dom";
-import {mount} from "enzyme";
+import {Link, NavLink} from "react-router-dom";
+import {mount, shallow} from "enzyme";
+import SidebarMenu from "../SIdebarMenu/SidebarMenu";
 
-it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(
-        <MemoryRouter>
-        <Sidebar/>
-    </MemoryRouter>, div);
-});
-
-it('renders correctly with links', () => {
-    const SidebarComponent = mount(
-        <MemoryRouter>
+describe('Sidebar', function () {
+    beforeEach(() => {
+        this.wrapper = shallow(
             <Sidebar/>
-        </MemoryRouter>
-    );
-    expect(SidebarComponent.find(NavLink).length).toEqual(5);
-});
+        )
+    });
+    it('renders without crashing', () => {
+        expect(this.wrapper).toMatchSnapshot();
+    });
+
+    it('renders correctly with links', () => {
+        expect(this.wrapper.children(SidebarMenu).dive().find(NavLink).length).toEqual(5);
+    });
+})
+
+
 
 
 

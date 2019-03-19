@@ -1,20 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Error renders correctly 1`] = `
-<div
-  className="error"
->
-  Виникла помилка. Спробуйте пізніше
-  <div>
-    <a
-      aria-current="page"
-      className="active"
-      href="/"
-      onClick={[Function]}
-      style={Object {}}
-    >
-      На головну
-    </a>
-  </div>
-</div>
-`;
+exports[`Error renders correctly 1`] = `<Page500 />`;

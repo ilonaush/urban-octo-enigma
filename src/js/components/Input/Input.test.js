@@ -1,39 +1,33 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import Input from "./Input";
-import { shallow, mount } from 'enzyme';
+import {  mount, shallow } from 'enzyme';
 
-describe('Input', () => {
+//setProps doesn't work properly on functional components
+describe('Input', function () {
+
     it('renders correctly input  component ', () => {
-        const InputComponent = renderer.create(<Input/>);
-        expect((InputComponent).toJSON()).toMatchSnapshot();
+        this.wrapper = mount(<Input/>)
+        expect(this.wrapper).toMatchSnapshot();
     });
 
-    it('checks whether class is aplied to the input', () => {
-        const props = {
-                className: 'beautiful'
-            },
-            InputComponent = mount(<Input {...props} />).find('input');
-        expect(InputComponent.hasClass('beautiful')).toEqual(true);
+    it('checks whether class is applied to the input', () => {
+        this.wrapper = mount(<Input className='beautiful'/>)
+        const  input = this.wrapper.find('input');
+        expect(input.hasClass('beautiful')).toEqual(true);
     });
 
 
     it('render input correctly with null value', () => {
-        const props = {
-                value: null
-            },
-            InputComponent = mount(<Input {...props} />);
-        expect((InputComponent).prop('value')).toEqual(null);
+        const props = { value: null, onChange: jest.fn()};
+        this.wrapper = mount(<Input {...props}/>);
+        expect(this.wrapper.prop('value')).toEqual(null);
     });
-
+    //
     it('check the type of value', () => {
-        const props = {
-                value: 'meow'
-            },
-            InputComponent = mount(<Input {...props} />);
-        expect(typeof InputComponent.prop('value')).toBe('string');
+        const props = {value: 'meow', onChange: jest.fn()};
+        this.wrapper = mount(<Input {...props}/>);
+        expect(typeof this.wrapper.prop('value')).toBe('string');
     });
-
     it('should handle onChange event', () => {
         const onChange = jest.fn(),
             props = {
@@ -43,11 +37,13 @@ describe('Input', () => {
             InputComponentEl = shallow(<Input {...props} />).find('input');
         expect(InputComponentEl.prop('value')).toEqual('meow');
         let eventArgs = {target: {value: "meow-meow"}};
-        InputComponentEl.simulate('change', eventArgs );
+        InputComponentEl.simulate('change', eventArgs);
         expect(props.onChange).toHaveBeenCalledTimes(1);
         expect(props.onChange).toHaveBeenLastCalledWith(eventArgs);
-    });
+    })
 });
+
+
 
 
 

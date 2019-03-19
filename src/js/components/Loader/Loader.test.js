@@ -1,10 +1,10 @@
 import React from 'react';
 import Loader from './Loader';
-import renderer from "react-test-renderer";
+import {shallow} from "enzyme";
 
 describe('Loader', () => {
     it('render correctly loader component', () => {
-        const LoaderComponent = renderer.create(<Loader/>).toJSON();
+        const LoaderComponent = shallow(<Loader/>);
         expect(LoaderComponent).toMatchSnapshot();
     });
 });

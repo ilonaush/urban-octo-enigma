@@ -1,24 +1,31 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {ListItem} from './ListItem';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import {Provider} from "react-redux";
 import {store} from "../../reducers";
 import {MemoryRouter} from "react-router-dom";
 
 
-describe('ListItem', () => {
+describe('ListItem', function () {
+
+    beforeEach(() => {
+        this.wrapper = shallow(
+            <ListItem/>
+        )
+    });
+
     it('renders without crashing', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(<MemoryRouter><Provider  store={store}><ListItem/></Provider></MemoryRouter>, div);
+        expect(this.wrapper).toMatchSnapshot();
     });
 
     it('does not render button', () => {
-        const cat =  {
-            feedingTime: '2019-03-22T18:59:53+02:00'
+        const props =  {
+            cat: {
+                feedingTime: '2019-03-12T18:59:53+02:00'
+            }
         };
-        const ListItemComponent = mount(<MemoryRouter><Provider store={store}><ListItem cat={cat}/></Provider></MemoryRouter>);
-        expect(ListItemComponent.find('#feeding-btn').exists()).toBeFalsy();
+        this.wrapper.setProps(props);
+        expect(this.wrapper.find('#feeding-btn').exists()).toBeFalsy();
     });
 
     it('renders button', () => {

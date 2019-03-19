@@ -7,10 +7,11 @@ const mockStore = configureMockStore();
 const store = mockStore({ cats: [{id: 1, fullname: 'mike', position: 'cat'}] });
 const emptyStore = mockStore({});
 
+
 describe('Gallery',  function () {
 
     beforeEach(() => {
-        this.wrapper = shallow(
+        this.wrapper = mount(
             <Gallery/>
         );
     });
@@ -20,11 +21,11 @@ describe('Gallery',  function () {
     });
 
     it('renders correctly gallery component with default parameters', () => {
-        expect(Array.isArray(this.wrapper.props('cats'))).toBe(true);
+        expect(Array.isArray(this.wrapper.prop('cats'))).toBe(true);
     });
 
     it('renders correctly gallery component with default parameters', () => {
-        expect(this.wrapper.props().children.text()).toBe('Немає котиків');
+        expect(this.wrapper.find('.no-cats').text()).toBe('Немає котиків');
     });
 });
 

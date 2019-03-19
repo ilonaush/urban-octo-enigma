@@ -1,11 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Gallery renders correctly gallery component with mock store 1`] = `
-<div
-  className="workers-gallery"
+<Gallery
+  cats={Array []}
 >
-  <div>
-    Немає котиків
+  <div
+    className="workers-gallery"
+  >
+    <div
+      className="no-cats"
+    >
+      Немає котиків
+    </div>
   </div>
-</div>
+</Gallery>
 `;

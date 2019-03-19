@@ -1,12 +1,11 @@
 import React from 'react';
 import Page500  from './Page500';
 import {MemoryRouter} from "react-router-dom";
-import renderer from "react-test-renderer";
-
+import {shallow} from "enzyme";
 
 describe('Error', () => {
     it('renders correctly', () => {
-        const ErrorComponent = renderer.create(<MemoryRouter><Page500/></MemoryRouter>);
-        expect((ErrorComponent).toJSON()).toMatchSnapshot();
+        const ErrorComponent = shallow(<MemoryRouter keyLength={0}><Page500/></MemoryRouter>);
+        expect(ErrorComponent.find(Page500)).toMatchSnapshot();
     })
 });

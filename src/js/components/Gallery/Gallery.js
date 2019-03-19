@@ -18,14 +18,14 @@ export const Gallery = ({cats}) =>  {
                     </div>
                     )
                 })
-                : <div>Немає котиків</div>
+                : <div className='no-cats'>Немає котиків</div>
             }
         </div>
     );
 };
 
 Gallery.propTypes = {
-        cats: PropTypes.array
+    cats: PropTypes.array
 };
 
 Gallery.defaultProps = {

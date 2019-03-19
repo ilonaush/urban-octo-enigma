@@ -1,98 +1,448 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Layout renders correctly 1`] = `
-<div
-  className="layout"
->
+<Layout>
   <div
-    className="sidebar"
+    className="layout"
   >
-    <a
-      className="heading"
-      href="/"
-      onClick={[Function]}
+    <Route
+      component={[Function]}
     >
-      <span
-        alt=""
-        className="icon"
-        style={
+      <Sidebar
+        history={
           Object {
-            "backgroundImage": "url('images/cat.svg",
+            "action": "POP",
+            "block": [Function],
+            "canGo": [Function],
+            "createHref": [Function],
+            "entries": Array [
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+            ],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "index": 0,
+            "length": 1,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+            "push": [Function],
+            "replace": [Function],
           }
         }
-      />
-      Kitty Farm Dashboard
-    </a>
-    <ul>
-      <li>
-        <a
-          aria-current="page"
-          className="active"
-          href="/"
-          onClick={[Function]}
-          style={Object {}}
-        >
-          Home
-        </a>
-      </li>
-      <li>
-        <a
-          aria-current={null}
-          href="/history"
-          onClick={[Function]}
-        >
-          Cats found home
-        </a>
-      </li>
-      <li>
-        <a
-          aria-current={null}
-          href="/add-cat"
-          onClick={[Function]}
-        >
-          Register a cat
-        </a>
-      </li>
-      <li>
-        <a
-          aria-current={null}
-          href="/find-home"
-          onClick={[Function]}
-        >
-          Issue a cat
-        </a>
-      </li>
-      <li>
-        <a
-          aria-current={null}
-          href="/gallery"
-          onClick={[Function]}
-        >
-          Gallery
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div
-    className="dashboard"
-  >
-    <div
-      className="intro"
-    >
-      Cats of our farm
-    </div>
-    <div
-      className="d-content"
-    >
-      <div
-        className="loader"
+        location={
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          }
+        }
+        match={
+          Object {
+            "isExact": true,
+            "params": Object {},
+            "path": "/",
+            "url": "/",
+          }
+        }
       >
-        <img
-          alt=""
-          src="/images/loaders/blue-loader.gif"
-        />
-      </div>
-    </div>
+        <div
+          className="sidebar"
+        >
+          <Link
+            className="heading"
+            replace={false}
+            to="/"
+          >
+            <a
+              className="heading"
+              href="/"
+              onClick={[Function]}
+            >
+              <span
+                alt=""
+                className="icon"
+                style={
+                  Object {
+                    "backgroundImage": "url('images/cat.svg",
+                  }
+                }
+              />
+              Kitty Farm Dashboard
+            </a>
+          </Link>
+          <SidebarMenu>
+            <ul>
+              <li
+                key="Home"
+              >
+                <NavLink
+                  activeClassName="active"
+                  aria-current="page"
+                  to="/"
+                >
+                  <Route
+                    path="\\\\/"
+                  >
+                    <Link
+                      aria-current="page"
+                      className="active"
+                      replace={false}
+                      style={Object {}}
+                      to="/"
+                    >
+                      <a
+                        aria-current="page"
+                        className="active"
+                        href="/"
+                        onClick={[Function]}
+                        style={Object {}}
+                      >
+                        Home
+                      </a>
+                    </Link>
+                  </Route>
+                </NavLink>
+              </li>
+              <li
+                key="Cats found home"
+              >
+                <NavLink
+                  activeClassName="active"
+                  aria-current="page"
+                  to="/history"
+                >
+                  <Route
+                    path="\\\\/history"
+                  >
+                    <Link
+                      aria-current={null}
+                      replace={false}
+                      to="/history"
+                    >
+                      <a
+                        aria-current={null}
+                        href="/history"
+                        onClick={[Function]}
+                      >
+                        Cats found home
+                      </a>
+                    </Link>
+                  </Route>
+                </NavLink>
+              </li>
+              <li
+                key="Register a cat"
+              >
+                <NavLink
+                  activeClassName="active"
+                  aria-current="page"
+                  to="/add-cat"
+                >
+                  <Route
+                    path="\\\\/add-cat"
+                  >
+                    <Link
+                      aria-current={null}
+                      replace={false}
+                      to="/add-cat"
+                    >
+                      <a
+                        aria-current={null}
+                        href="/add-cat"
+                        onClick={[Function]}
+                      >
+                        Register a cat
+                      </a>
+                    </Link>
+                  </Route>
+                </NavLink>
+              </li>
+              <li
+                key="Issue a cat"
+              >
+                <NavLink
+                  activeClassName="active"
+                  aria-current="page"
+                  to="/find-home"
+                >
+                  <Route
+                    path="\\\\/find-home"
+                  >
+                    <Link
+                      aria-current={null}
+                      replace={false}
+                      to="/find-home"
+                    >
+                      <a
+                        aria-current={null}
+                        href="/find-home"
+                        onClick={[Function]}
+                      >
+                        Issue a cat
+                      </a>
+                    </Link>
+                  </Route>
+                </NavLink>
+              </li>
+              <li
+                key="Gallery"
+              >
+                <NavLink
+                  activeClassName="active"
+                  aria-current="page"
+                  to="/gallery"
+                >
+                  <Route
+                    path="\\\\/gallery"
+                  >
+                    <Link
+                      aria-current={null}
+                      replace={false}
+                      to="/gallery"
+                    >
+                      <a
+                        aria-current={null}
+                        href="/gallery"
+                        onClick={[Function]}
+                      >
+                        Gallery
+                      </a>
+                    </Link>
+                  </Route>
+                </NavLink>
+              </li>
+            </ul>
+          </SidebarMenu>
+        </div>
+      </Sidebar>
+    </Route>
+    <Route
+      component={[Function]}
+    >
+      <Connect(Dashboard)
+        history={
+          Object {
+            "action": "POP",
+            "block": [Function],
+            "canGo": [Function],
+            "createHref": [Function],
+            "entries": Array [
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+            ],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "index": 0,
+            "length": 1,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+        location={
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          }
+        }
+        match={
+          Object {
+            "isExact": true,
+            "params": Object {},
+            "path": "/",
+            "url": "/",
+          }
+        }
+      >
+        <Dashboard
+          dispatch={[Function]}
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "canGo": [Function],
+              "createHref": [Function],
+              "entries": Array [
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+              ],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "index": 0,
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          loading={false}
+          location={
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            }
+          }
+          match={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+        >
+          <div
+            className="dashboard"
+          >
+            <Intro>
+              <div
+                className="intro"
+              >
+                Cats of our farm
+              </div>
+            </Intro>
+            <DashboardContent>
+              <div
+                className="d-content"
+              >
+                <Route
+                  component={[Function]}
+                  exact={true}
+                  path="/"
+                >
+                  <DynamicComponent
+                    history={
+                      Object {
+                        "action": "POP",
+                        "block": [Function],
+                        "canGo": [Function],
+                        "createHref": [Function],
+                        "entries": Array [
+                          Object {
+                            "hash": "",
+                            "pathname": "/",
+                            "search": "",
+                            "state": undefined,
+                          },
+                        ],
+                        "go": [Function],
+                        "goBack": [Function],
+                        "goForward": [Function],
+                        "index": 0,
+                        "length": 1,
+                        "listen": [Function],
+                        "location": Object {
+                          "hash": "",
+                          "pathname": "/",
+                          "search": "",
+                          "state": undefined,
+                        },
+                        "push": [Function],
+                        "replace": [Function],
+                      }
+                    }
+                    location={
+                      Object {
+                        "hash": "",
+                        "pathname": "/",
+                        "search": "",
+                        "state": undefined,
+                      }
+                    }
+                    match={
+                      Object {
+                        "isExact": true,
+                        "params": Object {},
+                        "path": "/",
+                        "url": "/",
+                      }
+                    }
+                  >
+                    <Loader>
+                      <div
+                        className="loader"
+                      >
+                        <img
+                          alt=""
+                          src="/images/loaders/blue-loader.gif"
+                        />
+                      </div>
+                    </Loader>
+                  </DynamicComponent>
+                </Route>
+                <Route
+                  component={[Function]}
+                  exact={true}
+                  path="/history"
+                />
+                <Route
+                  component={[Function]}
+                  exact={true}
+                  path="/add-cat"
+                />
+                <Route
+                  component={[Function]}
+                  exact={true}
+                  path="/find-home"
+                />
+                <Route
+                  component={[Function]}
+                  exact={true}
+                  path="/cat/:id"
+                />
+                <Route
+                  component={[Function]}
+                  exact={true}
+                  path="/gallery"
+                />
+                <Route
+                  component={[Function]}
+                  exact={true}
+                  path="/500"
+                />
+              </div>
+            </DashboardContent>
+          </div>
+        </Dashboard>
+      </Connect(Dashboard)>
+    </Route>
   </div>
-</div>
+</Layout>
 `;

@@ -1,266 +1,481 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List renders 1`] = `
-<div
-  className="table"
->
-  <div
-    className="table-row"
+<Connect(List)>
+  <List
+    cats={
+      Array [
+        Object {
+          "fullname": "mike",
+          "id": 1,
+          "position": "cat",
+        },
+        Object {
+          "fullname": "mike",
+          "id": 2,
+          "position": "cat",
+        },
+        Object {
+          "fullname": "mike",
+          "id": 3,
+          "position": "cat",
+        },
+        Object {
+          "fullname": "mike",
+          "id": 4,
+          "position": "cat",
+        },
+      ]
+    }
+    feedCat={[Function]}
+    hugCat={[Function]}
+    washCat={[Function]}
   >
-    <div
-      className="table-head table-row-item"
+    <CatTable
+      cats={
+        Array [
+          Object {
+            "fullname": "mike",
+            "id": 1,
+            "position": "cat",
+          },
+          Object {
+            "fullname": "mike",
+            "id": 2,
+            "position": "cat",
+          },
+          Object {
+            "fullname": "mike",
+            "id": 3,
+            "position": "cat",
+          },
+          Object {
+            "fullname": "mike",
+            "id": 4,
+            "position": "cat",
+          },
+        ]
+      }
     >
-      Name
-    </div>
-    <div
-      className="table-head table-row-item"
-    >
-      Age
-    </div>
-    <div
-      className="table-head table-row-item"
-    >
-      Color
-    </div>
-    <div
-      className="table-head table-row-item"
-    >
-      Feed a cat
-    </div>
-    <div
-      className="table-head table-row-item"
-    >
-      Hug a cat
-    </div>
-    <div
-      className="table-head table-row-item"
-    >
-      Wash a cat
-    </div>
-  </div>
-  <div
-    className="table-row"
-  >
-    <div
-      className="table-row-item"
-    >
-      <a
-        href="/cat/1"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="table-row-item"
-    >
-      -
-    </div>
-    <div
-      className="table-row-item"
-    >
-      -
-    </div>
-    <div
-      className="table-row-item manipulation"
-      id="feeding"
-      onClick={[Function]}
-    >
-      <button
-        className="btn-action"
-        id="feeding-btn"
+      <div
+        className="table"
       >
-        Feed cat
-      </button>
-    </div>
-    <div
-      className="table-row-item manipulation"
-      id="hugging"
-      onClick={[Function]}
-    >
-      <button
-        className="btn-action"
-      >
-        Hug cat
-      </button>
-    </div>
-    <div
-      className="table-row-item manipulation"
-      id="washing"
-      onClick={[Function]}
-    >
-      <button
-        className="btn-action"
-      >
-        Wash cat
-      </button>
-    </div>
-  </div>
-  <div
-    className="table-row"
-  >
-    <div
-      className="table-row-item"
-    >
-      <a
-        href="/cat/2"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="table-row-item"
-    >
-      -
-    </div>
-    <div
-      className="table-row-item"
-    >
-      -
-    </div>
-    <div
-      className="table-row-item manipulation"
-      id="feeding"
-      onClick={[Function]}
-    >
-      <button
-        className="btn-action"
-        id="feeding-btn"
-      >
-        Feed cat
-      </button>
-    </div>
-    <div
-      className="table-row-item manipulation"
-      id="hugging"
-      onClick={[Function]}
-    >
-      <button
-        className="btn-action"
-      >
-        Hug cat
-      </button>
-    </div>
-    <div
-      className="table-row-item manipulation"
-      id="washing"
-      onClick={[Function]}
-    >
-      <button
-        className="btn-action"
-      >
-        Wash cat
-      </button>
-    </div>
-  </div>
-  <div
-    className="table-row"
-  >
-    <div
-      className="table-row-item"
-    >
-      <a
-        href="/cat/3"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="table-row-item"
-    >
-      -
-    </div>
-    <div
-      className="table-row-item"
-    >
-      -
-    </div>
-    <div
-      className="table-row-item manipulation"
-      id="feeding"
-      onClick={[Function]}
-    >
-      <button
-        className="btn-action"
-        id="feeding-btn"
-      >
-        Feed cat
-      </button>
-    </div>
-    <div
-      className="table-row-item manipulation"
-      id="hugging"
-      onClick={[Function]}
-    >
-      <button
-        className="btn-action"
-      >
-        Hug cat
-      </button>
-    </div>
-    <div
-      className="table-row-item manipulation"
-      id="washing"
-      onClick={[Function]}
-    >
-      <button
-        className="btn-action"
-      >
-        Wash cat
-      </button>
-    </div>
-  </div>
-  <div
-    className="table-row"
-  >
-    <div
-      className="table-row-item"
-    >
-      <a
-        href="/cat/4"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="table-row-item"
-    >
-      -
-    </div>
-    <div
-      className="table-row-item"
-    >
-      -
-    </div>
-    <div
-      className="table-row-item manipulation"
-      id="feeding"
-      onClick={[Function]}
-    >
-      <button
-        className="btn-action"
-        id="feeding-btn"
-      >
-        Feed cat
-      </button>
-    </div>
-    <div
-      className="table-row-item manipulation"
-      id="hugging"
-      onClick={[Function]}
-    >
-      <button
-        className="btn-action"
-      >
-        Hug cat
-      </button>
-    </div>
-    <div
-      className="table-row-item manipulation"
-      id="washing"
-      onClick={[Function]}
-    >
-      <button
-        className="btn-action"
-      >
-        Wash cat
-      </button>
-    </div>
-  </div>
-</div>
+        <div
+          className="table-row"
+        >
+          <div
+            className="table-head table-row-item"
+          >
+            Name
+          </div>
+          <div
+            className="table-head table-row-item"
+          >
+            Age
+          </div>
+          <div
+            className="table-head table-row-item"
+          >
+            Color
+          </div>
+          <div
+            className="table-head table-row-item"
+          >
+            Feed a cat
+          </div>
+          <div
+            className="table-head table-row-item"
+          >
+            Hug a cat
+          </div>
+          <div
+            className="table-head table-row-item"
+          >
+            Wash a cat
+          </div>
+        </div>
+        <ListItem
+          cat={
+            Object {
+              "fullname": "mike",
+              "id": 1,
+              "position": "cat",
+            }
+          }
+          key="1"
+        >
+          <div
+            className="table-row"
+          >
+            <div
+              className="table-row-item"
+            >
+              <Link
+                replace={false}
+                to="/cat/1"
+              >
+                <a
+                  href="/cat/1"
+                  onClick={[Function]}
+                />
+              </Link>
+            </div>
+            <div
+              className="table-row-item"
+            >
+              -
+            </div>
+            <div
+              className="table-row-item"
+            >
+              -
+            </div>
+            <Connect(CatManipulationPanel)
+              cat={
+                Object {
+                  "fullname": "mike",
+                  "id": 1,
+                  "position": "cat",
+                }
+              }
+            >
+              <CatManipulationPanel
+                cat={
+                  Object {
+                    "fullname": "mike",
+                    "id": 1,
+                    "position": "cat",
+                  }
+                }
+                feedCat={[Function]}
+                hugCat={[Function]}
+                washCat={[Function]}
+              >
+                <div
+                  className="table-row-item manipulation"
+                  id="feeding"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="btn-action"
+                    id="feeding-btn"
+                  >
+                    Feed cat
+                  </button>
+                </div>
+                <div
+                  className="table-row-item manipulation"
+                  id="hugging"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="btn-action"
+                  >
+                    Hug cat
+                  </button>
+                </div>
+                <div
+                  className="table-row-item manipulation"
+                  id="washing"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="btn-action"
+                  >
+                    Wash cat
+                  </button>
+                </div>
+              </CatManipulationPanel>
+            </Connect(CatManipulationPanel)>
+          </div>
+        </ListItem>
+        <ListItem
+          cat={
+            Object {
+              "fullname": "mike",
+              "id": 2,
+              "position": "cat",
+            }
+          }
+          key="2"
+        >
+          <div
+            className="table-row"
+          >
+            <div
+              className="table-row-item"
+            >
+              <Link
+                replace={false}
+                to="/cat/2"
+              >
+                <a
+                  href="/cat/2"
+                  onClick={[Function]}
+                />
+              </Link>
+            </div>
+            <div
+              className="table-row-item"
+            >
+              -
+            </div>
+            <div
+              className="table-row-item"
+            >
+              -
+            </div>
+            <Connect(CatManipulationPanel)
+              cat={
+                Object {
+                  "fullname": "mike",
+                  "id": 2,
+                  "position": "cat",
+                }
+              }
+            >
+              <CatManipulationPanel
+                cat={
+                  Object {
+                    "fullname": "mike",
+                    "id": 2,
+                    "position": "cat",
+                  }
+                }
+                feedCat={[Function]}
+                hugCat={[Function]}
+                washCat={[Function]}
+              >
+                <div
+                  className="table-row-item manipulation"
+                  id="feeding"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="btn-action"
+                    id="feeding-btn"
+                  >
+                    Feed cat
+                  </button>
+                </div>
+                <div
+                  className="table-row-item manipulation"
+                  id="hugging"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="btn-action"
+                  >
+                    Hug cat
+                  </button>
+                </div>
+                <div
+                  className="table-row-item manipulation"
+                  id="washing"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="btn-action"
+                  >
+                    Wash cat
+                  </button>
+                </div>
+              </CatManipulationPanel>
+            </Connect(CatManipulationPanel)>
+          </div>
+        </ListItem>
+        <ListItem
+          cat={
+            Object {
+              "fullname": "mike",
+              "id": 3,
+              "position": "cat",
+            }
+          }
+          key="3"
+        >
+          <div
+            className="table-row"
+          >
+            <div
+              className="table-row-item"
+            >
+              <Link
+                replace={false}
+                to="/cat/3"
+              >
+                <a
+                  href="/cat/3"
+                  onClick={[Function]}
+                />
+              </Link>
+            </div>
+            <div
+              className="table-row-item"
+            >
+              -
+            </div>
+            <div
+              className="table-row-item"
+            >
+              -
+            </div>
+            <Connect(CatManipulationPanel)
+              cat={
+                Object {
+                  "fullname": "mike",
+                  "id": 3,
+                  "position": "cat",
+                }
+              }
+            >
+              <CatManipulationPanel
+                cat={
+                  Object {
+                    "fullname": "mike",
+                    "id": 3,
+                    "position": "cat",
+                  }
+                }
+                feedCat={[Function]}
+                hugCat={[Function]}
+                washCat={[Function]}
+              >
+                <div
+                  className="table-row-item manipulation"
+                  id="feeding"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="btn-action"
+                    id="feeding-btn"
+                  >
+                    Feed cat
+                  </button>
+                </div>
+                <div
+                  className="table-row-item manipulation"
+                  id="hugging"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="btn-action"
+                  >
+                    Hug cat
+                  </button>
+                </div>
+                <div
+                  className="table-row-item manipulation"
+                  id="washing"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="btn-action"
+                  >
+                    Wash cat
+                  </button>
+                </div>
+              </CatManipulationPanel>
+            </Connect(CatManipulationPanel)>
+          </div>
+        </ListItem>
+        <ListItem
+          cat={
+            Object {
+              "fullname": "mike",
+              "id": 4,
+              "position": "cat",
+            }
+          }
+          key="4"
+        >
+          <div
+            className="table-row"
+          >
+            <div
+              className="table-row-item"
+            >
+              <Link
+                replace={false}
+                to="/cat/4"
+              >
+                <a
+                  href="/cat/4"
+                  onClick={[Function]}
+                />
+              </Link>
+            </div>
+            <div
+              className="table-row-item"
+            >
+              -
+            </div>
+            <div
+              className="table-row-item"
+            >
+              -
+            </div>
+            <Connect(CatManipulationPanel)
+              cat={
+                Object {
+                  "fullname": "mike",
+                  "id": 4,
+                  "position": "cat",
+                }
+              }
+            >
+              <CatManipulationPanel
+                cat={
+                  Object {
+                    "fullname": "mike",
+                    "id": 4,
+                    "position": "cat",
+                  }
+                }
+                feedCat={[Function]}
+                hugCat={[Function]}
+                washCat={[Function]}
+              >
+                <div
+                  className="table-row-item manipulation"
+                  id="feeding"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="btn-action"
+                    id="feeding-btn"
+                  >
+                    Feed cat
+                  </button>
+                </div>
+                <div
+                  className="table-row-item manipulation"
+                  id="hugging"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="btn-action"
+                  >
+                    Hug cat
+                  </button>
+                </div>
+                <div
+                  className="table-row-item manipulation"
+                  id="washing"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="btn-action"
+                  >
+                    Wash cat
+                  </button>
+                </div>
+              </CatManipulationPanel>
+            </Connect(CatManipulationPanel)>
+          </div>
+        </ListItem>
+      </div>
+    </CatTable>
+  </List>
+</Connect(List)>
 `;

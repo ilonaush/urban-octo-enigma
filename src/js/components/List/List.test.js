@@ -3,7 +3,7 @@ import List  from './List';
 import {Provider} from "react-redux";
 import {MemoryRouter} from "react-router-dom";
 import renderer from "react-test-renderer";
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import ListItem from "../ListItem/ListItem";
 import configureMockStore from "redux-mock-store";
 
@@ -18,16 +18,19 @@ const store = mockStore({ cats: [
 });
 const emptyStore = mockStore({});
 
-describe('List', () => {
-    it('renders', () => {
-        const ListComponent = renderer.create(
-            <MemoryRouter>
+describe('List', function () {
+
+    beforeEach(() => {
+        this.wrapper = mount(
+            <MemoryRouter keyLength={0}>
                 <Provider store={store}>
                     <List/>
                 </Provider>
             </MemoryRouter>
-        ).toJSON();
-        expect(ListComponent).toMatchSnapshot();
+        );
+    });
+    it('renders', () => {
+        expect(this.wrapper.find(List)).toMatchSnapshot();
     });
 
     it('renders as many rows as expected', () => {
