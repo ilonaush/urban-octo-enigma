@@ -8,29 +8,31 @@ import moment from "moment";
 
 export class FindHomeWrapper extends Component {
 
-    handleSubmit = (e, cat) => {
-        const variables = {
-            ...cat,
-            date: moment()
-        };
-        e.preventDefault();
-        this.props.findHome(variables).then(() => this.props.history.push('/')).catch(e => console.log(e));
+  handleSubmit = (e, cat) => {
+    const variables = {
+      ...cat,
+      date: moment()
     };
+    e.preventDefault();
+    this.props.findHome(variables)
+        .then(() => this.props.history.push('/'))
+        .catch(e => console.log(e));
+  };
 
-    render() {
-        return (
-            <div>
-                <FindHomeForm onSubmit={this.handleSubmit} cats={this.props.cats}/>
-                <img  className='cat-bg' src="/images/backgrounds/cat-bg-1.png" alt=""/>
-            </div>
-        );
-    }
+  render() {
+    return (
+        <div>
+          <FindHomeForm onSubmit={this.handleSubmit} cats={this.props.cats}/>
+          <img className='cat-bg' src="/images/backgrounds/cat-bg-1.png" alt=""/>
+        </div>
+    );
+  }
 }
 
 FindHomeWrapper.propTypes = {
-    cats: PropTypes.array,
-    findHome: PropTypes.func
+  cats: PropTypes.array,
+  findHome: PropTypes.func
 };
 
 export default connect((state) => ({cats: state.cats}),
-    (dispatch) => ({findHome: (catID) => dispatch(actions.findHome(catID))}) )(FindHomeWrapper);
+    (dispatch) => ({findHome: (catID) => dispatch(actions.findHome(catID))}))(FindHomeWrapper);

@@ -1,6 +1,6 @@
 import React from 'react';
-import SidebarMenu  from './SidebarMenu';
-import { MemoryRouter } from 'react-router-dom';
+import SidebarMenu from './SidebarMenu';
+import {MemoryRouter} from 'react-router-dom';
 import {mount} from "enzyme/build";
 import Sidebar from "../Sidebar/Sidebar";
 import {NavLink} from "react-router-dom";
@@ -11,23 +11,23 @@ import renderer from "react-test-renderer";
 
 describe('SidebarMenu', function () {
 
-    beforeEach(() => {
-        this.wrapper =  mount(
-            <MemoryRouter>
-                <Sidebar/>
-            </MemoryRouter>
-        );
-    });
-    it('render correctly sidebar component', () => {
-        expect(this.wrapper.find(Sidebar)).toMatchSnapshot();
-    });
+  beforeEach(() => {
+    this.wrapper = mount(
+        <MemoryRouter>
+          <Sidebar/>
+        </MemoryRouter>
+    );
+  });
+  it('render correctly sidebar component', () => {
+    expect(this.wrapper.find(Sidebar)).toMatchSnapshot();
+  });
 
-    it('has correct links in navbar', () => {
-        expect(this.wrapper.find(NavLink).at(1).prop('to')).toEqual('/history');
-        expect(this.wrapper.find(NavLink).at(2).prop('to')).toEqual('/add-cat');
-        expect(this.wrapper.find(NavLink).at(3).prop('to')).toEqual('/find-home');
-        expect(this.wrapper.find(NavLink).at(4).prop('to')).toEqual('/gallery');
-    });
+  it('has correct links in navbar', () => {
+    expect(this.wrapper.find(NavLink).at(1).prop('to')).toEqual('/history');
+    expect(this.wrapper.find(NavLink).at(2).prop('to')).toEqual('/add-cat');
+    expect(this.wrapper.find(NavLink).at(3).prop('to')).toEqual('/find-home');
+    expect(this.wrapper.find(NavLink).at(4).prop('to')).toEqual('/gallery');
+  });
 });
 
 

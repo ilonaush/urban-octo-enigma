@@ -7,42 +7,42 @@ import LazyLoad from "../../tools/LazyLoad";
 
 class CatPage extends Component {
 
-    /**
-     * finds cat based on param
-     * @returns {*}
-     */
-    getCat = () => {
-        return this.props.cats.find((c) => c.id === +this.props.match.params.id)
-    };
+  /**
+   * finds cat based on param
+   * @returns {*}
+   */
+  getCat = () => {
+    return this.props.cats.find((c) => c.id === +this.props.match.params.id)
+  };
 
-    render() {
-        const cat = this.getCat();
-        const {name, age, location, health, color, reason, img } = cat;
-        return (
-            <div className='cat-page'>
-                    <div className="info-container">
-                        <div>
-                            <LazyLoad src={`cat-avatars/${img}`} height={300}/>
-                            <div className='name'>{name}</div>
-                            <div className='age'>{age} years old</div>
-                            <hr/>
-                            <CatManipulationPanel cat={cat}/>
-                        </div>
-                        <div className='info'>
-                            <h3>Info</h3>
-                            <div>Location: {location ? location : 'unknown'}</div>
-                            <div>Health: {health ? health : 'unknown'}</div>
-                            <div>Color: {color ? color : 'unknown'}</div>
-                        </div>
-
-                    </div>
+  render() {
+    const cat = this.getCat();
+    const {name, age, location, health, color, reason, img} = cat;
+    return (
+        <div className='cat-page'>
+          <div className="info-container">
+            <div>
+              <LazyLoad src={`cat-avatars/${img}`} height={300}/>
+              <div className='name'>{name}</div>
+              <div className='age'>{age} years old</div>
+              <hr/>
+              <CatManipulationPanel cat={cat}/>
             </div>
-        );
-    }
+            <div className='info'>
+              <h3>Info</h3>
+              <div>Location: {location ? location : 'unknown'}</div>
+              <div>Health: {health ? health : 'unknown'}</div>
+              <div>Color: {color ? color : 'unknown'}</div>
+            </div>
+
+          </div>
+        </div>
+    );
+  }
 }
 
 CatPage.propTypes = {
-    cat: PropTypes.object
+  cat: PropTypes.object
 };
 
 export default connect((state) => ({cats: state.cats}))(CatPage);

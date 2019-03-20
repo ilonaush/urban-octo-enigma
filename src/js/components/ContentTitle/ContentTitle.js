@@ -6,5 +6,4 @@ const ContentTitle = ({children, style = {}, ...props}) => (
 );
 
 
-
 export default ContentTitle;

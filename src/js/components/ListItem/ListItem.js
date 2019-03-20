@@ -7,27 +7,27 @@ import {Link} from "react-router-dom";
 
 export class ListItem extends Component {
 
-    render() {
-     const {cat: {name, age, color, id}} = this.props;
-        return (
-            <div className='table-row'>
-                <div className='table-row-item' >
-                    <Link to={`/cat/${id}`}>{name}</Link>
-                </div>
-                <div className='table-row-item'>{age ? age : '-'}</div>
-                <div className='table-row-item'>{color ? color : '-'}</div>
-                <CatManipulationPanel cat={this.props.cat}/>
-            </div>
-        );
-    }
+  render() {
+    const {cat: {name, age, color, id}} = this.props;
+    return (
+        <div className='table-row'>
+          <div className='table-row-item'>
+            <Link to={`/cat/${id}`}>{name}</Link>
+          </div>
+          <div className='table-row-item'>{age ? age : '-'}</div>
+          <div className='table-row-item'>{color ? color : '-'}</div>
+          <CatManipulationPanel cat={this.props.cat}/>
+        </div>
+    );
+  }
 }
 
 ListItem.propTypes = {
-    cat: PropTypes.object,
+  cat: PropTypes.object,
 };
 
 ListItem.defaultProps = {
-    cat: {}
+  cat: {}
 };
 
 export default ListItem;

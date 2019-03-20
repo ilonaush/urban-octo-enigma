@@ -22,62 +22,62 @@ import Input from "../Input/Input";
 
 export class FindHomeForm extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            cat: null,
-        };
-    }
-
-    /**
-     * handles select change
-     * @param target
-     */
-    handleChange = ({target = null}) => {
-        this.setState((prevState) => ({
-            cat: {
-                ...prevState.cat,
-                [target.name]: target.value
-            }
-        }))
+  constructor(props) {
+    super(props);
+    this.state = {
+      cat: null,
     };
+  }
 
-    render() {
-        const {onSubmit, cats} = this.props;
-        const {cat} = this.state;
-        return (
-            <form className='fireWorkerForm' onSubmit={(e) => onSubmit(e, cat)}>
-                <select name="id" onChange={this.handleChange} required>
-                    <option value=" ">Choose the meowy</option>
-                    {cats.map((cat) =>
-                        <option key={cat.id} value={cat.id} >{cat.name}, {cat.age}</option>
-                    )}
-                </select>
-                <Input
-                    name="address"
-                    placeholder='Location of future home'
-                    onChange={this.handleChange}
-                    required
-                />
-                <textarea
-                    name="family"
-                    placeholder='Describe the family please'
-                    onChange={this.handleChange}
-                    required
-                />
-                <button id='submit-btn' type='submit'>Find home for the cat</button>
-            </form>
-        );
-    }
+  /**
+   * handles select change
+   * @param target
+   */
+  handleChange = ({target = null}) => {
+    this.setState((prevState) => ({
+      cat: {
+        ...prevState.cat,
+        [target.name]: target.value
+      }
+    }))
+  };
+
+  render() {
+    const {onSubmit, cats} = this.props;
+    const {cat} = this.state;
+    return (
+        <form className='fireWorkerForm' onSubmit={(e) => onSubmit(e, cat)}>
+          <select name="id" onChange={this.handleChange} required>
+            <option value=" ">Choose the meowy</option>
+            {cats.map((cat) =>
+                <option key={cat.id} value={cat.id}>{cat.name}, {cat.age}</option>
+            )}
+          </select>
+          <Input
+              name="address"
+              placeholder='Location of future home'
+              onChange={this.handleChange}
+              required
+          />
+          <textarea
+              name="family"
+              placeholder='Describe the family please'
+              onChange={this.handleChange}
+              required
+          />
+          <button id='submit-btn' type='submit'>Find home for the cat</button>
+        </form>
+    );
+  }
 }
 
 FindHomeForm.propTypes = {
-    cats: PropTypes.array,
-    onSubmit: PropTypes.func
+  cats: PropTypes.array,
+  onSubmit: PropTypes.func
 };
 
 FindHomeForm.defaultProps = {
-    cats: [],
+  cats: [],
 };
 
 export default FindHomeForm;

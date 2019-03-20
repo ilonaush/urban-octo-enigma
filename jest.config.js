@@ -7,6 +7,9 @@ module.exports = {
         "!src/**/*.d.ts"
     ],
     "resolver": "jest-pnp-resolver",
+    "globals": {
+        "NODE_ENV": "test"
+    },
     "testMatch": testDom ?
         ["<rootDir>/src/js/components/*/?(*.)(spec|test).{js,jsx,ts,tsx}"]
         :

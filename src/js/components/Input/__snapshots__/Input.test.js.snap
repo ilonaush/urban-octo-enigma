@@ -2,9 +2,11 @@
 
 exports[`Input renders correctly input  component  1`] = `
 <Input
+  onChange={[Function]}
   value=""
 >
   <input
+    onChange={[Function]}
     value=""
   />
 </Input>

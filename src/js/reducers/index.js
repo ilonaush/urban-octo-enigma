@@ -1,8 +1,8 @@
-import { createStore, applyMiddleware } from 'redux';
-import reducer   from './reducers';
-import  { saveStore, loadStore } from '../services/LocalStorageService';
+import {createStore, applyMiddleware} from 'redux';
+import reducer from './reducers';
+import {saveStore, loadStore} from '../services/LocalStorageService';
 import thunk from 'redux-thunk'
-import { createLogger } from 'redux-logger'
+import {createLogger} from 'redux-logger'
 
 const loggerMiddleware = createLogger();
 
@@ -19,6 +19,6 @@ const store = createStore(
 // });
 
 export {
-    store,
-    // predefinedStore
+  store,
+  // predefinedStore
 };

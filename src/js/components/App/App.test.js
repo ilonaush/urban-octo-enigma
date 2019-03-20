@@ -1,18 +1,14 @@
 import React from 'react';
-import App  from './App';
-import {MemoryRouter} from "react-router-dom";
-import {Provider} from "react-redux";
-import {store} from "../../reducers/index";
-import renderer from "react-test-renderer";
+import App from './App';
+import {shallow} from "enzyme";
 
 describe('App', () => {
-    it('renders correctly', () => {
-        const AppComponent = renderer.create(<MemoryRouter>
-            <Provider store={store}>
-                <App/>
-            </Provider>
-        </MemoryRouter>
-        );
-        expect((AppComponent).toJSON()).toMatchSnapshot();
-    })
+  it('renders correctly', () => {
+    console.group = jest.fn().mockImplementationOnce(() => {
+    });
+    const AppComponent = shallow(
+        <App/>
+    );
+    expect(AppComponent).toMatchSnapshot();
+  })
 });

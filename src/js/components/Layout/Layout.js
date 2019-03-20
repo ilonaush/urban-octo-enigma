@@ -5,12 +5,12 @@ import './Layout.styl';
 import {Route} from "react-router-dom";
 
 const Layout = () => {
-    return (
-        <div className='layout'>
-            <Route component={Sidebar}/>
-            <Route component={Dashboard}/>
-        </div>
-    );
+  return (
+      <div className='layout'>
+        <Route component={Sidebar}/>
+        <Route component={Dashboard}/>
+      </div>
+  );
 }
 
 Layout.propTypes = {};
