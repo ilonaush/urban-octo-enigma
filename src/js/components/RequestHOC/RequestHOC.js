@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import RequestService from "../../services/RequestService";
+import {setLoading} from "../../reducers/actions";
 
 function withRequest(WrappedComponent, opts) {
 
@@ -7,9 +8,9 @@ function withRequest(WrappedComponent, opts) {
     constructor(props) {
       super(props);
       this.state = {
-        loading: true,
         data: null
       };
+      setLoading(null, this.props.dispatch, true);
       this.opts = opts;
     }
 
@@ -23,19 +24,19 @@ function withRequest(WrappedComponent, opts) {
      * @returns {Promise<void>}
      */
     async makeRequest(props) {
-      // const options = typeof this.opts.options === 'function' && this.opts.options(props);
       try {
         const {data} = await RequestService.get(this.opts.request);
         this.setState({
-          data,
-          loading: false
-        })
+          data
+        });
+        setLoading(null, this.props.dispatch, false);
       }
       catch (e) {
         this.setState({
           error: 'Error occured while requesting',
-          loading: false
-        })
+        });
+        setLoading(null, this.props.dispatch, false);
+
       }
     }
 
@@ -45,7 +46,7 @@ function withRequest(WrappedComponent, opts) {
      */
     formProps() {
       return {
-        loading: this.state.loading,
+        loading: this.props.loading,
         [this.opts.name ? this.opts.name : 'data']: this.state.data,
         ...this.props
       }
@@ -62,5 +63,6 @@ function withRequest(WrappedComponent, opts) {
 
 
 withRequest.propTypes = {};
+
 
 export default withRequest;

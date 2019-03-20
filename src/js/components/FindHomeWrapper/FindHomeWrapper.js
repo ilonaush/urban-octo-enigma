@@ -4,9 +4,14 @@ import {connect} from "react-redux";
 import {FindHomeForm} from "../FindHomeForm/FindHomeForm";
 import PropTypes from 'prop-types';
 import moment from "moment";
+import {store} from "../../reducers";
 
 
 export class FindHomeWrapper extends Component {
+
+  constructor(props) {
+    super(props);
+  }
 
   handleSubmit = (e, cat) => {
     const variables = {

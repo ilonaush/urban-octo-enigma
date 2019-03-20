@@ -1,7 +1,6 @@
 import React from 'react';
 import Sidebar from "../Sidebar/Sidebar";
 import Dashboard from "../Dashboard/Dashboard";
-import './Layout.styl';
 import {Route} from "react-router-dom";
 
 const Layout = () => {

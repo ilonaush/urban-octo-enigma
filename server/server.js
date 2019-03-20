@@ -34,7 +34,7 @@ const port = 5000;
 server.use(crossOrigin);
 
 /**
- * handler for get request; gives all workers
+ * handler for get request; gives all cats
  */
 server.get('/', async function (req, res) {
     try {
@@ -83,6 +83,7 @@ server.patch('/issue-cat', async function (req, res) {
     let issuedCat;
     try {
         let cats  = await readDataFromJson('currentCats');
+
         cats = cats.filter((cat) => {
             if (cat.id === parseInt(id)) {
                 issuedCat = {...cat, address, family, date};
@@ -91,8 +92,11 @@ server.patch('/issue-cat', async function (req, res) {
         });
 
         await saveDataToJson(cats, 'currentCats');
+
         const history = await readDataFromJson('history');
-        history.push(issuedCat);
+        if (issuedCat) {
+            history.push(issuedCat);
+        }
         await saveDataToJson(history, 'history');
         res.send({status: true, cats});
 

@@ -25,7 +25,7 @@ export class FindHomeForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cat: null,
+      cat: {},
     };
   }
 
@@ -57,12 +57,14 @@ export class FindHomeForm extends Component {
               name="address"
               placeholder='Location of future home'
               onChange={this.handleChange}
+              value={cat.address}
               required
           />
           <textarea
               name="family"
               placeholder='Describe the family please'
               onChange={this.handleChange}
+              value={cat.family}
               required
           />
           <button id='submit-btn' type='submit'>Find home for the cat</button>

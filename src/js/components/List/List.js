@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import ListItem from "../ListItem/ListItem";
 import {Link} from "react-router-dom";
 import Loader from "../Loader/Loader";
+import {store} from "../../reducers";
 
 const CatTable = ({cats}) => {
   return (
@@ -31,19 +32,23 @@ const CatTable = ({cats}) => {
   );
 };
 
-const List = ({cats, loading}) => {
-  if (loading) {
-    return null;
-  }
-  return (
-      cats && cats.length ?
-          <CatTable cats={cats}/>
-          :
-          <button className='home-add-btn'>
-            <Link to='/add-cat'>Accept a cat</Link>
-          </button>
-  )
-};
+class List extends Component {
+
+    render() {
+        const {loading, cats} = this.props;
+        if (loading) {
+            return null;
+        }
+        return (
+            cats && cats.length ?
+                <CatTable cats={cats}/>
+                :
+                <button className='home-add-btn'>
+                    <Link to='/add-cat'>Accept a cat</Link>
+                </button>
+        )
+    }
+}
 
 List.propTypes = {
   cats: PropTypes.array,
@@ -51,7 +56,6 @@ List.propTypes = {
   hugCat: PropTypes.func,
   washCat: PropTypes.func
 };
-
 
 export default connect(
     (state) => ({cats: state.cats, loading: state.loading}),

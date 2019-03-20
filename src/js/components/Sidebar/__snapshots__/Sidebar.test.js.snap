@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar renders without crashing 1`] = `
+<div
+  className="sidebar"
+>
+  <Link
+    className="heading"
+    replace={false}
+    to="/"
+  >
+    <span
+      alt=""
+      className="icon"
+      style={
+        Object {
+          "backgroundImage": "url('images/cat.svg",
+        }
+      }
+    />
+    Kitty Farm Dashboard
+  </Link>
+  <SidebarMenu />
+</div>
+`;

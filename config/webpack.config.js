@@ -7,7 +7,6 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
-const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const meowChunkCompositionPlugin = require('meow-chunk-composition');
@@ -30,18 +29,12 @@ module.exports = function () {
   const shouldUseRelativeAssetPaths = publicPath === './';
   const publicUrl = isDev ? '' : publicPath.slice(0, -1);
 
-  const env = getClientEnvironment(publicUrl);
-
   const getStyleLoaders = (cssOptions, preProcessor) => {
     const loaders = [
       isDev && require.resolve('style-loader'),
       isProd &&
       {
         loader: MiniCssExtractPlugin.loader,
-        options: Object.assign(
-            {},
-            shouldUseRelativeAssetPaths ? {publicPath: '../../'} : undefined
-        ),
       },
       {
         loader: require.resolve('css-loader'),
@@ -57,7 +50,6 @@ module.exports = function () {
         },
       });
     }
-
     return loaders;
   };
 
@@ -86,33 +78,22 @@ module.exports = function () {
               minimizer: [
                 new TerserPlugin({
                   terserOptions: {
-                    parse: {
-                      ecma: 8,
-                    },
                     compress: {
-                      ecma: 5,
-                      warnings: false,
-
-                      comparisons: false,
-
-                      inline: 2,
+                      comparisons: false, // apply certain optimizations to binary nodes
+                      inline: 2,//inline calls to function with simple/return statement: 2 - WITH ARGUMENTS
                     },
                     mangle: {
-                      safari10: true,
+                      safari10: true, //Pass true to work around the Safari 10 loop iterator bug "Cannot declare a let variable twice".
                     },
                     output: {
-                      ecma: 5,
-                      comments: false,
-
-                      ascii_only: true,
+                      ascii_only: true //escape Unicode characters in strings and regexps
                     },
                   },
-
                   parallel: true, //Use multi-process parallel running to improve the build speed.,
                   cache: true,
                   sourceMap: isProd,
                 }),
-                new OptimizeCSSAssetsPlugin({
+                new OptimizeCSSAssetsPlugin({ //A Webpack plugin to optimize \ minimize CSS assets.
                   cssProcessorOptions: {
                     // parser: safePostCssParser,
                     map: isProd
@@ -186,7 +167,7 @@ module.exports = function () {
                   }
                 }
               },
-              runtimeChunk: false //adds an additional chunk to each entrypoint containing only the runtime,
+              runtimeChunk: true //adds an additional chunk to each entrypoint containing only the runtime,
             }
         ),
     resolve: {
@@ -195,9 +176,8 @@ module.exports = function () {
         paths.appFonts,
         paths.appComponents,
         paths.appImages,
-        'node_modules'].concat(
-          process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
-      ),
+        'node_modules'
+      ],
       extensions: paths.moduleFileExtensions
           .map(ext => `.${ext}`), //Automatically resolve certain extensions which is what enables users to leave off the extension when importing
       alias: { //Create aliases to import or require certain modules more easily.
@@ -303,7 +283,6 @@ module.exports = function () {
                 ],
                 cacheDirectory: true,
                 cacheCompression: isProd,
-
                 sourceMaps: false,
               },
             },
@@ -355,17 +334,22 @@ module.exports = function () {
               }
           )
       ),
-      new webpack.ContextReplacementPlugin(/moment[/\\]locale$/,
-          /uk/),
-      new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),
+      new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /uk/),
+      new InterpolateHtmlPlugin(HtmlWebpackPlugin, {
+        NODE_ENV: process.env.NODE_ENV,
+        PUBLIC_URL: publicUrl
+      }),
       new ModuleNotFoundPlugin(paths.appPath),
       new meowChunkCompositionPlugin(),
-      new webpack.DefinePlugin(env.stringified),
+      new webpack.DefinePlugin({
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        PUBLIC_URL: JSON.stringify(publicUrl),
+      }),
       isProd && new MiniCssExtractPlugin({
         filename: 'static/css/[name].[contenthash:8].css',
         chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
       }),
-      isDev && new webpack.HotModuleReplacementPlugin(),
+      isDev && new webpack.HotModuleReplacementPlugin(), //https://github.com/webpack/webpack/issues/6693
       isDev && new CaseSensitivePathsPlugin(),
       isDev && new WatchMissingNodeModulesPlugin(paths.appNodeModules),
       new ManifestPlugin({

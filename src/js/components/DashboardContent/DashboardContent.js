@@ -33,6 +33,8 @@ const Page500 = DynamicImport({
   loader: Loader
 });
 
+console.log(History);
+
 
 const DashboardContent = () => {
   return (

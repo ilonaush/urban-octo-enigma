@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import withRequest from "../RequestHOC/RequestHOC";
 import {REQUEST_PATHS} from "../../constants";
 import moment from "moment";
+import {connect} from "react-redux";
 
 const HistoryItem = ({cat: {name, address, date, family}}) => {
   return (
@@ -43,4 +44,4 @@ History.propTypes = {
 };
 
 
-export default withRequest(History, {request: REQUEST_PATHS.GET_HISTORY, name: 'catsHistory'});
+export default connect(state => ({loading: state.loading}))(withRequest(History, {request: REQUEST_PATHS.GET_HISTORY, name: 'catsHistory'}));

@@ -7,10 +7,10 @@ import {ACTIONS_TYPES, LOADING_TYPES, REQUEST_PATHS} from "../constants";
  * @param dispatch
  * @returns {*}
  */
-function setLoading(type, dispatch) {
+export function setLoading(type, dispatch, value) {
   return dispatch({
     type: ACTIONS_TYPES.SET_LOADING,
-    payload: {loading: true, loadingType: type}
+    payload: {loading: value, loadingType: type}
   });
 }
 
@@ -30,13 +30,13 @@ export default {
   getCats: function () {
     return async (dispatch) => {
 
-      setLoading(null, dispatch);
+      setLoading(null, dispatch, true);
 
       try {
-        const {data: cats} = await RequestService.get(REQUEST_PATHS.GET_CATS);
+        const {data:cats} = await RequestService.get(REQUEST_PATHS.GET_CATS);
         dispatch({
           type: ACTIONS_TYPES.GET_CATS,
-          payload: {cats: cats.cats, loading: false}
+          payload: {cats: cats, loading: false}
         })
       }
       catch (e) {
@@ -47,7 +47,7 @@ export default {
   addCat: function (cat) {
     return async (dispatch) => {
 
-      setLoading(null, dispatch);
+      setLoading(null, dispatch, true);
 
       try {
         const {data: {cats, status}} = await RequestService.post(REQUEST_PATHS.ADD_CAT, cat);
@@ -67,7 +67,7 @@ export default {
   feedCat(catInfo) {
     return async (dispatch) => {
 
-      setLoading(LOADING_TYPES.FEED_CAT, dispatch);
+      setLoading(LOADING_TYPES.FEED_CAT, dispatch, true);
 
       try {
         const {data: {cats, status}} = await RequestService.patch(REQUEST_PATHS.FEED_CAT, catInfo);
@@ -88,7 +88,7 @@ export default {
   hugCat(catInfo) {
     return async (dispatch) => {
 
-      setLoading(LOADING_TYPES.HUG_CAT, dispatch);
+      setLoading(LOADING_TYPES.HUG_CAT, dispatch, true);
 
       try {
         const {data: {cats, status}} = await RequestService.patch(REQUEST_PATHS.HUG_CAT, catInfo);
@@ -108,7 +108,7 @@ export default {
   washCat(catInfo) {
     return async (dispatch) => {
 
-      setLoading(LOADING_TYPES.WASH_CAT, dispatch);
+      setLoading(LOADING_TYPES.WASH_CAT, dispatch, true);
 
       try {
         const {data: {cats, status}} = await RequestService.patch(REQUEST_PATHS.WASH_CAT, catInfo);
@@ -128,7 +128,7 @@ export default {
   findHome: function (cat) {
     return async (dispatch) => {
 
-      setLoading(null, dispatch);
+      setLoading(null, dispatch, true);
 
       try {
         const variables = {

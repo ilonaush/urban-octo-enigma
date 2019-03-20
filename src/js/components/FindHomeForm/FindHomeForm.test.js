@@ -15,7 +15,8 @@ describe('FindHomeForm', function () {
   });
 
   it('changes its state on select', () => {
-    expect(this.wrapper.state('cat')).toEqual(null);
+    expect(typeof this.wrapper.state('cat')).toEqual('object');
+    expect(this.wrapper.state('cat').id).toEqual(undefined);
     this.wrapper.find('select[name="id"]').simulate('change', {target: {value: '123', name: 'id'}});
     expect(this.wrapper.state('cat').id).toEqual('123');
   });
