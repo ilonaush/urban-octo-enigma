@@ -2,7 +2,6 @@ import React from 'react';
 import FindHomeForm from './FindHomeForm';
 import {shallow} from "enzyme/build";
 
-
 describe('FindHomeForm', function () {
 
   beforeEach(() => {

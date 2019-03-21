@@ -4,7 +4,6 @@ import {MemoryRouter} from 'react-router-dom';
 import {mount} from "enzyme/build";
 import Sidebar from "../Sidebar/Sidebar";
 import {NavLink} from "react-router-dom";
-import renderer from "react-test-renderer";
 
 //memoryRouter is breaking the snapshots with the random keys,
 //You can also pass key length through keyLength props and keep its value as 0. Ex: keyLength={0}. This will make sure, key doesn't change on each test run.

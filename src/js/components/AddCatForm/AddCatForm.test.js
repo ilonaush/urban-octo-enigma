@@ -1,8 +1,6 @@
 import React from 'react';
 import AddCatForm from './AddCatForm';
-import {Provider} from "react-redux";
-import {store} from "../../reducers/index";
-import {mount, shallow} from "enzyme/build";
+import {mount} from "enzyme/build";
 import Input from "../Input/Input";
 
 describe('AddCatForm', function () {
@@ -31,7 +29,6 @@ describe('AddCatForm', function () {
     expect(this.wrapper.state().cat.name).toEqual('');
     firstInput.simulate('change', {target: {value: 'mike', name: 'name'}});
     expect(this.wrapper.state().cat.name).toEqual('mike');
-
   });
 });
 

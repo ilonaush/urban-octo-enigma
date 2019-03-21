@@ -5,6 +5,7 @@ import {ACTIONS_TYPES, LOADING_TYPES, REQUEST_PATHS} from "../constants";
  * sets loading state and loader type
  * @param type
  * @param dispatch
+ * @param value
  * @returns {*}
  */
 export function setLoading(type, dispatch, value) {

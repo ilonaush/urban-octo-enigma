@@ -24,7 +24,7 @@ describe('Dashboard', function () {
     };
     this.wrapper.setProps(props);
     const pageTitle = this.wrapper.find(Intro).children();
-    expect(pageTitle.text()).toEqual('Cat registration');
+    expect(pageTitle.text()).toEqual('Прийом котика');
   });
 
   it('has loader when such prop is submitted', () => {

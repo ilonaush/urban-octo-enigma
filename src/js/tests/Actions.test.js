@@ -20,11 +20,9 @@ describe('actions', function () {
       {type: ACTIONS_TYPES.GET_CATS, payload: {cats: [{id: 1, name: 'John Smith'}], loading: false}},
     ];
 
-    this.axios.onGet('/').reply(200, {
-      cats: [
-        {id: 1, name: 'John Smith'}
-      ]
-    });
+    this.axios.onGet('/').reply(200,
+      [{id: 1, name: 'John Smith'}]
+    );
 
     const store = this.mockStore({cats: []});
 

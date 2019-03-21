@@ -4,6 +4,8 @@ import moment from "moment";
 import {connect} from "react-redux";
 import actions from "../../reducers/actions";
 
+moment.locale('uk');
+
 class CatManipulationPanel extends Component {
 
   /**
@@ -59,21 +61,21 @@ class CatManipulationPanel extends Component {
             {!feedingTime || this.isTimeToManipulate(feedingTime) ?
                 <button className='btn-action' id='feeding-btn'>Feed cat</button>
                 :
-                `Next feeding ${moment(feedingTime).fromNow()}`
+                `Покормити ${moment(feedingTime).fromNow()}`
             }
           </div>
           <div className='table-row-item manipulation' id='hugging' onClick={this.handleHugClick}>
             {!huggingTime || this.isTimeToManipulate(huggingTime) ?
                 <button className='btn-action'>Hug cat</button>
                 :
-                `Next hugging ${moment(huggingTime).fromNow()}`
+                `Обійняти ${moment(huggingTime).fromNow()}`
             }
           </div>
           <div className='table-row-item manipulation' id='washing' onClick={this.handleWashClick}>
             {!washingTime || this.isTimeToManipulate(washingTime) ?
                 <button className='btn-action'>Wash cat</button>
                 :
-                `Next washing ${moment(washingTime).fromNow()}`
+                `Покупати ${moment(washingTime).fromNow()}`
             }
           </div>
         </Fragment>

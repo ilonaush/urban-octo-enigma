@@ -10,13 +10,13 @@ exports[`AddCatWrapper renders correctly 1`] = `
       onSubmit={[Function]}
     >
       <h3>
-        Please share some info about the cat with us
+        Будь ласка, заповніть блан для прийому котика
       </h3>
       <Input
         id="name-input"
         name="name"
         onChange={[Function]}
-        placeholder="Name"
+        placeholder="Ім'я"
         required={true}
         value=""
       >
@@ -24,7 +24,7 @@ exports[`AddCatWrapper renders correctly 1`] = `
           id="name-input"
           name="name"
           onChange={[Function]}
-          placeholder="Name"
+          placeholder="Ім'я"
           required={true}
           value=""
         />
@@ -32,14 +32,14 @@ exports[`AddCatWrapper renders correctly 1`] = `
       <Input
         name="age"
         onChange={[Function]}
-        placeholder="Age"
+        placeholder="Вік"
         required={true}
         value=""
       >
         <input
           name="age"
           onChange={[Function]}
-          placeholder="Age"
+          placeholder="Вік"
           required={true}
           value=""
         />
@@ -47,14 +47,14 @@ exports[`AddCatWrapper renders correctly 1`] = `
       <Input
         name="color"
         onChange={[Function]}
-        placeholder="Color"
+        placeholder="Колір"
         required={true}
         value=""
       >
         <input
           name="color"
           onChange={[Function]}
-          placeholder="Color"
+          placeholder="Колір"
           required={true}
           value=""
         />
@@ -62,20 +62,20 @@ exports[`AddCatWrapper renders correctly 1`] = `
       <textarea
         name="reason"
         onChange={[Function]}
-        placeholder="Reason"
+        placeholder="Причина прийому"
         value=""
       />
       <Input
         name="location"
         onChange={[Function]}
-        placeholder="Location"
+        placeholder="Місцезнаходження"
         required={true}
         value=""
       >
         <input
           name="location"
           onChange={[Function]}
-          placeholder="Location"
+          placeholder="Місцезнаходження"
           required={true}
           value=""
         />
@@ -83,8 +83,14 @@ exports[`AddCatWrapper renders correctly 1`] = `
       <select
         name="health"
         onChange={[Function]}
+        required={true}
         value=""
       >
+        <option
+          value=""
+        >
+          Стан здоров'я
+        </option>
         <option
           value="Satisfying"
         >
@@ -105,7 +111,7 @@ exports[`AddCatWrapper renders correctly 1`] = `
         id="submit-btn"
         type="submit"
       >
-        Accept the cat
+        Прийняти котика
       </button>
     </form>
   </AddCatForm>

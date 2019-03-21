@@ -66,32 +66,32 @@ exports[`List renders 1`] = `
           <div
             className="table-head table-row-item"
           >
-            Name
+            Ім'я
           </div>
           <div
             className="table-head table-row-item"
           >
-            Age
+            Вік
           </div>
           <div
             className="table-head table-row-item"
           >
-            Color
+            Колір
           </div>
           <div
             className="table-head table-row-item"
           >
-            Feed a cat
+            Покормити
           </div>
           <div
             className="table-head table-row-item"
           >
-            Hug a cat
+            Погладити a cat
           </div>
           <div
             className="table-head table-row-item"
           >
-            Wash a cat
+            Покупати
           </div>
         </div>
         <ListItem

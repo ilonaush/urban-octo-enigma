@@ -26,7 +26,7 @@ export class AddCatWrapper extends Component {
     };
     this.props.addCat(catInfo)
         .then(() => this.props.history.push('/'))
-        .catch(e => console.log(e))
+        .catch(e => console.error(e))
   };
 
   /**

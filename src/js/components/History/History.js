@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import withRequest from "../RequestHOC/RequestHOC";
 import {REQUEST_PATHS} from "../../constants";
 import moment from "moment";
-import {connect} from "react-redux";
+import {connect} from "react-redux"
+
+moment.locale('uk');
 
 const HistoryItem = ({cat: {name, address, date, family}}) => {
   return (
@@ -11,7 +13,7 @@ const HistoryItem = ({cat: {name, address, date, family}}) => {
         <div className='table-row-item'>{name}</div>
         <div className='table-row-item'>{address}</div>
         <div className='table-row-item'>{family}</div>
-        <div className='table-row-item'>{moment(date).format('MMMM Do YYYY')}</div>
+        <div className='table-row-item'>{moment(date).format('Do MMMM YYYY')}</div>
       </div>
   )
 };
@@ -25,10 +27,10 @@ class History extends Component {
     return (
         <div className='table'>
           <div className='table-row'>
-            <div className='table-head table-row-item'>Name</div>
-            <div className='table-head table-row-item'>Location</div>
-            <div className='table-head table-row-item'>Current address</div>
-            <div className='table-head table-row-item'>Date</div>
+            <div className='table-head table-row-item'>Ім'я</div>
+            <div className='table-head table-row-item'>Місцезнаходження</div>
+            <div className='table-head table-row-item'>Сім'я</div>
+            <div className='table-head table-row-item'>Дата</div>
           </div>
           {catsHistory && catsHistory.length && catsHistory.map((cat) =>
               <HistoryItem key={cat.id} cat={cat}/>

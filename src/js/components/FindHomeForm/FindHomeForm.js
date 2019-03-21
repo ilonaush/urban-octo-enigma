@@ -1,4 +1,4 @@
-import React, {useState, Component} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import "./FindHomeForm.styl";
 import Input from "../Input/Input";
@@ -48,26 +48,26 @@ export class FindHomeForm extends Component {
     return (
         <form className='fireWorkerForm' onSubmit={(e) => onSubmit(e, cat)}>
           <select name="id" onChange={this.handleChange} required>
-            <option value=" ">Choose the meowy</option>
+            <option value=" ">Оберіть котика</option>
             {cats.map((cat) =>
                 <option key={cat.id} value={cat.id}>{cat.name}, {cat.age}</option>
             )}
           </select>
           <Input
               name="address"
-              placeholder='Location of future home'
+              placeholder='Майбутня адреса'
               onChange={this.handleChange}
               value={cat.address}
               required
           />
           <textarea
               name="family"
-              placeholder='Describe the family please'
+              placeholder='Опис родини, що приймає котика'
               onChange={this.handleChange}
               value={cat.family}
               required
           />
-          <button id='submit-btn' type='submit'>Find home for the cat</button>
+          <button id='submit-btn' type='submit'>Знайти дім</button>
         </form>
     );
   }

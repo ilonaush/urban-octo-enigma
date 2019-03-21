@@ -30,7 +30,7 @@ exports[`SidebarMenu render correctly sidebar component 1`] = `
     <SidebarMenu>
       <ul>
         <li
-          key="Home"
+          key="Головна"
         >
           <NavLink
             activeClassName="active"
@@ -54,14 +54,14 @@ exports[`SidebarMenu render correctly sidebar component 1`] = `
                   onClick={[Function]}
                   style={Object {}}
                 >
-                  Home
+                  Головна
                 </a>
               </Link>
             </Route>
           </NavLink>
         </li>
         <li
-          key="Cats found home"
+          key="Котики нашли дім"
         >
           <NavLink
             activeClassName="active"
@@ -81,14 +81,14 @@ exports[`SidebarMenu render correctly sidebar component 1`] = `
                   href="/history"
                   onClick={[Function]}
                 >
-                  Cats found home
+                  Котики нашли дім
                 </a>
               </Link>
             </Route>
           </NavLink>
         </li>
         <li
-          key="Register a cat"
+          key="Регістрація котика"
         >
           <NavLink
             activeClassName="active"
@@ -108,14 +108,14 @@ exports[`SidebarMenu render correctly sidebar component 1`] = `
                   href="/add-cat"
                   onClick={[Function]}
                 >
-                  Register a cat
+                  Регістрація котика
                 </a>
               </Link>
             </Route>
           </NavLink>
         </li>
         <li
-          key="Issue a cat"
+          key="Видача котика"
         >
           <NavLink
             activeClassName="active"
@@ -135,14 +135,14 @@ exports[`SidebarMenu render correctly sidebar component 1`] = `
                   href="/find-home"
                   onClick={[Function]}
                 >
-                  Issue a cat
+                  Видача котика
                 </a>
               </Link>
             </Route>
           </NavLink>
         </li>
         <li
-          key="Gallery"
+          key="Галерея"
         >
           <NavLink
             activeClassName="active"
@@ -162,7 +162,7 @@ exports[`SidebarMenu render correctly sidebar component 1`] = `
                   href="/gallery"
                   onClick={[Function]}
                 >
-                  Gallery
+                  Галерея
                 </a>
               </Link>
             </Route>

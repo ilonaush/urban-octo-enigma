@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import CatManipulationPanel from "../CatManipulationPanel/CatManipulationPanel";
 import {connect} from "react-redux";
@@ -17,7 +17,7 @@ class CatPage extends Component {
 
   render() {
     const cat = this.getCat();
-    const {name, age, location, health, color, reason, img} = cat;
+    const {name, age, location, health, color, img} = cat;
     return (
         <div className='cat-page'>
           <div className="info-container">

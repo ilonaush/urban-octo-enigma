@@ -3,7 +3,6 @@ import {AddCatWrapper} from './AddCatWrapper';
 import {mount} from "enzyme/build";
 import AddCatForm from "../AddCatForm/AddCatForm";
 
-
 describe('AddCatWrapper', function () {
 
   beforeEach(() => {

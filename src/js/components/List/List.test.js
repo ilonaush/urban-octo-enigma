@@ -2,8 +2,7 @@ import React from 'react';
 import List from './List';
 import {Provider} from "react-redux";
 import {MemoryRouter} from "react-router-dom";
-import renderer from "react-test-renderer";
-import {mount, shallow} from 'enzyme';
+import {mount} from 'enzyme';
 import ListItem from "../ListItem/ListItem";
 import configureMockStore from "redux-mock-store";
 
@@ -20,7 +19,6 @@ const store = mockStore({
 const emptyStore = mockStore({});
 
 describe('List', function () {
-
   beforeEach(() => {
     this.wrapper = mount(
         <MemoryRouter keyLength={0}>

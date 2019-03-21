@@ -1,8 +1,6 @@
 import React from 'react';
 import {FindHomeWrapper} from './FindHomeWrapper';
-import {Provider} from "react-redux";
-import {store} from "../../reducers/index";
-import {mount, shallow} from "enzyme/build";
+import {shallow} from "enzyme/build";
 import FindHomeForm from "../FindHomeForm/FindHomeForm";
 
 

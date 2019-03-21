@@ -1,9 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Sidebar from './Sidebar';
-import {MemoryRouter} from "react-router-dom";
-import {Link, NavLink} from "react-router-dom";
-import {mount, shallow} from "enzyme";
+import {NavLink} from "react-router-dom";
+import {shallow} from "enzyme";
 import SidebarMenu from "../SIdebarMenu/SidebarMenu";
 
 describe('Sidebar', function () {

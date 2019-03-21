@@ -5,24 +5,22 @@ import actions from "../../reducers/actions";
 import {connect} from "react-redux";
 import ListItem from "../ListItem/ListItem";
 import {Link} from "react-router-dom";
-import Loader from "../Loader/Loader";
-import {store} from "../../reducers";
 
 const CatTable = ({cats}) => {
   return (
       <div className='table'>
         <div className='table-row'>
-          <div className='table-head table-row-item'>Name</div>
-          <div className='table-head table-row-item'>Age</div>
-          <div className='table-head table-row-item'>Color</div>
+          <div className='table-head table-row-item'>Ім'я</div>
+          <div className='table-head table-row-item'>Вік</div>
+          <div className='table-head table-row-item'>Колір</div>
           <div className='table-head table-row-item'>
-            Feed a cat
+            Покормити
           </div>
           <div className='table-head table-row-item'>
-            Hug a cat
+            Погладити a cat
           </div>
           <div className='table-head table-row-item'>
-            Wash a cat
+            Покупати
           </div>
         </div>
         {cats.map((cat) =>

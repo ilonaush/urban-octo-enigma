@@ -1,26 +1,26 @@
 const MENU_ITEMS = [
   {
-    name: 'Home',
+    name: 'Головна',
     to: '/',
     icon: 'list'
   },
   {
-    name: 'Cats found home',
+    name: 'Котики нашли дім',
     to: '/history',
     icon: 'list'
   },
   {
-    name: 'Register a cat',
+    name: 'Регістрація котика',
     to: '/add-cat',
     icon: 'add'
   },
   {
-    name: 'Issue a cat',
+    name: 'Видача котика',
     to: '/find-home',
     icon: 'fire'
   },
   {
-    name: 'Gallery',
+    name: 'Галерея',
     to: '/gallery',
     icon: 'gallery'
   }
@@ -28,21 +28,21 @@ const MENU_ITEMS = [
 
 const PAGE_TITLES = [
   {
-    title: 'Cats of our farm',
+    title: 'Наші котики',
     path: '/'
   },
   {
-    title: 'Cat registration',
+    title: 'Прийом котика',
     path: '/add-cat'
   }, {
-    title: 'Cats that already found home',
+    title: 'Котики, які вже знайшли дім',
     path: '/history'
   },
   {
-    title: 'Choose a cat into your house :)',
+    title: 'Оберіть котика собі в родину :)',
     path: '/find-home'
   }, {
-    title: 'Gallery of our cats',
+    title: 'Галерея наших котиків',
     path: '/gallery'
   }
 ];

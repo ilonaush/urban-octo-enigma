@@ -1,12 +1,6 @@
 import React from 'react';
 import {Gallery} from './Gallery';
-import configureMockStore from 'redux-mock-store'
-import {shallow, mount} from 'enzyme';
-
-const mockStore = configureMockStore();
-const store = mockStore({cats: [{id: 1, fullname: 'mike', position: 'cat'}]});
-const emptyStore = mockStore({});
-
+import {mount} from 'enzyme';
 
 describe('Gallery', function () {
 

@@ -4,9 +4,7 @@ import LazyLoadImage from "../../tools/LazyLoad"
 import "./Gallery.styl"
 import PropTypes from 'prop-types';
 
-
 export const Gallery = ({cats}) => {
-
   return (
       <div className='workers-gallery'>
         {cats && cats.length ?

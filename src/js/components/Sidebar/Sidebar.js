@@ -1,5 +1,4 @@
 import './Sidebar.styl';
-
 import React from 'react';
 import {Link} from 'react-router-dom';
 import SidebarMenu from "../SIdebarMenu/SidebarMenu";

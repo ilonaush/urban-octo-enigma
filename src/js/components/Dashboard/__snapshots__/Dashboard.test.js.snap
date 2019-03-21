@@ -5,7 +5,7 @@ exports[`Dashboard renders correctly 1`] = `
   className="dashboard"
 >
   <Intro>
-    Cats of our farm
+    Наші котики
   </Intro>
   <DashboardContent />
 </div>

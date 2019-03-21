@@ -7,7 +7,6 @@ import Loader from "../Loader/Loader";
 import PropTypes from 'prop-types';
 import {PAGE_TITLES} from "../../constants";
 
-
 export class Dashboard extends Component {
 
   constructor(props) {

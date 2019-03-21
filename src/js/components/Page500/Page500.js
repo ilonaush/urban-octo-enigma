@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {NavLink} from "react-router-dom";
 import './Page500.styl'
 
@@ -15,7 +14,5 @@ class Page500 extends Component {
     );
   }
 }
-
-Page500.propTypes = {};
 
 export default Page500;

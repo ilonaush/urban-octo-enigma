@@ -1,10 +1,9 @@
 import React from 'react';
 import Layout from './Layout';
-import {shallow, mount, render} from 'enzyme';
+import {mount} from 'enzyme';
 import {MemoryRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import {store} from "../../reducers/index";
-import renderer from "react-test-renderer";
 import Sidebar from "../Sidebar/Sidebar";
 import Dashboard from "../Dashboard/Dashboard";
 
